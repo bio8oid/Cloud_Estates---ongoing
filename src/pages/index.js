@@ -1,21 +1,43 @@
 import React from "react"
+import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
+const Globalstyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+`;
+
+const StyledWrapper = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background: #ccc;
+
+&:hover {
+  background:lightgreen;
+}
+`;
+
+
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <>
+    <Globalstyle />
+    <StyledWrapper>
+      <SEO title="home" />
+      <div>
+        <h1>Hi people</h1>
+        <Link to="/page-2/">Go to page 2</Link>
+      </div>
+    </StyledWrapper>
+  </>
 )
 
 export default IndexPage
