@@ -8,6 +8,8 @@ const StyledArrows = styled.div`
     padding: 2em;
     border-radius: 50%;
     color: violet;
+    transform: translateY(-380px)
+    // position: absolute;
     `;
     
     // background: ${({ theme }) => theme.colors.mainGradient};
