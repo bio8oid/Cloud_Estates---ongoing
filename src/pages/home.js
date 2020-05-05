@@ -1,18 +1,43 @@
 import React from "react"
+// import ReactDOM from 'react-dom'
+// import { Parallax, ParallaxLayer } from 'react-spring/addons'
+// import { Parallax, ParallaxLayer } from 'react-spring'
 import styled from 'styled-components'
 // import { Link } from "gatsby"
 // import SEO from "../components/Seo/seo"
-import Slider from '@farbenmeer/react-spring-slider';
+// import Slider from '@farbenmeer/react-spring-slider';
 // import SlideOne from '../components/Slider/slide1';
 // import SlideTwo from '../components/Slider/slide2';
 // import SlideThree from '../components/Slider/slide3';
-import ArrowComponent from '../components/Slider/arrows';
+// import ArrowComponent from '../components/Slider/arrows';
 import { theme } from '../utils/theme';
 // import Button from '../components/Button';
-// import img from "../images/L_1.png"
 
-import NavBar from '../components/NavBar/navBar';
+import img1 from "../images/pngfuel_1.png"
+import img2 from "../images/pngfuel_2.png"
+import img3 from "../images/pngfuel_3.png"
+import img4 from "../images/pngfuel_4.png"
+import img5 from "../images/pngfuel_5.png"
+import img6 from "../images/pngfuel_6.png"
 
+import bottomFront from "../images/bottom_front.png"
+import bottomMiddle from "../images/bottom_middle.png"
+import bottomBack from "../images/bottom_back.png"
+import bottomRight from "../images/bottom_right.png"
+import clouds from "../images/clouds.png"
+import cloud1 from "../images/cloud_1.png"
+import cloud2 from "../images/cloud_2.png"
+import cloud3 from "../images/cloud_3.png"
+import cloud4 from "../images/cloud_4.png"
+import cloud5 from "../images/cloud_5.png"
+import cloud6 from "../images/cloud_6.png"
+
+// import { motion, useViewportScroll, useTransform } from "framer-motion";
+
+
+// import NavBar from '../components/NavBar/navBar';
+
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 // import { useState } from "react";
 // import { motion } from "framer-motion";
@@ -121,6 +146,42 @@ img {
 }
 `;
 
+const StyledMotion = styled.div`
+
+  width: 100vw;
+  height: 300vh;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(180deg, #40f, #05f);
+
+
+.wrapper {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+}
+
+.item {
+  width: inherit;
+  height: inherit;
+  background: white;
+  transform-origin: 50% 100%;
+}
+
+`;
+
 
 
 // function Switch({ isOn, ...props }) {
@@ -173,41 +234,265 @@ const data = [
   },
 ]
 
-const Home = () => (
+
+// const Home = () => {
+
+//   const { scrollYProgress } = useViewportScroll();
+//   const scale = useTransform(scrollYProgress, [0, 0.1], [0.1, 5]);
 
 
-  <>
-    <NavBar />
+// return (
+//     <>
+//     <NavBar />
 
-    <video autoplay="" muted="" loop="" id="vid">
-      <source src="assets/videos/variousways.mp4" type="video/mp4" />
-        <source src="assets/videos/variousways.ogg" type="video/ogg" />
-        </video>
+//     <Parallax pages={3} scrolling={false} horizontal ref={ref => (this.parallax = ref)}>
+//       <ParallaxLayer offset={0} speed={0.5}>
+//         <span onClick={() => this.parallax.scrollTo(1)}>Layers can contain anything</span>
+//       </ParallaxLayer>
+//     </Parallax>
 
-    <Slider
-      activeIndex={3}
-      // auto
-      hasBullets
-      hasArrows
-      StyledSlider
-      // BulletComponent={BulletComponent}
-      ArrowComponent={ArrowComponent}
-    >
-      {data.map((item) => (
+//     {/* <StyledMotion>
+//     <div className="wrapper">
+//       <motion.div
+//         className="container"
+//         style={{
+//           scale
+//         }}
+//         >
 
-        <StyledSlider key={item.id}>
-          <img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} />
-          <p className="card-price">Price: {item.price} £</p>
-          <h6 className="card-title">{item.title}</h6>
-          <p className="card-description">{item.desc}</p>
-        </StyledSlider>
-      ))}
-    </Slider>
+//         <motion.div
+//           className="item"
+//           style={{
+//             scaleY: scrollYProgress
+//           }}
+//           />
+
+//       </motion.div>
+//     </div>
+//     </StyledMotion> */}
 
 
 
-  </>
-)
+//     {/* <Slider
+//       activeIndex={3}
+//       // auto
+//       hasBullets
+//       hasArrows
+//       StyledSlider
+//       // BulletComponent={BulletComponent}
+//       ArrowComponent={ArrowComponent}
+//     >
+//       {data.map((item) => (
+
+//         <StyledSlider key={item.id}>
+//           <img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} />
+//           <p className="card-price">Price: {item.price} £</p>
+//           <h6 className="card-title">{item.title}</h6>
+//           <p className="card-description">{item.desc}</p>
+//         </StyledSlider>
+//       ))}
+//     </Slider> */}
+
+
+
+//   </>
+// )
+
+// }
+
+
+
+
+const StyledSection = styled.div`
+box-shadow: 0px 0px 30px 10px grey;
+height: 100%;
+`;
+
+const StyledElement = styled.div`
+background: url(${img1}) no-repeat center ;
+height: 300px;
+width: 300px;
+background-size: cover;
+`;
+const StyledElement2 = styled.div`
+background: url(${img2}) no-repeat center ;
+height: 500px;
+width: 500px;
+height: 100%;
+width: 100%;
+  background-size: cover;
+
+`;
+const StyledElement3 = styled.div`
+background: url(${img3}) no-repeat center ;
+height: 300px;
+width: 300px;
+height: 100%;
+width: 100%;
+  background-size: cover;
+
+`;
+const StyledElement4 = styled.div`
+background: url(${img4}) no-repeat center ;
+height: 100%;
+width: 100%;
+  background-size: cover;
+
+`;
+const StyledElement5 = styled.div`
+background: url(${img5}) no-repeat center ;
+height: 300px;
+width: 300px;
+  background-size: cover;
+
+`;
+// opacity:  ${({ fade }) => fade ? '.5' : '.2'};
+
+const Cloud1 = styled.div`
+background: url(${cloud1}) no-repeat center ;
+height: 50%;
+width: 50%;
+background-size: cover;
+// transform: translateX(-30%);
+transform: ${({ translate }) => translate ? 'translateX(150%)' : 'translateX(-30%)'};
+opacity: ${({ fade }) => fade ? '.4' : '1'};
+`;
+const Cloud2 = styled.div`
+background: url(${cloud2}) no-repeat center ;
+// transform: translateX(50%);
+${theme.imageSize.max};
+transform: ${({ translate }) => translate ? 'translateX(-50%)' : 'translateX(50%)'};
+opacity: ${({ fade }) => fade ? '.2' : '1'};
+`;
+const Cloud3 = styled.div`
+background: url(${cloud3}) no-repeat center ;
+${theme.imageSize.max};
+opacity: ${({ fade }) => fade ? '.3' : '1'};
+`;
+// const Cloud4 = styled.div`
+// background: url(${cloud4}) no-repeat center ;
+// opacity: 0.1;
+// ${theme.imageSize.max}
+// `;
+// const Cloud5 = styled.div`
+// background: url(${cloud5}) no-repeat center ;
+// opacity: 0.1;
+// ${theme.imageSize.max}
+// `;
+// const Cloud6 = styled.div`
+// background: url(${cloud6}) no-repeat center ;
+// opacity: 0.1;
+// ${theme.imageSize.max}
+// `;
+
+const BottomFront = styled.div`
+background: url(${bottomFront}) no-repeat center ;
+height: 100%;
+width: 100%;
+background-size: cover;
+`;
+const BottomMiddle = styled.div`
+background: url(${bottomMiddle}) no-repeat left;
+height: 100%;
+width: 100%;
+  background-size: cover;
+  transform: translateX(-50%)
+  `;
+const BottomBack = styled.div`
+  background: url(${bottomBack}) no-repeat center;
+  height: 120%;
+  width: 100%;
+  background-size: cover;
+  `;
+const BottomRight = styled.div`
+  // display: flex;
+  // justify-content: flex-end;
+  background: url(${bottomRight}) no-repeat right;
+  height: 40%;
+  width: 40%;
+  background-size: cover;
+  transform: translate(150%, 20%);
+`;
+
+
+
+class Home extends React.Component {
+  render() {
+    return (
+      <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+
+        <ParallaxLayer offset={2} speed={0} factor={1} style={{ background: "skyblue", backgroundSize: 'cover', opacity: 0.3 }} />
+
+
+        <ParallaxLayer offset={.6} speed={-0.5} >
+          <Cloud1 fade translate/>
+        </ParallaxLayer>
+
+        {/* <ParallaxLayer offset={1} speed={0.8} >
+          <Cloud2 />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1.75} speed={0.5} >
+          <Cloud3 />
+        </ParallaxLayer> */}
+
+        <ParallaxLayer offset={1.4} speed={.1}>
+          <Cloud3 />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2} speed={.5}>
+          <BottomMiddle />
+          <BottomFront />
+        </ParallaxLayer>
+        
+        <ParallaxLayer offset={1.95} speed={0.2} >
+          <Cloud1 />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1.5} speed={-0.1} >
+          <Cloud2 />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2.1} speed={0.4} >
+          <BottomRight />
+        </ParallaxLayer>
+
+
+        <ParallaxLayer offset={2} speed={-0.4} >
+          <BottomFront />
+        </ParallaxLayer>
+
+
+        <ParallaxLayer
+          offset={2}
+          speed={-0.3}
+        />
+
+        <ParallaxLayer
+          offset={0}
+          speed={0.1}
+          onClick={() => this.parallax.scrollTo(1)}>
+          <Cloud3 fade/>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={.75}
+          speed={0.1}
+          onClick={() => this.parallax.scrollTo(2)}>
+          <Cloud2 fade translate/>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={2}
+          speed={-0}
+          onClick={() => this.parallax.scrollTo(0)}
+        >
+          <BottomBack />
+        </ParallaxLayer>
+      </Parallax>
+    )
+  }
+}
 
 export default Home;
 
