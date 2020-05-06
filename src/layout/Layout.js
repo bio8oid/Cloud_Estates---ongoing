@@ -1,13 +1,13 @@
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../utils/theme';
+// import Header from '../components/Header/header';
 
 const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Montserrat';
-    color: white;
+    font-family: Indie Flower;
   }
   
   *, *::before, *::after {
@@ -15,17 +15,18 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const StyledWrapper = styled.div`
-  height: 100vh;
-  `;
+// const StyledWrapper = styled.div`
+//   height: 100vh;
+//   `;
 
 const Layout = ({ children }) => (
     <ThemeProvider theme={theme}>
         <>
             <GlobalStyle />
-            <StyledWrapper>
+            {/* <StyledWrapper> */}
+            {/* <Header /> */}
                 {children}
-            </StyledWrapper>
+            {/* </StyledWrapper> */}
         </>
     </ThemeProvider>
 );
