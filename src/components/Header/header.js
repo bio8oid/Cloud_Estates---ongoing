@@ -2,87 +2,106 @@ import React from "react"
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import { theme } from '../../utils/theme';
+import logoTop from "../../images/logo_cloud.png"
+import logoBottom from "../../images/logo_estates.png"
+// import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
-// import Cloud1 from "../Footer/footer"
-
-// import logoTop from "../../images/logo_sky.png"
-// import logoBottom from "../../images/logo_estates.png"
-
-// import img from "../../images/logo.png"
-// const StyledLink = styled.a`
-//   background: ${theme.colors.mainGradient};
-// `;
-
-// const Cloud1 = styled.div`
-// background: url(${cloud1}) no-repeat center ;
-// height: 50%;
-// width: 50%;
-// background-size: cover;
-// // transform: translateX(-30%);
-// transform: ${({ translate }) => translate ? 'translateX(150%)' : 'translateX(-30%)'};
-// opacity: ${({ fade }) => fade ? '.4' : '1'};
-// `;
 
 const StyledHeader = styled.div`
 display: flex;
 flex-direction: row;
-// justify-content: flex-end;
-// justify-content: space-around;
-// justify-content: center;
+justify-content: space-between;
 align-items: center;
-// height: 100%;
-// background: transparent;
-// position: absolute;
-// top: 0;
-// z-index: 999999;
-// overflow: hidden;
-// height: 30vh;
-// height: 100%;
 width:100%;
-// border: 2px solid green;
-// background-size: cover;
+// border: 3px solid red;
 
 a {
-    font-family: Indie Flower;
+    // font-family: 'Indie Flower';
+    font-family: 'Gloria Hallelujah';
+    // font-family: 'Handlee', cursive;
+    font-weight: 900;
+    cursor: pointer;
     color: orange;
-    font-size: 1rem;
+    font-size: 3rem;
+    opacity:.6;
+    // color: #b198b8;
+    color: #040026;
+    // text-transform: uppercase;
     text-decoration: none;
     padding: 0 50px;
-    border: 1px solid orange;
+
+    &:hover {
+        color: skyblue;
+        -webkit-text-stroke: 2px black;
+    }
+}
+
+
+
+${theme.media.mobile} {
+flex-direction: column;
+justify-content: center;
+align-items: center;               
 }
 `;
 
 const LogoWrapper = styled.div`
 height: 100%;
-width: 20vw;
+width: 25vw;
 padding: 2%;
+
+${theme.media.tabletPro} {
+    width: 50vw;
+}
+`;
+
+const MeanuWrapper = styled.div`
+margin-right: 2%;
+
+${theme.media.tabletPro} {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 50vw;
+}
 `;
 
 const LogoTop = styled.div`
-${theme.responsive};
+img {
+    ${theme.responsiveImg};
+}
 `;
 
 const LogoBottom = styled.div`
-${theme.responsive};
-margin-left: 100px;
+img {
+    ${theme.responsiveImg};
+    margin-left: 100px;
+    padding-right: 100px;
+
+    ${theme.media.mobile} {
+        margin: 0;
+        padding: 0 10%;
+    }
+}
 `;
 
-const Header = () => (
-
-  <>
-    <StyledHeader>
+const Header = (props, parallax, ref) => (
+    <div>
+        <StyledHeader>
             <LogoWrapper>
-            <LogoTop>
-                <img src="./images/logo_sky.png" style={{width: "100%", height: "auto"}} />
-            </LogoTop >
-            <LogoBottom>
-                <img src="./images/logo_estates.png" style={{width: "100%", height: "auto"}} />
-            </LogoBottom>
+                <LogoTop>
+                    <img src={logoTop} />
+                </LogoTop >
+                <LogoBottom>
+                    <img src={logoBottom} />
+                </LogoBottom>
             </LogoWrapper>
-            <Link as="a" to="/page-2">About</Link>
-            <Link as="a" to="/page-2">Contact</Link>
-    </StyledHeader>
-</>
+            <MeanuWrapper>
+                <a href='#rent'>rent</a>
+                <Link as="a" to="/contact">contact</Link>
+            </MeanuWrapper>
+        </StyledHeader>
+    </div>
 )
 
 export default Header;

@@ -1,18 +1,23 @@
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { theme } from '../utils/theme';
+import { theme } from '../../utils/theme';
 // import Header from '../components/Header/header';
 
+
 const GlobalStyle = createGlobalStyle`
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: Indie Flower;
+body {
+  padding: 0;
+  margin: 0;
   }
   
   *, *::before, *::after {
     box-sizing: border-box;
   }
+    html {
+    box-sizing: border-box;
+  }
+
+  user-select: none;
 `;
 
 // const StyledWrapper = styled.div`

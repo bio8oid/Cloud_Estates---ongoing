@@ -3,14 +3,17 @@ import {colors} from './colors';
 export const theme = {
   colors,
   fade: 'opacity: .5',
-  responsive: 'height: 100%; width: 100%; background-size: cover',
+  responsiveImg: 'height: 100%; width: 100%; background-size: cover',
   font: {
     thin: 300,
     regular: 400,
     bold: 800,
+    bolder: 800,
   },
   media: {
-    tablet: '@media (min-width: 728px)',
-    desktop: '@media (min-width: 1024px)',
+    tablet: '@media (max-width: 728px)',
+    tabletPro: '@media (max-width: 900px)',
+    mobile: '@media (max-width: 576px)',
+    desktop: '@media (max-width: 1024px)',
   }
 }

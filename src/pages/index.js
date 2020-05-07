@@ -1,14 +1,14 @@
 import React from 'react'
 import Home from '../components/Home/home';
 import SEO from "../components/Seo/seo"
-import Layout from "../Layout/layout"
+import Layout from "../components/Layout/layout"
 
 
 const IndexPage = () => (
 
     <>
-        <SEO title="home" />
         <Layout>
+            <SEO title="Home" />
             <Home />
         </Layout>
     </>

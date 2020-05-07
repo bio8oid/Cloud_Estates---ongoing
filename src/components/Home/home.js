@@ -11,17 +11,7 @@ import styled from 'styled-components'
 // import SlideThree from '../components/Slider/slide3';
 // import ArrowComponent from '../components/Slider/arrows';
 import { theme } from '../../utils/theme';
-// import Button from '../components/Button';
-
 import Header from '../Header/header';
-
-
-// import img1 from "../../images/pngfuel_1.png"
-// import img2 from "../../images/pngfuel_2.png"
-// import img3 from "../../images/pngfuel_3.png"
-// import img4 from "../../images/pngfuel_4.png"
-// import img5 from "../../images/pngfuel_5.png"
-// import img6 from "../../images/pngfuel_6.png"
 
 import bottomFront from "../../images/bottom_front.png"
 import bottomMiddle from "../../images/bottom_middle.png"
@@ -34,6 +24,7 @@ import cloud3 from "../../images/cloud_3.png"
 import cloud4 from "../../images/cloud_4.png"
 import cloud5 from "../../images/cloud_5.png"
 import cloud6 from "../../images/cloud_6.png"
+import cloud7 from "../../images/cloud_7.png"
 
 // import { motion, useViewportScroll, useTransform } from "framer-motion";
 
@@ -351,134 +342,235 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 // `;
 // opacity:  ${({ fade }) => fade ? '.5' : '.2'};
 
-const Cloud1 = styled.div`
-background: url(${cloud1}) no-repeat center ;
-height: 50%;
-width: 50%;
-background-size: cover;
-// transform: translateX(-30%);
-transform: ${({ translate }) => translate ? 'translateX(150%)' : 'translateX(-30%)'};
-opacity: ${({ fade }) => fade ? '.4' : '1'};
+// background: url(${cloud1}) no-repeat center ;
+const StyledCloud1 = styled.div`
+
+img {
+
+  // height: 50%;
+  // width: 50%;
+  // background-size: cover;
+  // transform: translateX(-15%);
+  
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // align-items: center;
+  
+  ${theme.responsiveImg};
+  // transform: ${({ translate }) => translate ? 'translateX(150%)' : 'translateX(-30%)'};
+  opacity: ${({ fade }) => fade ? '.4' : '1'};
+}
 `;
-const Cloud2 = styled.div`
-background: url(${cloud2}) no-repeat center ;
-// transform: translateX(50%);
-${theme.responsive};
-transform: ${({ translate }) => translate ? 'translateX(-50%)' : 'translateX(50%)'};
-opacity: ${({ fade }) => fade ? '.2' : '1'};
+
+// background: url(${cloud2}) no-repeat center ;
+const StyledCloud2 = styled.div`
+img {
+
+  // transform: translateX(50%);
+  ${theme.responsiveImg};
+  // transform: ${({ translate }) => translate ? 'translateX(-50%)' : 'translateX(70%)'};
+  opacity: ${({ fade }) => fade ? '.2' : '1'};
+}
 `;
-const Cloud3 = styled.div`
-background: url(${cloud3}) no-repeat center ;
-${theme.responsive};
-opacity: ${({ fade }) => fade ? '.3' : '1'};
+
+// background: url(${cloud3}) no-repeat center ;
+const StyledCloud3 = styled.div`
+img {
+  ${theme.responsiveImg};
+// transform: translateX(-15%);
+opacity: ${({ fade }) => fade ? '.6' : '1'};
+}
+
+}
 `;
+
+// background: url(${cloud3}) no-repeat center ;
+const StyledCloud5 = styled.div`
+img {
+  ${theme.responsiveImg};
+  // width: 100vw;
+}
+}
+`;
+// opacity: ${({ fade }) => fade ? '.6' : '1'};
+
 // const Cloud4 = styled.div`
 // background: url(${cloud4}) no-repeat center ;
 // opacity: 0.1;
-// ${theme.responsive}
+// ${theme.responsiveImg}
 // `;
 // const Cloud5 = styled.div`
 // background: url(${cloud5}) no-repeat center ;
 // opacity: 0.1;
-// ${theme.responsive}
+// ${theme.responsiveImg}
 // `;
 // const Cloud6 = styled.div`
 // background: url(${cloud6}) no-repeat center ;
 // opacity: 0.1;
-// ${theme.responsive}
+// ${theme.responsiveImg}
 // `;
 
-const BottomFront = styled.div`
-background: url(${bottomFront}) no-repeat center ;
-height: 100%;
-width: 100%;
-background-size: cover;
+const StyledHero = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+padding: 0 2%;
+opacity: .6;
+
+h1, h3 {
+  margin: 0;
+  font-size: 8rem;
+  text-align: center;
+  font-family: 'Indie Flower';
+  color: #040026;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+@media not all and (hover: none) {
+	h1:hover {
+    color: skyblue;
+    -webkit-text-stroke: 1px black;
+	}
+}
+    
+${theme.media.desktop} {
+  h1 {
+    font-size: 5rem;
+  }
+  
+  h3 {
+    font-size: 3rem;
+  }
 `;
 
-const BottomMiddle = styled.div`
-background: url(${bottomMiddle}) no-repeat left;
-height: 100%;
-width: 100%;
-  background-size: cover;
-  transform: translateX(-50%)
-  `;
+// background: url(${bottomFront}) no-repeat center ;
+const StyledBottomFront = styled.div`
+img {
+  // height: 100%;
+// width: 100%;
+// background-size: cover;
+${theme.responsiveImg};
+}
 
-const BottomBack = styled.div`
-  background: url(${bottomBack}) no-repeat center;
-  height: 120%;
-  width: 100%;
-  background-size: cover;
-  `;
+`;
 
-const BottomRight = styled.div`
+// background: url(${bottomMiddle}) no-repeat left;
+const StyledBottomMiddle = styled.div`
+img {
+  // height: 100%;
+// width: 100%;
+// background-size: cover;
+${theme.responsiveImg};
+// transform: translateX(-50%)
+}
+
+`;
+
+// background: url(${bottomBack}) no-repeat center;
+const StyledBottomBack = styled.div`
+img {
+  // width: 100%;
+// background-size: cover;
+${theme.responsiveImg};
+// height: 120%;
+}
+
+`;
+
+// background: url(${bottomRight}) no-repeat right;
+const StyledBottomRight = styled.div`
+img {
   // display: flex;
-  // justify-content: flex-end;
-  background: url(${bottomRight}) no-repeat right;
-  height: 40%;
-  width: 40%;
-  background-size: cover;
-  transform: translate(150%, 20%);
+// justify-content: flex-end;
+// height: 40%;
+// width: 40%;
+// background-size: cover;
+${theme.responsiveImg};
+  // transform: translate(150%, 20%);
+}
+
 `;
-
-
 
 const Home = parallax => (
+  
   <>
+      <Parallax ref={ref => (parallax = ref)} pages={4}>
 
-
-      <Parallax ref={ref => (parallax = ref)} pages={3}>
-
-        <ParallaxLayer offset={2} speed={0} factor={1} style={{ background: "skyblue", backgroundSize: 'cover', opacity: 0.3 }} />
-
-        <ParallaxLayer offset={.6} speed={-0.5} >
-          <Cloud1 fade translate/>
+        <ParallaxLayer offset={3} speed={0} factor={1} style={{ background: "skyblue", backgroundSize: 'cover', opacity: 0.3 }} />
+    
+        <ParallaxLayer offset={1.6} speed={-0.5} >
+          <StyledCloud1 fade translate>
+          <img src={cloud1} />
+          </StyledCloud1>
         </ParallaxLayer>
 
-        {/* <ParallaxLayer offset={1} speed={0.8} >
-          <Cloud2 />
+        <ParallaxLayer offset={1} speed={0.8} >
+          <StyledCloud5 fade>
+          <img src={cloud5} />
+          </StyledCloud5>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.75} speed={0.5} >
-          <Cloud3 />
-        </ParallaxLayer> */}
-
-        <ParallaxLayer offset={1.4} speed={.1}>
-          <Cloud3 />
+        <ParallaxLayer offset={2.4} speed={.1}>
+          <StyledCloud3>
+          <img src={cloud3} />
+          </StyledCloud3>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={.5}>
-          <BottomMiddle />
-          <BottomFront />
-        </ParallaxLayer>
-        
-        <ParallaxLayer offset={1.95} speed={0.2} >
-          <Cloud1 />
+        <ParallaxLayer offset={3} speed={-.2}>
+          <StyledBottomMiddle>
+          <img src={bottomMiddle} />
+          </StyledBottomMiddle>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.5} speed={-0.1} >
-          <Cloud2 />
+        <ParallaxLayer offset={3} speed={.5}>
+          <StyledBottomFront>
+          <img src={bottomFront} />
+          </StyledBottomFront>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2.15} speed={0.4} >
-          <BottomRight />
+        <ParallaxLayer offset={2.95} speed={0.2} >
+          <StyledCloud1>
+          <img src={cloud1} />
+          </StyledCloud1>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={-0.4} >
-          <BottomFront />
+        <ParallaxLayer offset={2.5} speed={-0.1} >
+          <StyledCloud2>
+          <img src={cloud2} />
+          </StyledCloud2>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={3.15} speed={0.1} >
+          <StyledBottomRight>
+          <img src={bottomRight} />
+          </StyledBottomRight>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={3} speed={0.1} >
+        <StyledBottomFront>
+          <img src={bottomFront} />
+        </StyledBottomFront>
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={2}
+          offset={3}
           speed={-0.3}
         />
 
         <ParallaxLayer
           offset={0}
           speed={0.1}
-          // onClick={() => parallax.scrollTo(1)}
+          onClick={() => parallax.scrollTo(2)}
           >
-        <Header />
-          <Cloud3 fade/>
+        <Header/>
+        <StyledCloud3 fade>
+          <img src={cloud3} />
+        </StyledCloud3>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -486,16 +578,28 @@ const Home = parallax => (
           speed={0.1}
           // onClick={() => parallax.scrollTo(2)}
           >
-          <Cloud2 fade translate/>
+        <StyledCloud2 fade translate>
+          <img src={cloud2} />
+        </StyledCloud2>
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={2}
-          speed={-0}
+          offset={3}
+          speed={.5}
           // onClick={() => parallax.scrollTo(0)}
-        >
-          <BottomBack />
+          >
+        <StyledBottomBack>
+          <img src={bottomBack} />
+        </StyledBottomBack>
         </ParallaxLayer>
+        
+      <ParallaxLayer offset={.5} speed={-0.2} >
+        <StyledHero onClick={() => parallax.scrollTo(1)}>
+          <h3>Famous for commision and deposit</h3>
+          <h1>Sky is THE limit</h1>
+        </StyledHero>
+      </ParallaxLayer>
+
       </Parallax>
       </>
     )
