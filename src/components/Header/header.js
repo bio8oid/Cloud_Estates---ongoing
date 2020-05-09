@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { theme } from '../../utils/theme';
 import logoTop from "../../images/logo_cloud.png"
 import logoBottom from "../../images/logo_estates.png"
-// import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 
 const StyledHeader = styled.div`
@@ -13,20 +12,15 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 width:100%;
-// border: 3px solid red;
 
 a {
-    // font-family: 'Indie Flower';
     font-family: 'Gloria Hallelujah';
-    // font-family: 'Handlee', cursive;
     font-weight: 900;
     cursor: pointer;
     color: orange;
     font-size: 3rem;
     opacity:.6;
-    // color: #b198b8;
     color: #040026;
-    // text-transform: uppercase;
     text-decoration: none;
     padding: 0 50px;
 
@@ -35,8 +29,6 @@ a {
         -webkit-text-stroke: 2px black;
     }
 }
-
-
 
 ${theme.media.mobile} {
 flex-direction: column;
@@ -64,6 +56,12 @@ ${theme.media.tabletPro} {
     align-items: center; 
     width: 50vw;
 }
+
+    ${theme.media.mobile} {
+        a {
+            font-size: 2rem;
+        }
+    }
 `;
 
 const LogoTop = styled.div`
@@ -90,10 +88,10 @@ const Header = (props, parallax, ref) => (
         <StyledHeader>
             <LogoWrapper>
                 <LogoTop>
-                    <img src={logoTop} />
+                    <img src={logoTop} alt=""/>
                 </LogoTop >
                 <LogoBottom>
-                    <img src={logoBottom} />
+                    <img src={logoBottom} alt=""/>
                 </LogoBottom>
             </LogoWrapper>
             <MeanuWrapper>
