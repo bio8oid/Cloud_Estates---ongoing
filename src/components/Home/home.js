@@ -7,7 +7,7 @@ import About from '../About/About';
 import PropertiesList from '../PropertiesList/PropertiesList';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
-// ---- images ---- 
+// ---- Images ---- 
 
 import bottomFront from "../../images/bottom_front.png"
 import bottomMiddle from "../../images/bottom_middle.png"
@@ -19,7 +19,7 @@ import cloud3 from "../../images/cloud_3.png"
 import cloud8 from "../../images/cloud_8.png"
 import cloud9 from "../../images/cloud_9.png"
 
-
+// ---- Clouds ----
 
 const StyledCloud1 = styled.div`
 animation: ${({ speed }) => speed ? `flyBastards 45s infinite linear` : 'flyBastards 100s infinite linear'};
@@ -61,6 +61,8 @@ const StyledCloud9 = styled(StyledCloud8)`
   }
 }
 `;
+
+// ---- Bottom Section ----
 
 const StyledBottomFront = styled.div`
 background: url(${bottomFront}) no-repeat center ;

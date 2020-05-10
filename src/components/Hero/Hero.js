@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 
+/* ${theme.colors.primary}; */
 
 export const StyledHero = styled.div`
 display: flex;
@@ -14,7 +15,6 @@ h1, h3, p {
   font-size: 7.5rem;
   text-align: center;
   ${theme.font.indie};
-  ${theme.colors.primary};
 }
 
 h3 {

@@ -2,62 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 // import { Link } from "gatsby"
-
-
-const data = [
-    {
-        "id": 1,
-        "tag": "risers",
-        "title": "Cloud",
-        "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-        "price": 595,
-        "location": "",
-        "availability": "",
-        "deposit": "",
-        "commission": "",
-        "factor": "amazing",
-        "img": "https://wallpapers.net/web/wallpapers/mammatus-cloud-hd-wallpaper/thumbnail/lg.jpg"
-    },
-    {
-        "id": 2,
-        "tag": "risers",
-        "title": "Cloud",
-        "desc": "Weight control system: riser weight is adjustable so you can customize the weight to fit your desire. Convenient center-shot adjustment system: adjust the limb and riser alignment without unstringing the bow.",
-        "price": 615,
-        "location": "",
-        "availability": "",
-        "deposit": "",
-        "commission": "",
-        "factor": "amazing",
-        "img": "https://lh4.googleusercontent.com/proxy/FYwuB-08Z9jj5igHSe34VzQG7Xb7bxOWdY2QzVp_dIEoNxCDzzXQMts=s0-d"
-    },
-    {
-        "id": 3,
-        "tag": "risers",
-        "title": "Cloud",
-        "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-        "price": 625,
-        "location": "",
-        "availability": "",
-        "deposit": "",
-        "commission": "",
-        "factor": "amazing",
-        "img": "https://i.ytimg.com/vi/V76X-guNB3g/maxresdefault.jpg"
-    },
-    {
-        "id": 4,
-        "tag": "risers",
-        "title": "Cloud",
-        "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-        "price": 655,
-        "location": "",
-        "availability": "",
-        "deposit": "",
-        "commission": "",
-        "factor": "amazing",
-        "img": "https://cache.desktopnexus.com/thumbseg/1413/1413271-bigthumbnail.jpg"
-    },
-]
+import data from '../../data.json'
 
 const PropertiesContainer = styled.div`
 ${theme.flex.centered};
