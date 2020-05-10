@@ -1,9 +1,6 @@
-import React from "react"
-// import ReactDOM from 'react-dom'
-// import { Parallax, ParallaxLayer } from 'react-spring/addons'
-// import { Parallax, ParallaxLayer } from 'react-spring'
-import styled from 'styled-components'
-// import { Link } from "gatsby"
+import React from "react";
+import styled from 'styled-components';
+// import { Link } from "gatsby";
 // import SEO from "../components/Seo/seo"
 // import Slider from '@farbenmeer/react-spring-slider';
 // import SlideOne from '../components/Slider/slide1';
@@ -11,7 +8,8 @@ import styled from 'styled-components'
 // import SlideThree from '../components/Slider/slide3';
 // import ArrowComponent from '../components/Slider/arrows';
 import { theme } from '../../utils/theme';
-import Header from '../Header/header';
+import Header from '../Header/Header';
+import PropertiesList from '../PropertiesList/PropertiesList';
 
 import bottomFront from "../../images/bottom_front.png"
 import bottomMiddle from "../../images/bottom_middle.png"
@@ -32,7 +30,8 @@ import cloud9 from "../../images/cloud_9.png"
 
 // import NavBar from '../components/NavBar/navBar';
 
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
+import ArrowDown from "../ArrowDown/ArrowDown";
 
 
 const StyledHero = styled.div`
@@ -45,8 +44,9 @@ h1, h3, p {
   margin: 0;
   font-size: 7.5rem;
   text-align: center;
-  font-family: 'Indie Flower';
-  color: #040026;
+  ${theme.font.indie};
+  ${theme.colors.primary};
+  /* color: #040026; */
 }
 
 h3 {
@@ -79,7 +79,6 @@ ${theme.media.mobile} {
     font-size: 1rem;
   }
 }
-}
 `;
 
 const StyledAbout = styled(StyledHero)`
@@ -89,38 +88,23 @@ height: 100%;
 
 p {
   padding: 0 10%;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 ${theme.media.tablet} {
-  
   p {
     margin-top: 50%;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
 ${theme.media.mobile} {
-  
   p {
     margin-top: 50%;
     font-size: 1.5rem;
   }
 }
 `;
-
-// const boxShadowMixin = css`
-//   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-// `;
-
-// const boxShadowMixinFunc = (top, left, blur, color, inset = false) => {
-//   return `box-shadow: ${inset ? 'inset' : ''} ${top}px ${left}px ${blur}px ${color};`;
-// }
-
-// const StyledComp = styled.div`
-//   ${boxShadowMixin}
-//   ${boxShadowMixinFunc(0, 0, 4, 'rgba(0, 0, 0, 0.5)')}
-// `;
 
 const StyledCloud1 = styled.div`
 animation: ${({ speed }) => speed ? `flyBastards 45s infinite linear` : 'flyBastards 100s infinite linear'};
@@ -129,7 +113,7 @@ animation: ${({ speed }) => speed ? `flyBastards 45s infinite linear` : 'flyBast
 const StyledCloud2 = styled.div`
 background: ${({ css }) => css ? `url(${cloud2}) no-repeat center` : 'none'};
 opacity: ${({ fade }) => fade ? '.2' : '1'};
-animation: ${({ fly }) => fly ? 'flyBastards 45s infinite linear' : 'none'};
+animation: ${({ fly }) => fly ? 'flyBastards 65s infinite linear' : 'none'};
 ${theme.responsiveImg};
 transform: translateX(50%);
 
@@ -139,23 +123,20 @@ transform: translateX(50%);
 `;
 
 const StyledCloud3 = styled.div`
-background: url(${cloud3}) no-repeat center ;
+background: url(${cloud3}) no-repeat center;
 ${theme.responsiveImg};
 opacity: ${({ fade }) => fade ? '.6' : '1'};
-}
 `;
 
 const StyledCloud8 = styled.div`
 img {
   ${theme.responsiveImg};
-opacity: .2;
-// animation: flyBastards 80s infinite linear;
-animation: ${({ speed }) => speed ? `flyBastards 60s infinite linear` : 'flyBastards 90s infinite linear'};
+  opacity: .2;
+  animation: ${({ speed }) => speed ? `flyBastards 60s infinite linear` : 'flyBastards 90s infinite linear'};
 }
 `;
 
 const StyledCloud9 = styled(StyledCloud8)`
-
 @keyframes flyBastards {
   from {
     transform: translate(-100%);
@@ -165,7 +146,6 @@ const StyledCloud9 = styled(StyledCloud8)`
   }
 }
 `;
-
 
 const StyledBottomFront = styled.div`
 background: url(${bottomFront}) no-repeat center ;
@@ -191,105 +171,113 @@ const StyledBottomRight = styled.div`
   transform: translate(150%, 20%);
 `;
 
+
 const Home = parallax => (
-  
+
   <>
-      <Parallax ref={ref => (parallax = ref)} pages={4}>
+    <Parallax ref={ref => (parallax = ref)} pages={4}>
 
-        <ParallaxLayer offset={3} speed={0} factor={1} style={{ background: "skyblue", backgroundSize: 'cover', opacity: 0.3 }} />
-    
-        <ParallaxLayer offset={1.6} speed={-0.5} >
+      <ParallaxLayer offset={3} speed={0} factor={1} style={{ background: "skyblue", backgroundSize: 'cover', opacity: 0.3 }} />
+
+      <ParallaxLayer offset={1.6} speed={-0.5} >
         <StyledCloud1 speed fade fly>
-            <img src={cloud1} alt=""/>
-          </StyledCloud1>
-        </ParallaxLayer>
+          <img src={cloud1} alt="" />
+        </StyledCloud1>
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={1.4} speed={.8} >
+      <ParallaxLayer offset={1.4} speed={.8} >
         <StyledCloud8 speed fade>
-          <img src={cloud8} alt=""/>
+          <img src={cloud8} alt="" />
         </StyledCloud8>
-        </ParallaxLayer>
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={1.8} speed={.4} >
+      <ParallaxLayer offset={1.8} speed={.4} >
         <StyledCloud9 fade>
-          <img src={cloud9} alt=""/>
+          <img src={cloud9} alt="" />
         </StyledCloud9>
-        </ParallaxLayer>
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={2.4} speed={.1}>
-          <StyledCloud3 />
-        </ParallaxLayer>
+      <ParallaxLayer offset={2.4} speed={.1}>
+        <StyledCloud3 />
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={3} speed={-.2}>
-          <StyledBottomMiddle />
-        </ParallaxLayer>
+      <ParallaxLayer offset={3} speed={-.2}>
+        <StyledBottomMiddle />
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={3} speed={.5}>
-          <StyledBottomFront />
-        </ParallaxLayer>
+      <ParallaxLayer offset={3} speed={.5}>
+        <StyledBottomFront />
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={2.95} speed={0.2} >
+      <ParallaxLayer offset={2.95} speed={0.2} >
         <StyledCloud1 fly>
           <img src={cloud1} alt="" />
         </StyledCloud1>
-          {/* <StyledCloud1 css fly/> */}
-        </ParallaxLayer>
+        {/* <StyledCloud1 css fly/> */}
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={2.5} speed={-0.1} >
-          <StyledCloud2 css />
-        </ParallaxLayer>
+      <ParallaxLayer offset={2.5} speed={-0.1} >
+        <StyledCloud2 css />
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={3.15} speed={0.1} >
-          <StyledBottomRight />
-        </ParallaxLayer>
+      <ParallaxLayer offset={3.15} speed={0.1} >
+        <StyledBottomRight />
+      </ParallaxLayer>
 
-        <ParallaxLayer offset={3} speed={0.1} >
-          <StyledBottomFront />
-        </ParallaxLayer>
+      <ParallaxLayer offset={3} speed={0.1} >
+        <StyledBottomFront />
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={3}
-          speed={-0.3}
-        />
+      <ParallaxLayer
+        offset={3}
+        speed={-0.3}
+      />
 
-        <ParallaxLayer
-          offset={0}
-          speed={0.1}
-          onClick={() => parallax.scrollTo(2)}
-          >
-        <Header/>
-          <StyledCloud3 fade />
-        </ParallaxLayer>
+      <ParallaxLayer
+        offset={0}
+        speed={0.1}
+        onClick={() => parallax.scrollTo(2)}
+        >
+        <Header />
+        <StyledCloud3 fade />
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={1}
-          speed={0.1}
-          // onClick={() => parallax.scrollTo(2)}
-          >
-          <StyledAbout>
-          <p>Founded in 966, Cloud Estates started life as a two-person agency in NothingToDoOnThe Hill.<br/>Over the years we are proud to have become World's leading cloud estate agent.<br/>We provide all services involving cloud rent.</p>
+      <ParallaxLayer
+        offset={1}
+        speed={0.1}
+        onClick={() => parallax.scrollTo(2)}
+      >
+        <StyledAbout>
+          <p>Founded in 966, Cloud Estates started life as a two-person agency in NothingToDoOnThe Hill.<br />Over the years we are proud to have become World's leading cloud estate agent.<br />We provide all services related to cloud rent and have offer to everyone.</p>
+          <ArrowDown />
         </StyledAbout>
+      </ParallaxLayer>
 
-        </ParallaxLayer>
+      <ParallaxLayer
+        offset={2}
+        speed={0}
+      >
+        <PropertiesList />
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={.75}
-          speed={0.1}
-          // onClick={() => parallax.scrollTo(2)}
-          >
+      <ParallaxLayer
+        offset={.75}
+        speed={0.1}
+      >
         <StyledCloud2 fade fly>
-          <img src={cloud2} alt=""/>
+          <img src={cloud2} alt="" />
         </StyledCloud2>
-        </ParallaxLayer>
+      </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={3}
-          speed={.5}
-          onClick={() => parallax.scrollTo(0)}
-          >
-          <StyledBottomBack />
-        </ParallaxLayer>
-        
+
+      <ParallaxLayer
+        offset={3}
+        speed={.5}
+        onClick={() => parallax.scrollTo(0)}
+      >
+        <StyledBottomBack />
+      </ParallaxLayer>
+
       <ParallaxLayer offset={.5} speed={-0.2} >
         <StyledHero onClick={() => parallax.scrollTo(1)}>
           <h3>Famous for commission and deposit</h3>
@@ -297,9 +285,9 @@ const Home = parallax => (
         </StyledHero>
       </ParallaxLayer>
 
-      </Parallax>
-      </>
-    )
+    </Parallax>
+  </>
+)
 
 export default Home;
 
@@ -510,40 +498,6 @@ export default Home;
 
 
 
-// const data = [
-//   {
-//     "id": 1,
-//     "tag": "risers",
-//     "title": "W&W Nano Max Riser",
-//     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-//     "price": 595,
-//     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770098_riser.jpg"
-//   },
-//   {
-//     "id": 2,
-//     "tag": "risers",
-//     "title": "W&W INNO CXT 25\"",
-//     "desc": "Weight control system: riser weight is adjustable so you can customize the weight to fit your desire. Convenient center-shot adjustment system: adjust the limb and riser alignment without unstringing the bow.",
-//     "price": 615,
-//     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770098_riser.jpg"
-//   },
-//   {
-//     "id": 3,
-//     "tag": "risers",
-//     "title": "W&W Nano Max Riser 27\"",
-//     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-//     "price": 625,
-//     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770264_black-red_1.jpg"
-//   },
-//   {
-//     "id": 4,
-//     "tag": "risers",
-//     "title": "W&W CX7",
-//     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-//     "price": 655,
-//     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770098_riser.jpg"
-//   },
-// ]
 
 
 // const Home = () => {

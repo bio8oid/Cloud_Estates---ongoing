@@ -15,12 +15,10 @@ width:100%;
 
 a {
     font-family: 'Gloria Hallelujah';
+    color: #040026;
     font-weight: 900;
-    cursor: pointer;
-    color: orange;
     font-size: 3rem;
     opacity:.6;
-    color: #040026;
     text-decoration: none;
     padding: 0 50px;
 
@@ -83,7 +81,7 @@ img {
 }
 `;
 
-const Header = (props, parallax, ref) => (
+const Header = () => (
     <div>
         <StyledHeader>
             <LogoWrapper>

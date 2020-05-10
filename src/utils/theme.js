@@ -1,14 +1,19 @@
-import {colors} from './colors';
+import { colors } from './colors';
 
 export const theme = {
   colors,
-  fade: 'opacity: .5',
   responsiveImg: 'height: 100%; width: 100%; background-size: cover',
   font: {
-    thin: 300,
-    regular: 400,
-    bold: 800,
-    bolder: 800,
+    gloria: "font-family: 'Gloria Hallelujah'; color: #040026",
+    indie: "font-family: 'Indie Flower'; color: #040026",
+    size1: "font-size: 1rem",
+    size2: "font-size: 2rem",
+    size3: "font-size: 3rem",
+    size5: "font-size: 5rem",
+  },
+  flex: {
+    centered: "display: flex; justify-content: center",
+    centeredColumn: "display: flex; flex-direction: column; justify-content: center; align-items: center"
   },
   media: {
     tablet: '@media (max-width: 728px)',
