@@ -25,6 +25,7 @@ import cloud3 from "../../images/cloud_3.png"
 // import cloud7 from "../../images/cloud_7.png"
 import cloud8 from "../../images/cloud_8.png"
 import cloud9 from "../../images/cloud_9.png"
+import arrowDown from "../../images/arrow_down.png"
 
 // import { motion, useViewportScroll, useTransform } from "framer-motion";
 
@@ -85,6 +86,20 @@ const StyledAbout = styled(StyledHero)`
 justify-content: center;
 align-items: center;
 height: 100%;
+
+img {
+height: 80px;
+width: 80px;
+margin-top: 30px;
+
+@media not all and (hover: none) {
+    &:hover {
+       border: 2px solid ${theme.colors.primary};
+       border-radius: 50%;
+       padding: 5px;
+        }
+    }  
+}
 
 p {
   padding: 0 10%;
@@ -249,7 +264,8 @@ const Home = parallax => (
       >
         <StyledAbout>
           <p>Founded in 966, Cloud Estates started life as a two-person agency in NothingToDoOnThe Hill.<br />Over the years we are proud to have become World's leading cloud estate agent.<br />We provide all services related to cloud rent and have offer to everyone.</p>
-          <ArrowDown />
+          {/* <ArrowDown /> */}
+      <img src={arrowDown} alt="arrow-down" />
         </StyledAbout>
       </ParallaxLayer>
 
