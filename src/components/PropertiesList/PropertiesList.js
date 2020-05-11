@@ -9,12 +9,20 @@ const PropertiesContainer = styled.div`
 ${theme.flex.centered};
 height: 100%;
 padding: 2%;
+
+${theme.media.tablet} {
+    flex-direction: column;
+}
+
+${theme.media.iphone5} {
+    margin-top: 45%;
+}
 `;
 
 const CloudElement = styled.div`
-position: relative;
-border-radius: 50%;
+max-width: 100%;
 padding: 2%;
+position: relative;
 
 img {
     opacity: 0;
@@ -48,39 +56,57 @@ p {
             opacity: 1;
             border: none;
         }
+    }
 
-        &:hover ~ img {
-            opacity: 1;
-            transform: rotate(5deg);
-            filter: ${({ hover1, hover2 }) => hover2 ? 'grayscale(0%)' : hover1 ? "hue-rotate(260deg)  saturate(9) invert(100%)" : 'grayscale(100%)'};
-            transition-duration: 1s;
-        }
+    ${theme.media.desktop} {
+        height: 200px;
+        width: 200px;
+        line-height: 200px;
+    }
+    
+    ${theme.media.mobile} {
+        height: 150px;
+        width: 150px;
+        line-height: 150px;
+        font-size: 2rem;
     }
 }
+
+ a:hover ~ img {
+       opacity: 1;
+       transform: rotate(5deg);
+       filter: ${({ hover1, hover2 }) => hover2 ? 'grayscale(0%)' : hover1 ? "hue-rotate(260deg)  saturate(9) invert(100%)" : 'grayscale(100%)'};
+       transition-duration: 1s;
+   }
+
+    ${theme.media.tablet} {
+        max-height: 50%;
+        max-width: 50%;
+    }
 `;
 
 
 const PropertiesList = () => (
     <>
         <PropertiesContainer>
-            <Link as="a" to="/contact">
-                <CloudElement>
+            <CloudElement>
+                <Link as="a" to="/contact">
                     <p>plebs</p>
+                </Link>
                     <img src={rentCloud} alt="plebs" />
-                </CloudElement>
-            </Link>
-            <Link as="a" to="/contact">
-                <CloudElement hover1>
+            </CloudElement>
+            <CloudElement hover1>
+                <Link as="a" to="/contact">
                     <p >vip</p>
+                </Link>
                     <img src={rentCloud} alt="vip" />
-                </CloudElement>
-            </Link>
-            <Link as="a" to="/contact">
-                <CloudElement hover2>
+            </CloudElement>
+            <CloudElement hover2>
+                <Link as="a" to="/contact">
                     <p>gift</p>
+                </Link>
                     <img src={rentCloud} alt="gift" />
-                </CloudElement>
-            </Link>
+            </CloudElement>
         </PropertiesContainer>
     </>
 );

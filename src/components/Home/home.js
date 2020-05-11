@@ -144,55 +144,32 @@ const Home = parallax => (
         <StyledBottomFront />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={3}
-        speed={-0.3}
-      />
+      <ParallaxLayer offset={3} speed={-0.3} />
 
-      <ParallaxLayer
-        offset={0}
-        speed={0.1}
-        onClick={() => parallax.scrollTo(2)}
-        >
+      <ParallaxLayer offset={0} speed={0.1} onClick={() => parallax.scrollTo(2)}>
         <Header />
         <StyledCloud3 fade />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={1}
-        speed={0.1}
-        onClick={() => parallax.scrollTo(2)}
-      >
+      <ParallaxLayer offset={1} speed={0.1} onClick={() => parallax.scrollTo(2)}>
         <About />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={2}
-        speed={0}
-      >
+      <ParallaxLayer offset={2} speed={0}>
         <PropertiesList />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={.75}
-        speed={0.1}
-      >
+      <ParallaxLayer offset={.75} speed={0.1}>
         <StyledCloud2 fade fly>
           <img src={cloud2} alt="" />
         </StyledCloud2>
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={3}
-        speed={.5}
-        onClick={() => parallax.scrollTo(0)}
-      >
+      <ParallaxLayer offset={3} speed={.5} onClick={() => parallax.scrollTo(0)}>
         <StyledBottomBack />
       </ParallaxLayer>
 
-      <ParallaxLayer offset={.5} speed={-0.2} 
-        onClick={() => parallax.scrollTo(1)}
-        >
+      <ParallaxLayer offset={.5} speed={-0.2} onClick={() => parallax.scrollTo(1)}>
         <Hero />
       </ParallaxLayer>
 
