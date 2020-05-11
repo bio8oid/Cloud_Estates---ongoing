@@ -2,6 +2,9 @@ import React from "react"
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import { theme } from '../../utils/theme';
+
+// ---- Images ----
+
 import logoTop from "../../images/logo_cloud.png"
 import logoBottom from "../../images/logo_estates.png"
 

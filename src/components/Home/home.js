@@ -4,20 +4,21 @@ import { theme } from '../../utils/theme';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import About from '../About/About';
+import Footer from '../Footer/Footer';
 import PropertiesList from '../PropertiesList/PropertiesList';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ---- 
 
-import bottomFront from "../../images/bottom_front.png"
-import bottomMiddle from "../../images/bottom_middle.png"
-import bottomBack from "../../images/bottom_back.png"
-import bottomRight from "../../images/bottom_right.png"
 import cloud1 from "../../images/cloud_1.png"
 import cloud2 from "../../images/cloud_2.png"
 import cloud3 from "../../images/cloud_3.png"
 import cloud8 from "../../images/cloud_8.png"
 import cloud9 from "../../images/cloud_9.png"
+import bottomFront from "../../images/bottom_front.png"
+import bottomMiddle from "../../images/bottom_middle.png"
+import bottomBack from "../../images/bottom_back.png"
+import bottomRight from "../../images/bottom_right.png"
 
 // ---- Clouds ----
 
@@ -142,6 +143,7 @@ const Home = parallax => (
 
       <ParallaxLayer offset={3} speed={0.1} >
         <StyledBottomFront />
+        <Footer />
       </ParallaxLayer>
 
       <ParallaxLayer offset={3} speed={-0.3} />
