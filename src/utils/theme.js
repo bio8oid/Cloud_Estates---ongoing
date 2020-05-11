@@ -9,6 +9,7 @@ export const theme = {
     size1: "font-size: 1rem",
     size2: "font-size: 2rem",
     size3: "font-size: 3rem",
+    size4: "font-size: 4rem",
     size5: "font-size: 5rem",
   },
   flex: {

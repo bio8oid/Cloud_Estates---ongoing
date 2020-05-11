@@ -17,19 +17,27 @@ border-radius: 50%;
 padding: 2%;
 
 img {
-    opacity: .8;
+    opacity: 0;
     ${theme.responsiveImg};
     filter: grayscale(100%);
 }
 
 p {
     ${theme.font.indie};
-    ${theme.font.size3};
+    ${theme.font.size4};
+    color: ${theme.colors.primary};
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    line-height: 300px;
+    opacity: .6;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 5px solid ${theme.colors.primary};
+    border-radius: 50%;
     z-index: 1;
 
     @media not all and (hover: none) {
@@ -37,6 +45,8 @@ p {
             ${theme.font.size5};
             text-shadow: 0 0 5px #fff;
             color: ${({ hover1 }) => hover1 ? 'skyblue' : 'black'};
+            opacity: 1;
+            border: none;
         }
 
         &:hover ~ img {
