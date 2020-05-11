@@ -12,7 +12,7 @@ export const theme = {
     size5: "font-size: 5rem",
   },
   flex: {
-    centered: "display: flex; justify-content: center",
+    centered: "display: flex; justify-content: center; align-items: center",
     centeredColumn: "display: flex; flex-direction: column; justify-content: center; align-items: center"
   },
   media: {
