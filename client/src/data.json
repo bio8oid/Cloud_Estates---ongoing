@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "tag": "plebs",
+        "title": "Plebs Cloud",
+        "desc": "Designed for plebs",
+        "price": 595,
+        "location": "Mongolia",
+        "availability": "immediately",
+        "deposit": "one month rent",
+        "commission": "required",
+        "factor": "pretty cool",
+        "img": "https://wallpapers.net/web/wallpapers/mammatus-cloud-hd-wallpaper/thumbnail/lg.jpg"
+    },
+    {
+        "id": 2,
+        "tag": "vip",
+        "title": "VIP Cloud",
+        "desc": "Astonishing Design",
+        "price": 615,
+        "location": "Miami",
+        "availability": "one week",
+        "deposit": "zero deposit sheme",
+        "commission": "no commission",
+        "factor": "amazing",
+        "img": "https://lh4.googleusercontent.com/proxy/FYwuB-08Z9jj5igHSe34VzQG7Xb7bxOWdY2QzVp_dIEoNxCDzzXQMts=s0-d"
+    },
+    {
+        "id": 3,
+        "tag": "vip",
+        "title": "VIP Cloud the second",
+        "desc": "Astonishing Design",
+        "price": 615,
+        "location": "Miami",
+        "availability": "one week",
+        "deposit": "zero deposit sheme",
+        "commission": "no commission",
+        "factor": "amazing",
+        "img": "https://i.ytimg.com/vi/V76X-guNB3g/maxresdefault.jpg"
+    },
+    {
+        "id": 4,
+        "tag": "gift",
+        "title": "Gift Cloud",
+        "desc": "Developed to fit all types of your neighbours",
+        "price": 655,
+        "location": "any",
+        "availability": "now",
+        "deposit": "no deposit",
+        "commission": "apply",
+        "factor": "overwhelming",
+        "img": "https://cache.desktopnexus.com/thumbseg/1413/1413271-bigthumbnail.jpg"
+    }
+]

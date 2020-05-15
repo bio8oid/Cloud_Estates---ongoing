@@ -78,22 +78,21 @@ const config = require('./config');
 
 
 const express = require("express");
-// const expressGraphQL = require("express-graphql");
 const graphqlHTTP = require('express-graphql');
 
 const mongoose = require("mongoose");
 
+const {
+    GraphQLID,
+    GraphQLString,
+    GraphQLList,
+    GraphQLNonNull,
+    GraphQLObjectType,
+    GraphQLSchema
+} = require("graphql");
+
 const graphQlSchema = require('./graphql/schema/schema');
 const graphQlResolvers = require('./graphql/resolvers/propertyResolver');
-
-// const {
-//     GraphQLID,
-//     GraphQLString,
-//     GraphQLList,
-//     GraphQLNonNull,
-//     GraphQLObjectType,
-//     GraphQLSchema
-// } = require("graphql");
 
 var app = express();
 
@@ -103,7 +102,7 @@ mongoose.connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
 
-// const PropertyModel = Mongoose.model("property", {
+// const PropertyModel = mongoose.model("property", {
 //     title: String,
 //     desc: String
 // });
@@ -125,7 +124,7 @@ mongoose.connection.once('open', () => {
 //             properties: {
 //                 type: GraphQLList(PropertyType),
 //                 resolve: (root, args, context, info) => {
-//                     return PropertyType.find().exec();
+//                     return PropertyModel.find().exec();
 //                 }
 //             },
 //             property: {
@@ -134,12 +133,17 @@ mongoose.connection.once('open', () => {
 //                     id: { type: GraphQLNonNull(GraphQLID) }
 //                 },
 //                 resolve: (root, args, context, info) => {
-//                     return PropertyType.findById(args.id).exec();
+//                     return PropertyModel.findById(args.id).exec();
 //                 }
 //             }
 //         }
 //     }),
 // });
+
+// app.use("/graphql", graphqlHTTP({
+//     schema: schema,
+//     graphiql: true
+// }));
 
 app.use("/graphql", graphqlHTTP({
     schema: graphQlSchema,
@@ -147,10 +151,8 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true
 }));
 
-
 app.listen(config.PORT, function () {
     console.log("Server is running on Port: " + config.PORT);
-
 });
 
 

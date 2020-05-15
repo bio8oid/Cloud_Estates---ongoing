@@ -89,10 +89,10 @@ const Header = () => (
         <StyledHeader>
             <LogoWrapper>
                 <LogoTop>
-                    <img src={logoTop} alt=""/>
+                    <img src={logoTop} alt="" />
                 </LogoTop >
                 <LogoBottom>
-                    <img src={logoBottom} alt=""/>
+                    <img src={logoBottom} alt="" />
                 </LogoBottom>
             </LogoWrapper>
             <MeanuWrapper>

@@ -17,9 +17,9 @@ export const theme = {
     centeredColumn: "display: flex; flex-direction: column; justify-content: center; align-items: center"
   },
   media: {
+    cloud: '@media (max-width: 1524px)',
     desktop: '@media (max-width: 1048px)',
     tabletPro: '@media (max-width: 900px)',
-    cloud: '@media (max-width: 1524px)',
     tablet: '@media (max-width: 728px)',
     mobile: '@media (max-width: 576px)',
     iphone5: '@media (max-width: 360px)',

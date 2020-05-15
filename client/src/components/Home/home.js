@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
-import PropertiesList from '../PropertiesList/PropertiesList';
+import Rent from '../Rent/Rent';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ---- 
@@ -82,11 +82,11 @@ ${theme.responsiveImg};
 `;
 
 const StyledBottomRight = styled.div`
-  background: url(${bottomRight}) no-repeat right;
-  height: 40%;
-  width: 40%;
-  background-size: cover;
-  transform: translate(150%, 20%);
+background: url(${bottomRight}) no-repeat right;
+height: 40%;
+width: 40%;
+background-size: cover;
+transform: translate(150%, 20%);
 `;
 
 
@@ -158,7 +158,7 @@ const Home = parallax => (
       </ParallaxLayer>
 
       <ParallaxLayer offset={2} speed={0}>
-        <PropertiesList />
+        <Rent />
       </ParallaxLayer>
 
       <ParallaxLayer offset={.75} speed={0.1}>

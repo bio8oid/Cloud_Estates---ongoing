@@ -2,7 +2,6 @@ import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 
-/* ${theme.colors.primary}; */
 
 export const StyledHero = styled.div`
 display: flex;

@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 // import data from '../../data.json'
 import rentCloud from '../../images/rent_cloud.png'
 
-const PropertiesContainer = styled.div`
+const RentContainer = styled.div`
 ${theme.flex.centered};
 height: 100%;
 padding: 2%;
@@ -86,36 +86,36 @@ p {
 `;
 
 
-const PropertiesList = () => (
+const Rent = () => (
     <>
-        <PropertiesContainer>
+        <RentContainer>
             <CloudElement>
-                <Link as="a" to="/contact">
+                <Link as="a" to="/propertiesList">
                     <p>plebs</p>
                 </Link>
                     <img src={rentCloud} alt="plebs" />
             </CloudElement>
             <CloudElement hover1>
-                <Link as="a" to="/contact">
+                <Link as="a" to="/propertiesList">
                     <p >vip</p>
                 </Link>
                     <img src={rentCloud} alt="vip" />
             </CloudElement>
             <CloudElement hover2>
-                <Link as="a" to="/contact">
+                <Link as="a" to="/propertiesList">
                     <p>gift</p>
                 </Link>
                     <img src={rentCloud} alt="gift" />
             </CloudElement>
-        </PropertiesContainer>
+        </RentContainer>
     </>
 );
 
-export default PropertiesList;
+export default Rent;
 
 
 
-// {/* <PropertiesContainer>
+// {/* <RentContainer>
 //             {data.map((item) => (
 //                 // <Link to="/product">
 //                 // <CloudCard key={item.id}>
@@ -132,7 +132,7 @@ export default PropertiesList;
 // {/* </Link> */ }
 // {/* ))} */ }
 
-// {/* </PropertiesContainer> */ }
+// {/* </RentContainer> */ }
 
 
 // import React from "react"
