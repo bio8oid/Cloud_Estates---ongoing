@@ -1,9 +1,10 @@
-// const express = require("express");
+const express = require("express");
 // const bodyParser = require('body-parser');
 // const bodyParser = require('body-parser-graphql');
-// const cors = require('cors');
+const cors = require('cors');
 // const graphqlHTTP = require('express-graphql');
 // const { buildSchema } = require('graphql');
+const graphql = require('graphql').graphql;
 const config = require('./config');
 // const Property = require('./schema');
 // const graphQlResolvers  = require('./schema');
@@ -12,12 +13,12 @@ const config = require('./config');
 // const helmet = require('helmet');
 // const path = require('path');
 
-// const app = express();
+const app = express();
 
 // import routes
 // const router = require('./routes/product.route');
 
-// app.use(cors());
+app.use(cors());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
 // app.use(bodyParser.json());
@@ -77,7 +78,17 @@ const config = require('./config');
 
 
 
-const express = require("express");
+
+
+
+
+//------------------------------- SECOND --------//
+
+
+
+
+
+// const express = require("express");
 const graphqlHTTP = require('express-graphql');
 
 const mongoose = require("mongoose");
@@ -94,7 +105,7 @@ const {
 const graphQlSchema = require('./graphql/schema/schema');
 const graphQlResolvers = require('./graphql/resolvers/propertyResolver');
 
-var app = express();
+// var app = express();
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
@@ -151,6 +162,18 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true
 }));
 
+
+
+// This is just an internal test
+// var query = 'query { properties { id, title, tag } }'
+// graphql(graphQlSchema, query).then(function (result) {
+//     console.log(JSON.stringify(result, null, " "));
+// });
+
+
+
+
+
 app.listen(config.PORT, function () {
     console.log("Server is running on Port: " + config.PORT);
 });
@@ -162,8 +185,37 @@ app.listen(config.PORT, function () {
 
 
 
+////=============== THIRD ================\\\\
 
-/// --------------- testing database -------------
+
+
+
+
+// const {
+//     Stitch,
+//     RemoteMongoClient,
+//     AnonymousCredential
+// } = require('mongodb-stitch-browser-sdk');
+
+// const client = Stitch.initializeDefaultAppClient('testclouds-isril');
+
+// const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('cloud_properties');
+
+// client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+//     db.collection('properties').updateOne({ owner_id: client.auth.user.id }, { $set: { number: 42 } }, { upsert: true })
+// ).then(() =>
+//     db.collection('properties').find({ owner_id: client.auth.user.id }, { limit: 100 }).asArray()
+// ).then(docs => {
+//     console.log("Found docs", docs)
+//     console.log("[MongoDB Stitch] Connected to Stitch")
+// }).catch(err => {
+//     console.error(err)
+// });
+
+
+
+
+//  --------------- testing database -------------
 
 
 // const MongoClient = require('mongodb').MongoClient;
@@ -171,7 +223,8 @@ app.listen(config.PORT, function () {
 
 // const uri = "mongodb+srv://bio8oid:biooid@bio8oid-idk43.mongodb.net/test?retryWrites=true&w=majority"
 
-// MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
+// MongoClient.connect(uri, {
+//     useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
 
 //     assert.equal(null, err);
 //     const db = client.db("cloud_properties");
@@ -182,5 +235,5 @@ app.listen(config.PORT, function () {
 //     }
 
 //     productsData.forEach(readProducts);
-//     client.close();
+//     // client.close();
 // })
