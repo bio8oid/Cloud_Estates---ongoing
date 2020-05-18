@@ -90,19 +90,19 @@ const Rent = () => (
     <>
         <RentContainer>
             <CloudElement>
-                <Link as="a" to="/propertiesList">
+                <Link as="a" to="/propertiesList" state={{ route: '"plebs"' }}>
                     <p>plebs</p>
                 </Link>
                     <img src={rentCloud} alt="plebs" />
             </CloudElement>
             <CloudElement hover1>
-                <Link as="a" to="/propertiesList">
+                <Link as="a" to="/propertiesList" state={{ route: '"vip"' }} >
                     <p >vip</p>
                 </Link>
                     <img src={rentCloud} alt="vip" />
             </CloudElement>
             <CloudElement hover2>
-                <Link as="a" to="/propertiesList">
+                <Link as="a" to="/propertiesList" state={{ route: '"gift"' }}>
                     <p>gift</p>
                 </Link>
                     <img src={rentCloud} alt="gift" />

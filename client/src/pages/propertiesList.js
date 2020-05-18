@@ -1,34 +1,39 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby"
 import SEO from "../components/Seo/seo"
 
 const PropertiesList = (props) => {
-// console.log('props:', props)
 
-    let string = `"{\"tag\": \"vip\"}"`
+    const routeContent = props.location.state.route
+    // const [content, setContent] = useState({ routeContent});
 
 
-    let requestBody = {
-        query: `
-            query {  
-                properties {
-                title
-                price
-                location
-            }
+
+    console.log(routeContent)
+    
+    // useEffect(() => setContent(routeContent), [content]);
+    
+    // const newState = props.state.route
+    // console.log('state', newState)
+    
+    let string = `{"tag": ${routeContent}}`  
+    // let string = '{"tag": "vip"}'  //<=====  THIS ONE !!!
+
+    var query = `query Properties($string: String) {
+        properties(filter: $string) {
+            title
+            price
+            location
         }
-      `
-    };
-    console.log(JSON.stringify(requestBody));
+    }`;
 
     fetch('http://localhost:8080/graphql', {
         method: 'POST',
-        // body: requestBody,
-        // body: JSON.parse(requestBody),
-        body: JSON.stringify(requestBody),
         headers: {
-            'Content-Type': 'application/json'
-        }
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({query, variables: { string }}),
     })
         .then(res => {
             if (res.status !== 200 && res.status !== 201) {
@@ -37,7 +42,7 @@ const PropertiesList = (props) => {
             return res.json();
         })
         .then(resData => {
-            console.log(resData);
+            console.log(resData.data.properties);
             // console.log(resData.data.properties.filter(x=>x.tag === "vip"));
             return resData;
         })
@@ -52,7 +57,7 @@ const PropertiesList = (props) => {
             <SEO title="Properties" />
     <h1>Hi from the properties list </h1>
             <p>Welcome to Products List</p>
-            <Link to="/propertyView">Go to product</Link>
+            <Link to="/propertyView" >Go to product</Link>
         </>
     )
 }

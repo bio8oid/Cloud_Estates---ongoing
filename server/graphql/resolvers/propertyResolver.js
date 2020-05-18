@@ -1,6 +1,9 @@
 const Property = require('../../models/propertyModel');
 
 module.exports = {
+
+    // Retrieve all properties from server
+
     properties: async ({filter}) => {
         try {
             let properties;
@@ -15,6 +18,9 @@ module.exports = {
             throw err;
         }
     },
+
+
+    // Create and save new property on server
 
     createProperty: args => {
         const property = new Property({
