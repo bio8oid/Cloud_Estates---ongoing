@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
 body {
   padding: 0;
   margin: 0;
+  color: #040026;
+  font-family: 'Indie Flower';
   }
   
   *, *::before, *::after {
@@ -20,20 +22,14 @@ body {
   user-select: none;
 `;
 
-// const StyledWrapper = styled.div`
-//   height: 100vh;
-//   `;
 
 const Layout = ({ children }) => (
-    <ThemeProvider theme={theme}>
-        <>
-            <GlobalStyle />
-            {/* <StyledWrapper> */}
-            {/* <Header /> */}
-                {children}
-            {/* </StyledWrapper> */}
-        </>
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <>
+      <GlobalStyle />
+      {children}
+    </>
+  </ThemeProvider>
 );
 
 export default Layout;

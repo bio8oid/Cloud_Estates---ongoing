@@ -5,13 +5,10 @@ import Layout from "../components/Layout/layout"
 
 
 const IndexPage = () => (
-
-    <>
-        <Layout>
-            <SEO title="Home" />
-            <Home />
-        </Layout>
-    </>
+    <Layout>
+        <SEO title="Home" />
+        <Home />
+    </Layout>
 )
 
 export default IndexPage;
