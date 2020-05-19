@@ -1,15 +1,14 @@
 import  { useState, useEffect } from "react";
 
-const Query = props => {
-
-    const url = "http://localhost:8080/graphql";
+const url = "http://localhost:8080/graphql";
 const headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
 };
-const routeTag = props.location.state.route
-console.log(routeTag)
-let string = `{"tag": ${routeTag}}`
+// const routeTag = props.location.state.route
+// console.log(routeTag)
+// let string = `{"tag": ${routeTag}}`
+let string = `{"tag": "vip"}`
 var query = `query Properties($string: String) {
             properties(filter: $string) {
                 title
@@ -20,7 +19,7 @@ var query = `query Properties($string: String) {
 
 const body = JSON.stringify({ query, variables: { string } });
 
-// export default function () {
+export default function () {
 
     const [pageContent, setPageContent] = useState([]);
 
@@ -41,7 +40,4 @@ const body = JSON.stringify({ query, variables: { string } });
         fetchData();
     }, []);
     return pageContent
-// }
 }
-
-export default Query;
