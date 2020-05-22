@@ -4,8 +4,8 @@ export const theme = {
   colors,
   responsiveImg: 'height: 100%; width: 100%; background-size: cover',
   font: {
-    gloria: "font-family: 'Gloria Hallelujah'; color: #040026",
-    indie: "font-family: 'Indie Flower'; color: #040026",
+    gloria: "font-family: 'Gloria Hallelujah'",
+    indie: "font-family: 'Indie Flower'",
     size1: "font-size: 1rem",
     size2: "font-size: 2rem",
     size3: "font-size: 3rem",

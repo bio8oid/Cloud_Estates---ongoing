@@ -1,7 +1,7 @@
-import React from "react";
-import styled from 'styled-components';
+// import React from "react";
+// import styled from 'styled-components';
 // // import { Link } from "gatsby";
-import { theme } from '../../utils/theme';
+// import { theme } from '../../utils/theme';
 // // import Header from '../Header/Header';
 
 
@@ -28,77 +28,37 @@ import { theme } from '../../utils/theme';
 
 
 
-// import React from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, ButtonFirst, ButtonLast } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+// // import React from 'react';
+// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, ButtonFirst, ButtonLast } from 'pure-react-carousel';
+// import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const styledSlide = styled.div`
-&:first-child {
-border: 2px solid black;
-margin: 25px !important;
-}
-`
+// // const styledSlide = styled.div`
+// // &:first-child {
+// // border: 2px solid black;
+// // margin: 25px !important;
+// // }
+// // `
 
-const slideElement = styled.div`
-border: 2px solid black;
-height: 400px;
-padding: 2%;
-margin: 25px;
-background: #ccc;
-`
+// const SliderComponent = () => (
 
-const SliderComponent = () => (
+//   <CarouselProvider
+//     naturalSlideWidth={100}
+//     naturalSlideHeight={100}
+//     totalSlides={8}
+//     visibleSlides={3}
+//   >
+//     <Slider>
+//       <Slide index={0} style={{margin: "2%"}}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
+//     </Slider>
+//     <DotGroup />
+//     <ButtonLast>last</ButtonLast>
+//     <ButtonFirst>first</ButtonFirst>
+//     <ButtonBack>Back</ButtonBack>
+//     <ButtonNext>Next</ButtonNext>
+//   </CarouselProvider>
+// )
 
-  <CarouselProvider
-    naturalSlideWidth={100}
-    naturalSlideHeight={100}
-    totalSlides={8}
-    visibleSlides={3}
-  >
-    <Slider>
-      <styledSlide>
-      <Slide index={0} style={{margin: "25px"}}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      </styledSlide>
-      <Slide index={1}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={2}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={3}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={4}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={5}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={6}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-      <Slide index={7}><slideElement><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" alt="kutas"/></slideElement></Slide>
-    </Slider>
-    <DotGroup />
-    <ButtonLast>last</ButtonLast>
-    <ButtonFirst>first</ButtonFirst>
-    <ButtonBack>Back</ButtonBack>
-    <ButtonNext>Next</ButtonNext>
-  </CarouselProvider>
-)
-
-export default SliderComponent;
-
-
-
-
-// export default class extends React.Component {
-//   render() {
-//     return (
-//       <CarouselProvider
-//         naturalSlideWidth={100}
-//         naturalSlideHeight={125}
-//         totalSlides={3}
-//       >
-//         <Slider>
-//           <Slide index={0}>I am the first Slide.</Slide>
-//           <Slide index={1}>I am the second Slide.</Slide>
-//           <Slide index={2}>I am the third Slide.</Slide>
-//         </Slider>
-//         <ButtonBack>Back</ButtonBack>
-//         <ButtonNext>Next</ButtonNext>
-//       </CarouselProvider>
-//     );
-//   }
-// }
+// export default SliderComponent;
 
 
 
@@ -107,34 +67,6 @@ export default SliderComponent;
 
 
 
-
-// import React from 'react'
-// import AliceCarousel from 'react-alice-carousel'
-// import 'react-alice-carousel/lib/alice-carousel.css'
-
-// const Gallery = () => {
-//   const handleOnDragStart = (e) => e.preventDefault()
-
-
-//   responsive = {
-//     0: { items: 1 },
-//     1024: { items: 2 },
-//   }
-
-//   return (
-//     <AliceCarousel 
-//       responsive={this.responsive}
-//     mouseTrackingEnabled>
-//       <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" onDragStart={handleOnDragStart} className="yours-custom-class" />
-//       <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" onDragStart={handleOnDragStart} className="yours-custom-class" />
-//       <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" onDragStart={handleOnDragStart} className="yours-custom-class" />
-//       <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" onDragStart={handleOnDragStart} className="yours-custom-class" />
-//       <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IINup2-QYhNitcqBlDsJ4gHaHa%26pid%3DApi&f=1" onDragStart={handleOnDragStart} className="yours-custom-class" />
-//     </AliceCarousel>
-//   )
-// }
-
-// export default Gallery;
 
 
 
@@ -184,7 +116,6 @@ export default SliderComponent;
 // return (
   
 //   < > 
-//     {/* <slideElement> */}
 //   <Carousel
 //       // swipeable={false}
 //       // draggable={false}
@@ -204,18 +135,17 @@ export default SliderComponent;
 //       itemClass="carousel-item-padding-100-px"
     
 //     >
-//       {/* <slideElement style={{ }}><img src="https://ucarecdn.com/b7b2bc98-e1b3-47c5-89b6-5bc26a02cd8a/-/resize/1050/" alt="kutas" style={{ width: "100%", height: '500px', border: "5px solid black", bacgroundSize: "cover", bacgroundPosition: "center", margin: "25px" }} /></slideElement>
 //       <slideElement style={{ }}><img src="https://ucarecdn.com/b7b2bc98-e1b3-47c5-89b6-5bc26a02cd8a/-/resize/1050/" alt="kutas" style={{ width: "100%", height: '500px', border: "5px solid black", bacgroundSize: "cover", bacgroundPosition: "center", margin: "25px" }} /></slideElement>
-//       <slideElement style={{ }}><img src="https://ucarecdn.com/b7b2bc98-e1b3-47c5-89b6-5bc26a02cd8a/-/resize/1050/" alt="kutas" style={{ width: "100%", height: '500px', border: "5px solid black", bacgroundSize: "cover", bacgroundPosition: "center", margin: "25px" }} /></slideElement> */}
+//       <slideElement style={{ }}><img src="https://ucarecdn.com/b7b2bc98-e1b3-47c5-89b6-5bc26a02cd8a/-/resize/1050/" alt="kutas" style={{ width: "100%", height: '500px', border: "5px solid black", bacgroundSize: "cover", bacgroundPosition: "center", margin: "25px" }} /></slideElement>
+//       <slideElement style={{ }}><img src="https://ucarecdn.com/b7b2bc98-e1b3-47c5-89b6-5bc26a02cd8a/-/resize/1050/" alt="kutas" style={{ width: "100%", height: '500px', border: "5px solid black", bacgroundSize: "cover", bacgroundPosition: "center", margin: "25px" }} /></slideElement>
   
-
+// {/* 
 //       <slideElement >Item 4</slideElement>
 //       <slideElement >Item 4</slideElement>
 //       <slideElement >Item 4</slideElement>
-//       <slideElement >Item 4</slideElement>
+//       <slideElement >Item 4</slideElement> */}
       
 //     </Carousel> 
-//   {/* </slideElement> */}
 //     </> 
 // )
     
@@ -225,47 +155,161 @@ export default SliderComponent;
 
 
 
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
+// import InfiniteCarousel from 'react-leaf-carousel';
 
+// const Slider = () => (
 
-// import React from "react";
-// import Slider from "react-slick";
-// // import "slick-carousel/slick/slick.css";
-// // import "slick-carousel/slick/slick-theme.css";
-// import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
-// const SliderComponent = () => {
+  
+//   <InfiniteCarousel
+//     breakpoints={[
+//       {
+//         breakpoint: 500,
+//         settings: {
+//           slidesToShow: 2,
+//           slidesToScroll: 2,
+//         },
+//       },
+//       {
+//         breakpoint: 768,
+//         settings: {
+//           slidesToShow: 3,
+//           slidesToScroll: 3,
+//         },
+//       },
+//     ]}
+//     dots={true}
+//     showSides={true}
+//     sidesOpacity={.5}
+//     sideSize={.1}
+//     slidesToScroll={4}
+//     slidesToShow={4}
+//     scrollOnDevice={true}
+//   >
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=55b64e&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=904098&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ef4d9c&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=00f3d1&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=00ffff&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ee1f34&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=91b4c0&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ff6347&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ebbfbf&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=def1f9&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=cdf2c6&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=9fa616&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=2c4caa&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=44e3e1&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ff6666&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=94e1e3&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=29083c&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ffff99&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=616161&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//     <div>
+//       <img
+//         alt=''
+//         src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ed7ebe&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+//       />
+//     </div>
+//   </InfiniteCarousel>
 
-//     const settings = {
-//       dots: true,
-//       infinite: true,
-//       speed: 500,
-//       slidesToShow: 1,
-//       slidesToScroll: 1
-//     }
+// )
 
-//     return (
-//       <Slider {...settings}>
-//         <div>
-//           <h3>1</h3>
-//         </div>
-//         <div>
-//           <h3>2</h3>
-//         </div>
-//         <div>
-//           <h3>3</h3>
-//         </div>
-//         <div>
-//           <h3>4</h3>
-//         </div>
-//         <div>
-//           <h3>5</h3>
-//         </div>
-//         <div>
-//           <h3>6</h3>
-//         </div>
-//       </Slider>
-//     );
-
-// }
-
-// export default SliderComponent;
+// export default Slider;
