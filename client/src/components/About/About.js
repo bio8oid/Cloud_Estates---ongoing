@@ -4,7 +4,6 @@ import { theme } from '../../utils/theme';
 import arrowDown from "../../images/arrow_down.png"
 import { StyledHero } from '../Hero/Hero';
 
-
 const StyledAbout = styled(StyledHero)`
 justify-content: center;
 align-items: center;

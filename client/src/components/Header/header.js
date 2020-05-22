@@ -26,8 +26,7 @@ a {
     padding: 0 50px;
 
     &:hover {
-        color: skyblue;
-        -webkit-text-stroke: 2px black;
+        ${theme.hover.text};
     }
 }
 

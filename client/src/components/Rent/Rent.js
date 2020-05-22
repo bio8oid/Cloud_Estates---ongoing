@@ -32,7 +32,7 @@ img {
 
 p {
     ${theme.font.indie};
-    ${theme.font.size4};
+    font-size: 4rem;
     color: ${theme.colors.primary};
     text-align: center;
     height: 300px;
@@ -50,9 +50,9 @@ p {
 
     @media not all and (hover: none) {
         &:hover  {
-            ${theme.font.size5};
+            font-size: 5rem;
             text-shadow: 0 0 5px #fff;
-            color: ${({ hover1 }) => hover1 ? 'skyblue' : 'black'};
+            color: ${({ hover1 }) => hover1 ? 'skyblue' : theme.colors.primary};
             opacity: 1;
             border: none;
         }

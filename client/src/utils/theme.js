@@ -3,15 +3,14 @@ import { colors } from './colors';
 export const theme = {
   colors,
   responsiveImg: 'height: 100%; width: 100%; background-size: cover',
+  hover: {
+    text: "color: skyblue; -webkit-text-stroke: 1px #040026"
+  },
   font: {
     gloria: "font-family: 'Gloria Hallelujah'",
-    indie: "font-family: 'Indie Flower'",
-    size1: "font-size: 1rem",
-    size2: "font-size: 2rem",
-    size3: "font-size: 3rem",
-    size4: "font-size: 4rem",
-    size5: "font-size: 5rem",
+    indie: "font-family: 'Indie Flower'"
   },
+  centered: "position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%)",
   flex: {
     centered: "display: flex; justify-content: center; align-items: center",
     centeredColumn: "display: flex; flex-direction: column; justify-content: center; align-items: center"

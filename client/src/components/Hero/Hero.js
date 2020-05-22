@@ -22,8 +22,7 @@ h3 {
 
 @media not all and (hover: none) {
 	h1:hover {
-    color: skyblue;
-    -webkit-text-stroke: 1px black;
+    ${theme.hover.text};
 	}
 }
 

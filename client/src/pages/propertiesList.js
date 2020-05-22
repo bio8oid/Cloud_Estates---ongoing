@@ -17,6 +17,14 @@ text-align: center;
 const Title = styled.h1`
 font-size: 4rem;
 opacity: .6;
+padding: 0 5%;
+
+    ${theme.media.tablet} {
+        font-size: 3rem;
+    }
+    ${theme.media.mobile} {
+        font-size: 2rem;
+    }
 `
 
 const StyledProductConetnt = styled.div`
@@ -27,62 +35,85 @@ const StyledProductConetnt = styled.div`
        opacity: .6;
    }
 
-   p {
-       font-size: 3rem;
-       color: black;
-       font-weight: bolder;
-       /* position: absolute;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, 50%); */
-       transform: translate(0%, -270%);
-       text-shadow: 0 0 5px skyblue;
-        /* -webkit-text-stroke: .1px skyblue; */
-       margin: 0;
-       /* z-index: -99; */
-   }
-
    a {
        text-decoration: none;
-       /* height: 30vh; */
-       /* height: 30vh; */
-       /* margin: 0; */
           max-height: 30vh;
-
-       border: 1px solid #000;
    }
+`
+const StyledProductDescription = styled.div`
+${theme.centered};
+width: 100%;
+
+ p {
+    display: block;
+    font-size: 3rem;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0 0 5px skyblue;
+    /* -webkit-text-stroke: .1px skyblue; */
+    margin: 0;
+
+    ${theme.media.tablet} {
+        font-size: 2rem;
+    }
+
+}
+    @media not all and (hover: none) {
+        &:hover p {
+            ${theme.hover.text};
+        }
+    }
 `
 
 const StyledProductImage = styled.div`
-border: 1px solid #000;
-   max-height: 30vh;
-   /* height: 100%; */
+   /* max-height: 30vh; */
+   margin-bottom: 50px;
+   position: relative;
+
 img {
    ${theme.responsiveImg};
-   max-height: 30vh;
+   /* max-height: 30vh; */
    border-radius: 50px;
-   /* opacity: .6; */
    border: 10px solid ${theme.colors.primary};
 
-        @media not all and (hover: none) {
-        &:hover  {
+    /* @media not all and (hover: none) {
+        &:hover {
             box-shadow: 0 0 10px  ${theme.colors.primary};
             opacity: .9;
+            ${theme.hover.text}
+        }
+    } */
+        /* ${theme.media.cloud} {
+        max-height: 23vh;
+    }
+        ${theme.media.desktop} {
+        max-height: 20vh;
+    }
+        ${theme.media.tablet} {
+        max-height: 14vh;
+    } */
+        ${theme.media.mobile} {
+        border-radius: 25px;
+    }
+
+    @media not all and (hover: none) {
+        &:hover { 
+            box-shadow: 0 0 10px  ${theme.colors.primary};
+            opacity: .9;
+        &:hover ~ ${StyledProductDescription} p { 
+            ${theme.hover.text};
+            text-shadow: 0 0 5px white;
+        }
         }
     }
 }
 `
 
 const StyledButton = styled.div`
-/* display: flex; */
-/* justify-content: flex-start; */
-/* width: 100px; */
 position: fixed;
-bottom: 20px;
 bottom: 0;
 left: 20px;
 opacity: .6;
-/* border: 1px solid #000; */
 
 img {
       max-height: 100px;
@@ -95,6 +126,10 @@ img {
        padding: 5px;
         }
     }  
+
+    ${theme.media.mobile} {
+        height: 50px;
+    }
 }
 `
 
@@ -187,8 +222,10 @@ const PropertiesList = (props) => {
                                 <Link as="a" to="/propertyView" state={{ route: routeTag }} >  
                             <StyledProductImage>
                                     <img src={x.img} alt={x.title} />
+                            <StyledProductDescription>
                             <p>{x.location}</p>
                             <p>{x.price} £ PM</p>
+                            </StyledProductDescription>
                             </StyledProductImage>
                                 </Link>
                         </StyledProductConetnt>
@@ -197,7 +234,7 @@ const PropertiesList = (props) => {
             </Carousel>}
 
         <StyledButton>
-                <Link className="kutas" to="/" >
+                <Link to="/" >
                     <img src={arrowDown} alt="arrow-down" />
                 </Link>
         </StyledButton>
