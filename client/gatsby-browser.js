@@ -15,3 +15,28 @@
 //             {element}
 //     )
 // }
+
+
+// import CarouselComponent from './src/components/CarouselComponent';
+
+// export const wrapPageElement = ({ element, props }) => (
+//     <CarouselComponent {...props}>{element}</CarouselComponent>
+// );
+
+
+// const React = require("react")
+// const Layout = require("./src/components/Layout/Layout").default
+
+// exports.wrapPageElement = ({ element, props }) => {
+//     // props provide same data to Layout as Page element will get
+//     // including location, data, etc - you don't need to pass it
+//     return <Layout {...props}>{element}</Layout>
+// }
+
+
+
+
+
+import Provider from './provider';
+
+export const wrapRootElement = Provider;
