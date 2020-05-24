@@ -27,6 +27,7 @@ padding: 0 5%;
 
 
 const PropertiesList = props => {
+console.log('props:', props)
 
     const [loading, setLoading] = useState(true)
     const [pageContent, setPageContent] = useState({ properties: [{}] });
@@ -72,7 +73,7 @@ const PropertiesList = props => {
         <Layout>
             <SEO title="Properties" />
             <StyledWrapper>
-                {/* <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title> */}
+                <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>
 
                 {loading ? <Spinner /> :
                     <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}

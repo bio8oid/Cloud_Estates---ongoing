@@ -107,7 +107,7 @@ const CarouselComponent = props => {
                 <div index={x.id} key={Math.random()} >
                     <StyledProductConetnt >
                         <h3 >{x.title}</h3>
-                        <Link as="a" to="/propertyView" state={{ route: props.state.route }} >
+                        <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
                             <StyledProductImage>
                                 <img src={x.img} alt={x.title} />
                                 <StyledProductDescription>
