@@ -1,10 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
-import arrowDown from "../../images/arrow_down.png"
+import { theme } from '../../../utils/theme';
+import arrowDown from "../../../images/arrow_down.png"
 import { StyledHero } from '../Hero/Hero';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
+// ---- Styles ----
 
 const StyledAbout = styled(StyledHero)`
 justify-content: center;
@@ -49,10 +50,10 @@ ${theme.media.mobile} {
 const About = props => (
 
   <ParallaxLayer offset={1} speed={0.1} onClick={props.onClick}>
-        <StyledAbout>
-            <p>Founded in 966, Cloud Estates started life as a two-person agency in NothingToDoOnThe Hill.<br />Over the years we are proud to have become World's leading cloud estate agent.<br />We provide all services related to cloud rent and have offer to everyone.</p>
-            <img src={arrowDown} alt="arrow-down" />
-        </StyledAbout>
+    <StyledAbout>
+      <p>Founded in 966, Cloud Estates started life as a two-person agency in NothingToDoOnThe Hill.<br />Over the years we are proud to have become World's leading cloud estate agent.<br />We provide all services related to cloud rent and have offer to everyone.</p>
+      <img src={arrowDown} alt="arrow-down" />
+    </StyledAbout>
   </ParallaxLayer>
 
 )

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 
 
 const StyledFooter = styled.div`
@@ -29,10 +29,11 @@ p {
 }
 `;
 
+
 const Footer = () => (
     <>
         <StyledFooter>
-            <p>bio8oid © { new Date().getFullYear() }</p>
+            <p>bio8oid © {new Date().getFullYear()}</p>
         </StyledFooter>
     </>
 )

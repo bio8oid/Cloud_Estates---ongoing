@@ -1,20 +1,19 @@
 import React from "react";
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ---- 
 
-import cloud1 from "../../images/cloud_1.png"
-import cloud8 from "../../images/cloud_8.png"
-import cloud9 from "../../images/cloud_9.png"
+import cloud1 from "../../../images/cloud_1.png"
+import cloud8 from "../../../images/cloud_8.png"
+import cloud9 from "../../../images/cloud_9.png"
 
 // ---- Clouds Styles----
 
 const StyledCloud1 = styled.div`
 animation: ${({ wind }) => wind ? `flyBastards 45s infinite linear` : 'flyBastards 100s infinite linear'};
 `;
-
 const StyledCloud8 = styled.div`
 img {
   ${theme.responsiveImg};
@@ -22,7 +21,6 @@ img {
   animation: ${({ wind }) => wind ? `flyBastards 60s infinite linear` : 'flyBastards 90s infinite linear'};
 }
 `;
-
 const StyledCloud9 = styled(StyledCloud8)`
 @keyframes flyBastards {
   from {

@@ -1,14 +1,14 @@
 import React from "react"
 import styled from 'styled-components'
 import { Link } from "gatsby"
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 import { StyledCloud3 } from '../CitySection/CitySection';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ----
 
-import logoTop from "../../images/logo_cloud.png"
-import logoBottom from "../../images/logo_estates.png"
+import logoTop from "../../../images/logo_cloud.png"
+import logoBottom from "../../../images/logo_estates.png"
 
 
 // ---- Styles ----
@@ -40,7 +40,6 @@ justify-content: center;
 align-items: center;               
 }
 `;
-
 const LogoWrapper = styled.div`
 height: 100%;
 width: 25vw;
@@ -50,7 +49,6 @@ ${theme.media.tabletPro} {
     width: 50vw;
 }
 `;
-
 const MeanuWrapper = styled.div`
 margin-right: 2%;
 
@@ -67,13 +65,11 @@ ${theme.media.tabletPro} {
         }
     }
 `;
-
 const LogoTop = styled.div`
 img {
     ${theme.responsiveImg};
 }
 `;
-
 const LogoBottom = styled.div`
 img {
     ${theme.responsiveImg};
@@ -88,7 +84,7 @@ img {
 `;
 
 
-const Header = props =>  (
+const Header = props => (
 
     <ParallaxLayer offset={0} speed={0.1} onClick={props.onClick}>
         <StyledHeader>
@@ -107,7 +103,7 @@ const Header = props =>  (
         </StyledHeader>
         <StyledCloud3 fade />
     </ParallaxLayer>
-    
+
 )
 
 export default Header;

@@ -1,19 +1,22 @@
 import React from "react";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
-import arrowDown from "../../images/arrow_down.png"
+import arrowDown from "../../images/arrow_down.png";
+import homeImg from "../../images/home.png";
 
+// ---- Styles ----
 
 const StyledButton = styled.div`
 position: fixed;
 bottom: 0;
-left: 20px;
+margin-left: 20px;
 opacity: .6;
 
 img {
       max-height: 100px;
       transform: rotate(90deg);
+
 
 @media not all and (hover: none) {
     &:hover {
@@ -28,16 +31,29 @@ img {
     }
 }
 `
+export const StyledHomeButton = styled(StyledButton)`
+right: 140px;
+opacity: 1;
 
+img {
+    transform: rotate(0) ;
+}
 
-const ArrowButton = () => (
+ ${theme.media.mobile} {
+        height: 50px;
+        right: 90px;
+    }
+`
 
-    <StyledButton>
-        <Link to="/" >
-            <img src={arrowDown} alt="arrow-down" />
+const ArrowButton = props => (
+
+    <StyledButton >
+        {console.log(props)}
+        <Link state={{ route: props.state.route }} to={`${props.state.pathname}`} >
+            {props.state.tag === "home" ? <img src={homeImg} alt="home-button" /> : <img src={arrowDown} alt="arrow-down" />}
         </Link>
     </StyledButton>
-    
+
 )
 
 export default ArrowButton;

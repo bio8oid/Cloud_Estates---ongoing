@@ -72,12 +72,12 @@ const PropertiesList = props => {
         <Layout>
             <SEO title="Properties" />
             <StyledWrapper>
-                <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>
+                {/* <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title> */}
 
                 {loading ? <Spinner /> :
                     <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}
 
-                <ArrowButton />
+                <ArrowButton state={{ route: props.location.state.route, pathname: "/" }}/>
             </StyledWrapper>
         </Layout>
     )

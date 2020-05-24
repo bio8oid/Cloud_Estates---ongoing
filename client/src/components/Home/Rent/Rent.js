@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 import { Link } from "gatsby"
-import rentCloud from '../../images/rent_cloud.png'
+import rentCloud from '../../../images/rent_cloud.png'
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 
@@ -19,7 +19,6 @@ ${theme.media.iphone5} {
     margin-top: 45%;
 }
 `;
-
 const CloudElement = styled.div`
 max-width: 100%;
 padding: 2%;
@@ -95,19 +94,19 @@ const Rent = props => (
                 <Link as="a" to="/propertiesList" state={{ route: '"plebs"' }}>
                     <p>plebs</p>
                 </Link>
-                    <img src={rentCloud} alt="plebs" />
+                <img src={rentCloud} alt="plebs" />
             </CloudElement>
             <CloudElement hover1>
                 <Link as="a" to="/propertiesList" state={{ route: '"vip"' }} >
                     <p >vip</p>
                 </Link>
-                    <img src={rentCloud} alt="vip" />
+                <img src={rentCloud} alt="vip" />
             </CloudElement>
             <CloudElement hover2>
                 <Link as="a" to="/propertiesList" state={{ route: '"gift"' }}>
                     <p>gift</p>
                 </Link>
-                    <img src={rentCloud} alt="gift" />
+                <img src={rentCloud} alt="gift" />
             </CloudElement>
         </RentContainer>
     </ParallaxLayer>

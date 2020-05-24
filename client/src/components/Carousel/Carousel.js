@@ -5,6 +5,7 @@ import { theme } from '../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+// ---- Styles ----
 
 const StyledProductConetnt = styled.div`
    margin: 25px;
