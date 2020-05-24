@@ -2,8 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 import { Link } from "gatsby"
-// import data from '../../data.json'
 import rentCloud from '../../images/rent_cloud.png'
+import { ParallaxLayer } from 'react-spring/renderprops-addons';
+
 
 const RentContainer = styled.div`
 ${theme.flex.centered};
@@ -86,8 +87,9 @@ p {
 `;
 
 
-const Rent = () => (
-    <>
+const Rent = props => (
+
+    <ParallaxLayer offset={2} speed={0}>
         <RentContainer>
             <CloudElement>
                 <Link as="a" to="/propertiesList" state={{ route: '"plebs"' }}>
@@ -108,7 +110,7 @@ const Rent = () => (
                     <img src={rentCloud} alt="gift" />
             </CloudElement>
         </RentContainer>
-    </>
+    </ParallaxLayer>
 );
 
 export default Rent;

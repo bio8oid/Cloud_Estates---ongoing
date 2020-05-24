@@ -2,12 +2,16 @@ import React from "react"
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import { theme } from '../../utils/theme';
+import { StyledCloud3 } from '../CitySection/CitySection';
+import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ----
 
 import logoTop from "../../images/logo_cloud.png"
 import logoBottom from "../../images/logo_estates.png"
 
+
+// ---- Styles ----
 
 const StyledHeader = styled.div`
 display: flex;
@@ -83,8 +87,10 @@ img {
 }
 `;
 
-const Header = () => (
-    <div>
+
+const Header = props =>  (
+
+    <ParallaxLayer offset={0} speed={0.1} onClick={props.onClick}>
         <StyledHeader>
             <LogoWrapper>
                 <LogoTop>
@@ -99,7 +105,9 @@ const Header = () => (
                 <Link as="a" to="/contact">contact</Link>
             </MeanuWrapper>
         </StyledHeader>
-    </div>
+        <StyledCloud3 fade />
+    </ParallaxLayer>
+    
 )
 
 export default Header;

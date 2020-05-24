@@ -1,29 +1,23 @@
-// import React from "react";
-import React, { useState } from "react";
-// import { Link } from "gatsby"
-// import SEO from "../components/Seo/seo"
-// import styled from 'styled-components';
-// import { theme } from '../utils/theme';
-import Layout from "../../components/Layout/Layout"
-// import ArrowButton from "../components/ArrowButton/ArrowButton"
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
+import React from "react";
+import styled from 'styled-components';
+import { theme } from '../../utils/theme';
 import { Roller } from "react-awesome-spinners";
 
+const StyledSpinner = styled.div`
+${theme.flex.centered};
 
+div{
+    position: absolute;
+    top: 50%;
+}
+`
 
-const Spinner = props => {
-// console.log('props:', props)
-
-    // const [loading, setLoading] = useState(true)
+const Spinner = () => {
 
     return (
-        <Layout>
-            <div  style={{ position: "absolute", top: "50%", textAlign: "center" }}>
-                <Roller  color="#040026" />
-            </div>
-        </Layout>
-
+        <StyledSpinner >
+            <Roller color="#040026" />
+        </StyledSpinner>
     )
 }
 

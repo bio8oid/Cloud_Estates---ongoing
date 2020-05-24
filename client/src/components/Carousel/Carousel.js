@@ -1,24 +1,77 @@
-// import React from "react";
-import React, { useState, useEffect } from "react";
-
-// import { Link } from "gatsby"
-// import SEO from "../components/Seo/seo"
-// import styled from 'styled-components';
-// import { theme } from '../utils/theme';
-import CarouselContent from "./CarouselContent"
-// import ArrowButton from "../components/ArrowButton/ArrowButton"
+import React from "react";
+import { Link } from "gatsby"
+import styled from 'styled-components';
+import { theme } from '../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import Layout from "../../components/Layout/Layout"
-// import { Roller } from "react-awesome-spinners";
 
 
-const CarouselComponent = (props, { onStateChange } )=> {
-console.log('onStateChange:', onStateChange)
-// console.log('props:', props)
+const StyledProductConetnt = styled.div`
+   margin: 25px;
 
-    // const [loading, setLoading] = useState(true)
-    // console.log('loading:', loading)
+   h3 {
+       font-size: 2rem;
+       opacity: .6;
+   }
+
+   a {
+       text-decoration: none;
+          max-height: 30vh;
+   }
+`
+const StyledProductDescription = styled.div`
+${theme.centered};
+width: 100%;
+
+ p {
+    display: block;
+    font-size: 3rem;
+    color: black;
+    font-weight: bolder;
+    text-shadow: 0 0 5px skyblue;
+    margin: 0;
+
+    ${theme.media.tablet} {
+        font-size: 2rem;
+    }
+
+}
+    @media not all and (hover: none) {
+        &:hover p {
+            ${theme.hover.text};
+        }
+    }
+`
+const StyledProductImage = styled.div`
+   /* max-height: 30vh; */
+   margin-bottom: 50px;
+   position: relative;
+
+img {
+   ${theme.responsiveImg};
+   /* max-height: 30vh; */
+   border-radius: 50px;
+   border: 10px solid ${theme.colors.primary};
+
+        ${theme.media.mobile} {
+        border-radius: 25px;
+    }
+
+    @media not all and (hover: none) {
+        &:hover { 
+            box-shadow: 0 0 10px  ${theme.colors.primary};
+            opacity: .9;
+        &:hover ~ ${StyledProductDescription} p { 
+            ${theme.hover.text};
+            text-shadow: 0 0 5px white;
+        }
+        }
+    }
+}
+`
+
+
+const CarouselComponent = props => {
 
     const responsive = {
         desktop: {
@@ -38,19 +91,34 @@ console.log('onStateChange:', onStateChange)
         }
     }
 
-
     return (
-             <Carousel
-                swipeable={true}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                ssr={true}
-                keyBoardControl={true}
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                >
-            <CarouselContent onStateChange={loading => onStateChange(loading)} state={ props.state.route }/>
-            </Carousel>
+
+        <Carousel
+            swipeable={true}
+            draggable={false}
+            showDots={true}
+            responsive={responsive}
+            ssr={true}
+            keyBoardControl={true}
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+        >
+            {props.pageContent.map(x => (
+                <div index={x.id} key={Math.random()} >
+                    <StyledProductConetnt >
+                        <h3 >{x.title}</h3>
+                        <Link as="a" to="/propertyView" state={{ route: props.state.route }} >
+                            <StyledProductImage>
+                                <img src={x.img} alt={x.title} />
+                                <StyledProductDescription>
+                                    <p>{x.location}</p>
+                                    <p>{x.price} £ PM</p>
+                                </StyledProductDescription>
+                            </StyledProductImage>
+                        </Link>
+                    </StyledProductConetnt>
+                </div>
+            ))}
+        </Carousel>
     )
 }
 
