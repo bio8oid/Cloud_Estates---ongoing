@@ -48,7 +48,6 @@ img {
 const ArrowButton = props => (
 
     <StyledButton >
-        {/* {console.log(props)} */}
         <Link state={{ route: props.state.route }} to={`${props.state.pathname}`} >
             {props.state.tag === "home" ? <img src={homeImg} alt="home-button" /> : <img src={arrowDown} alt="arrow-down" />}
         </Link>

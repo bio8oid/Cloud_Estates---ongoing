@@ -34,16 +34,29 @@ padding: 0 5%;
 
 
 const PropertiesList = props => {
-console.log('props:', props)
+// console.log('props:', props)
 
     const [loading, setLoading] = useState(true)
     const [pageContent, setPageContent] = useState({ properties: [{}] });
+    const [routeTag, setRouteTag] = useState("");
     console.log('pageContent:', pageContent)
 
-    let routeTag = props.location.state.route;
+    // let st = routeTag || props.location.state.route;
+    // // let routeTag = st.route;
+
+        // const getRouteTag = async () => {
+        //     try {
+        //         const tag = await props.location.state.route;
+        //         setRouteTag(tag);
+        //         return tag
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // }
+
 
     useEffect(() => {
-        let string = `{"tag": ${routeTag}}`
+        // let string = `{"tag": ${routeTag}}`
         const query = `query Properties($string: String) {
             properties(filter: $string) {
                 id
@@ -59,10 +72,13 @@ console.log('props:', props)
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         };
-        const body = JSON.stringify({ query, variables: { string } });
-
+        
         const fetchData = async () => {
             try {
+                const tag = await props.location.state.route;
+                setRouteTag(tag);
+                let string = `{"tag": ${tag}}`
+                const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const preData = await res.json();
                 const data = preData.data
@@ -86,7 +102,7 @@ console.log('props:', props)
 
                 {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}
 
-                <ArrowButton state={{ route: props.location.state.route, pathname: "/" }}/>
+                    <ArrowButton state={{ route: routeTag, pathname: "/" }}/>
             </StyledWrapper>
             </StyledBackground>
         </Layout>
