@@ -29,11 +29,11 @@ console.log('props:', props)
 
     // let routeTag = props.location.state.route;
 
-    let id = props.location.state.id;
-    console.log('id:', id)
+    // let id = props.location.state.id;
+    // console.log('id:', id)
 
     useEffect(() => {
-        let string = `{"id": ${id}}`
+        // let string = `{"id": ${id}}`
         const query = `query Properties($string: String) {
             properties(filter: $string) {
                 id
@@ -54,10 +54,13 @@ console.log('props:', props)
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         };
-        const body = JSON.stringify({ query, variables: { string } });
+        // const body = JSON.stringify({ query, variables: { string } });
 
         const fetchData = async () => {
             try {
+                let id = await props.location.state.id;
+                let string = `{"id": ${id}}`
+                const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const preData = await res.json();
                 const data = preData.data
@@ -75,7 +78,6 @@ return (
 
     <Layout>
         <SEO title="Property" />
-        {/* <StyledWrapper> */}
 
         {loading ? <Spinner /> : <Slider propertyContent={propertyContent.properties} />}
 
@@ -93,13 +95,11 @@ return (
             </StyledPropertyDescription>
         ))}
 
-
         <StyledHomeButton>
-        <ArrowButton state={{ route: props.location.state.route, pathname: "/", tag: "home" }}/>
+        <ArrowButton state={{ route: props.routeTag, pathname: "/", tag: "home" }}/>
         </StyledHomeButton>
 
-        <ArrowButton state={{ route: props.location.state.route, pathname: "/propertiesList" }}/>
-            {/* </StyledWrapper> */}
+        <ArrowButton state={{ route: props.routeTag, pathname: "/propertiesList" }}/>
 
     </Layout>
 

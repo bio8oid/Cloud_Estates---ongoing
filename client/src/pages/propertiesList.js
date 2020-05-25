@@ -34,29 +34,13 @@ padding: 0 5%;
 
 
 const PropertiesList = props => {
-// console.log('props:', props)
 
     const [loading, setLoading] = useState(true)
     const [pageContent, setPageContent] = useState({ properties: [{}] });
-    const [routeTag, setRouteTag] = useState("");
+    const [routeTag, setRouteTag] = useState('"vip"');
     console.log('pageContent:', pageContent)
 
-    // let st = routeTag || props.location.state.route;
-    // // let routeTag = st.route;
-
-        // const getRouteTag = async () => {
-        //     try {
-        //         const tag = await props.location.state.route;
-        //         setRouteTag(tag);
-        //         return tag
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // }
-
-
     useEffect(() => {
-        // let string = `{"tag": ${routeTag}}`
         const query = `query Properties($string: String) {
             properties(filter: $string) {
                 id
@@ -110,6 +94,3 @@ const PropertiesList = props => {
 }
 
 export default PropertiesList;
-
-
-{/* <img src={cloud3} alt="cloud3" /> */}
