@@ -4,14 +4,21 @@ import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import Layout from "../components/Layout/Layout"
 import ArrowButton from "../components/ArrowButton/ArrowButton"
-import CarouselComponent from "../components/Carousel/Carousel"
+import CarouselComponent from "../components/PropertiesList/Carousel/Carousel"
 import Spinner from "../components/Spinner/Spinner"
+import cloud3 from "../images/cloud_3.png"
 
 // ---- List Styles ----
 
 const StyledWrapper = styled.div`
 text-align: center;
 `
+const StyledBackground = styled.div`
+background: url(${cloud3}) no-repeat center;
+${theme.responsiveImg};
+min-height: 90vh;
+`
+
 const Title = styled.h1`
 font-size: 4rem;
 opacity: .6;
@@ -31,6 +38,7 @@ console.log('props:', props)
 
     const [loading, setLoading] = useState(true)
     const [pageContent, setPageContent] = useState({ properties: [{}] });
+    console.log('pageContent:', pageContent)
 
     let routeTag = props.location.state.route;
 
@@ -72,16 +80,20 @@ console.log('props:', props)
 
         <Layout>
             <SEO title="Properties" />
+            <StyledBackground>
             <StyledWrapper>
                 <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>
 
-                {loading ? <Spinner /> :
-                    <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}
+                {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}
 
                 <ArrowButton state={{ route: props.location.state.route, pathname: "/" }}/>
             </StyledWrapper>
+            </StyledBackground>
         </Layout>
     )
 }
 
 export default PropertiesList;
+
+
+{/* <img src={cloud3} alt="cloud3" /> */}

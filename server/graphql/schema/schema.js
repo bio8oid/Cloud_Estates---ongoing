@@ -13,7 +13,7 @@ type Property {
     deposit: String!
     commission: String!
     factor: String!
-    img: String!
+    img: [String!]
 }
 
 input PropertyInput {

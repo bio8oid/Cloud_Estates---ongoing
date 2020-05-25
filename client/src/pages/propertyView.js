@@ -1,29 +1,38 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "gatsby";
 import SEO from "../components/Seo/seo";
-// import styled from 'styled-components';
+import styled from 'styled-components';
 // import { theme } from '../utils/theme';
-import CarouselComponent from "../components/Carousel/Carousel"
+// import CarouselComponent from "../components/PropertiesList/Carousel/Carousel"
+// import {StyledWrapper} from "./PropertiesList"
 import Spinner from "../components/Spinner/Spinner"
 import Layout from "../components/Layout/Layout"
 import ArrowButton from "../components/ArrowButton/ArrowButton";
 import { StyledHomeButton } from "../components/ArrowButton/ArrowButton"
+import Slider from "../components/PropertyView/Slider/Slider"
 
+const StyledPropertyDescription = styled.div`
+display: flex;
+justify-content: space-around;
+max-width: 70vw;
+max-height: 30vh;
+border: 1px solid #000;
+`
 
 const PropertyView = props =>  {
 console.log('props:', props)
 // console.log('props:', props)
 
     const [loading, setLoading] = useState(true)
-    const [pageContent, setPageContent] = useState({ properties: [{}] });
-    console.log('pageContent:', pageContent)
+    const [propertyContent, setPropertyContent] = useState({ properties: [{}] });
+    console.log('propertyContent:', propertyContent)
+
+    // let routeTag = props.location.state.route;
 
     let id = props.location.state.id;
-    // let id = JSON.stringify(props.location.state.id);
-    // console.log('id:', id)
+    console.log('id:', id)
 
     useEffect(() => {
-        // let string = `{"tag": ${routeTag}}`
         let string = `{"id": ${id}}`
         const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -52,7 +61,7 @@ console.log('props:', props)
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const preData = await res.json();
                 const data = preData.data
-                setPageContent(data);
+                setPropertyContent(data);
                 setLoading(false);
             } catch (err) {
                 console.log(err);
@@ -66,10 +75,12 @@ return (
 
     <Layout>
         <SEO title="Property" />
+        {/* <StyledWrapper> */}
 
-        {loading ? <Spinner /> : pageContent.properties.map(x => (
-            <div index={x.id} key={Math.random()} >
-                <img src={x.img} alt={x.title} />
+        {loading ? <Spinner /> : <Slider propertyContent={propertyContent.properties} />}
+
+        {loading ? <Spinner /> : propertyContent.properties.map(x => (
+            <StyledPropertyDescription index={x.id} key={Math.random()} >
                 <h3 >{x.title}</h3>
                 <p>{x.desc}</p>
                 <p>{x.location}</p>
@@ -79,15 +90,17 @@ return (
                 <p>{x.availability}</p>
                 <p>{x.commission}</p>
                 <p>{x.price} £ PM</p>
-            </div>
-        ))
-        }
+            </StyledPropertyDescription>
+        ))}
+
 
         <StyledHomeButton>
         <ArrowButton state={{ route: props.location.state.route, pathname: "/", tag: "home" }}/>
         </StyledHomeButton>
 
         <ArrowButton state={{ route: props.location.state.route, pathname: "/propertiesList" }}/>
+            {/* </StyledWrapper> */}
+
     </Layout>
 
     )  

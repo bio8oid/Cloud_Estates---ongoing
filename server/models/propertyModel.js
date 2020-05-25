@@ -13,7 +13,7 @@ const PropertyModel = new Schema({
     deposit: { type: 'String' },
     commission: { type: 'String' },
     factor: { type: 'String' },
-    img: { type: 'String' }
+    img: { type: ['String'] }
     
 });
 

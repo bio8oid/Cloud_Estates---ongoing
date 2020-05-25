@@ -10,16 +10,16 @@ body {
   margin: 0;
   color: #040026;
   font-family: 'Indie Flower';
+  user-select: none;
   }
   
   *, *::before, *::after {
     box-sizing: border-box;
   }
+  
     html {
     box-sizing: border-box;
   }
-
-  user-select: none;
 `;
 
 

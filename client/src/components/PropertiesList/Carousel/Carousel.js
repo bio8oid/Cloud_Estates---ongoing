@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby"
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -109,7 +109,7 @@ const CarouselComponent = props => {
                         <h3 >{x.title}</h3>
                         <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
                             <StyledProductImage>
-                                <img src={x.img} alt={x.title} />
+                                <img src={x.img[0]} alt={x.title} />
                                 <StyledProductDescription>
                                     <p>{x.location}</p>
                                     <p>{x.price} £ PM</p>
