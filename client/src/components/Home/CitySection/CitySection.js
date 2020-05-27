@@ -6,13 +6,13 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ---- 
 
-import cloud1 from "../../../images/cloud_1.png"
-import cloud2 from "../../../images/cloud_2.png"
-import cloud3 from "../../../images/cloud_3.png"
-import bottomFront from "../../../images/bottom_front.png"
-import bottomMiddle from "../../../images/bottom_middle.png"
-import bottomRight from "../../../images/bottom_right.png"
-import bottomBack from "../../../images/bottom_back.png"
+import cloud1 from "../../../images/cloud_1.webp"
+import cloud2 from "../../../images/cloud_2.webp"
+import cloud3 from "../../../images/cloud_3.webp"
+import bottomFront from "../../../images/bottom_front.webp"
+import bottomMiddle from "../../../images/bottom_middle.webp"
+import bottomRight from "../../../images/bottom_right.webp"
+import bottomBack from "../../../images/bottom_back.webp"
 
 // ---- Styled Clouds ----
 

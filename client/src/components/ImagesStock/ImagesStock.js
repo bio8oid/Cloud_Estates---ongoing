@@ -13,13 +13,13 @@ import Img from "gatsby-image"
 //  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
 //  */
 
-// import logoTop from "../../images/logo_cloud.png"
-// import logoBottom from "../../images/logo_estates.png"
+// import logoTop from "../../images/logo_cloud.webp"
+// import logoBottom from "../../images/logo_estates.webp"
 
 export const LogoTop = () => {
     const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo_cloud.png" }) {
+      placeholderImage: file(relativePath: { eq: "logo_cloud.webp" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid

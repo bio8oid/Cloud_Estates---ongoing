@@ -20,20 +20,18 @@ border: 1px solid #000;
 `
 
 const PropertyView = props =>  {
+
 console.log('props:', props)
-// console.log('props:', props)
+// console.log('props:', props.location.state.route)
 
     const [loading, setLoading] = useState(true)
     const [propertyContent, setPropertyContent] = useState({ properties: [{}] });
+    const [routeTag, setRouteTag] = useState('"vip"');
+    const [propertyId, setPropertyId] = useState(null);
+    console.log('propertyId:', propertyId)
     console.log('propertyContent:', propertyContent)
 
-    // let routeTag = props.location.state.route;
-
-    // let id = props.location.state.id;
-    // console.log('id:', id)
-
     useEffect(() => {
-        // let string = `{"id": ${id}}`
         const query = `query Properties($string: String) {
             properties(filter: $string) {
                 id
@@ -54,11 +52,15 @@ console.log('props:', props)
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         };
-        // const body = JSON.stringify({ query, variables: { string } });
+
+        const tagData = props.location.state === null ? routeTag : props.location.state.route;
 
         const fetchData = async () => {
             try {
+                const tag = await tagData;
+                setRouteTag(tag);
                 let id = await props.location.state.id;
+                setPropertyId(id)
                 let string = `{"id": ${id}}`
                 const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
@@ -71,7 +73,7 @@ console.log('props:', props)
             }
         }
         fetchData();
-    }, []);
+    }, [ propertyId ]);
 
     
 return (
@@ -96,10 +98,10 @@ return (
         ))}
 
         <StyledHomeButton>
-        <ArrowButton state={{ route: props.routeTag, pathname: "/", tag: "home" }}/>
+        <ArrowButton state={{ pathname: "/", tag: "home" }}/>
         </StyledHomeButton>
 
-        <ArrowButton state={{ route: props.routeTag, pathname: "/propertiesList" }}/>
+        <ArrowButton state={{ route: routeTag, pathname: "/propertiesList" }}/>
 
     </Layout>
 

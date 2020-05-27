@@ -6,8 +6,9 @@ import Layout from "../components/Layout/Layout"
 import ArrowButton from "../components/ArrowButton/ArrowButton"
 import CarouselComponent from "../components/PropertiesList/Carousel/Carousel"
 import Spinner from "../components/Spinner/Spinner"
-import cloud3 from "../images/cloud_3.png"
+import cloud3 from "../images/cloud_3.webp"
 
+import useFetch from "../components/Fetch/Fetch"
 // ---- List Styles ----
 
 const StyledWrapper = styled.div`
@@ -35,13 +36,24 @@ padding: 0 5%;
 
 const PropertiesList = props => {
 
-    const [loading, setLoading] = useState(true)
-    const [pageContent, setPageContent] = useState({ properties: [{}] });
-    const [routeTag, setRouteTag] = useState('"vip"');
-    console.log('pageContent:', pageContent)
+    // const [loading, setLoading] = useState(true)
+    // const [pageContent, setPageContent] = useState({ properties: [{}] });
+    const [routeTag, setRouteTag] = useState(null);
+    console.log('routeTag:', routeTag)
+    // const [pageContent, loading] = useFetch(query, string);
+    // console.log('pageContent:', pageContent)
 
-    useEffect(() => {
-        const query = `query Properties($string: String) {
+
+//    useEffect(() => {
+//     const setTag = async () => {
+//         const tag = await props.location.state.route;
+//         setRouteTag(tag)
+//     }
+//        setTag();
+//     },[]);
+
+
+    const query = `query Properties($string: String) {
             properties(filter: $string) {
                 id
                 title
@@ -51,42 +63,107 @@ const PropertiesList = props => {
             }
         }`;
 
-        const url = "http://localhost:8080/graphql";
-        const headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        };
-        
-        const fetchData = async () => {
-            try {
-                const tag = await props.location.state.route;
-                setRouteTag(tag);
-                let string = `{"tag": ${tag}}`
-                const body = JSON.stringify({ query, variables: { string } });
-                const res = await fetch(url, { method: 'POST', headers: headers, body: body });
-                const preData = await res.json();
-                const data = preData.data
-                setPageContent(data);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
+    // const keptTag = localStorage.getItem('keptRouteTag');
+    // if (keptTag) setRouteTag(JSON.parse(localStorage.getItem('keptRouteTag')));
+
+
+
+    useEffect(() => {
+        const setTag = async () => {
+            const tag = await props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+            console.log('tag:', tag)
+            setRouteTag(tag)
+            localStorage.setItem('keptRouteTag', JSON.stringify(tag))
         }
-        fetchData();
+        setTag();
     }, []);
 
 
+    const tag = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+    //  console.log('tag:', tag)
+    //  setRouteTag(tag)
+    // localStorage.setItem('keptRouteTag', JSON.stringify(tag))
+
+
+    console.log('routeTagAfter:', routeTag)
+    // let string = `{"tag": ${routeTag}}`
+    let string = `{"tag": ${tag}}`
+
+    // const [pageContent, loading] = useFetch(query, string);
+    // console.log('pageContent:', pageContent)
+
+
+  const res = useFetch(query, string);
+  const loading = res.loading;
+  const pageContent = res.pageContent.properties;
+  console.log('res:', res)
+  console.log('loading:', loading)
+  console.log('pageContent:', pageContent)
+
+    
+    // useEffect(() => {
+    //     const keptTag = localStorage.getItem('keptRouteTag');
+    //     if (keptTag) setRouteTag(JSON.parse(keptTag));
+    // },[]);
+    
+    // console.log('routeTag2:', routeTag)
+
+    // useEffect(() => {
+    //     // const keptTag = localStorage.getItem('keptRouteTag');
+    //     // if (keptTag) setRouteTag(JSON.parse(keptTag));
+
+    //     const query = `query Properties($string: String) {
+    //         properties(filter: $string) {
+    //             id
+    //             title
+    //             price
+    //             location
+    //             img
+    //         }
+    //     }`;
+
+    //     const url = "http://localhost:8080/graphql";
+    //     const headers = {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     };
+
+    //     if (routeTag !== null) {
+    //         var tagData = routeTag ;
+    //     }
+    //     // const tagData = props.location.state === null && routeTag !== "" ? props.location.state.route : routeTag;
+
+    //     const fetchData = async () => {
+    //         try {
+    //             const tag = await  tagData;
+    //             // setRouteTag(tag);
+    //             let string = `{"tag": ${tag}}`
+    //             const body = JSON.stringify({ query, variables: { string } });
+    //             const res = await fetch(url, { method: 'POST', headers: headers, body: body });
+    //             const preData = await res.json();
+    //             const data = preData.data.properties
+    //             // setPageContent(data);
+    //             // setLoading(false);
+    //             // localStorage.setItem('keptRouteTag', JSON.stringify(tag))
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     }
+    //     fetchData();
+    // }, []);
+
+  
     return (
 
         <Layout>
             <SEO title="Properties" />
             <StyledBackground>
             <StyledWrapper>
-                <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>
+                <Title>Welcome to {tag.replace(/["]/g, "")} Products List</Title>
 
-                {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent.properties} state={{ route: routeTag }} />}
+                {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />}
 
-                    <ArrowButton state={{ route: routeTag, pathname: "/" }}/>
+                <ArrowButton state={{ route: routeTag, pathname: "/" }}/>
             </StyledWrapper>
             </StyledBackground>
         </Layout>
@@ -94,3 +171,12 @@ const PropertiesList = props => {
 }
 
 export default PropertiesList;
+
+// useEffect(() => {
+//     const keptTag = localStorage.getItem('keptRouteTag');
+//     keptTag ? setRouteTag(JSON.parse(keptTag));
+// })
+
+// useEffect(() => {
+//     localStorage.setItem('keptRouteTag',JSON.stringify( routeTag))
+// })

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
-import arrowDown from "../../images/arrow_down.png";
+import arrowDown from "../../images/arrow_down.webp";
 import homeImg from "../../images/home.png";
 
 // ---- Styles ----
@@ -46,8 +46,9 @@ img {
 `
 
 const ArrowButton = props => (
-
+    
     <StyledButton >
+    {/* {console.log('props:', props.state.route)} */}
         <Link state={{ route: props.state.route }} to={`${props.state.pathname}`} >
             {props.state.tag === "home" ? <img src={homeImg} alt="home-button" /> : <img src={arrowDown} alt="arrow-down" />}
         </Link>

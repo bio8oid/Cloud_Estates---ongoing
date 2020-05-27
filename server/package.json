@@ -18,5 +18,9 @@
   },
   "scripts": {
     "start": "nodemon server.js"
+  },
+  "engines": {
+    "yarn": "1.x",
+    "node": "12.x"
   }
 }

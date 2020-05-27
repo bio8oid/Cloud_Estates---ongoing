@@ -73,6 +73,7 @@ img {
 
 
 const CarouselComponent = props => {
+console.log('props:', props.state.route)
 
     const responsive = {
         desktop: {

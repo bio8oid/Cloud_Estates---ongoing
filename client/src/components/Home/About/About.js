@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../../utils/theme';
-import arrowDown from "../../../images/arrow_down.png"
+import arrowDown from "../../../images/arrow_down.webp"
 import { StyledHero } from '../Hero/Hero';
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 

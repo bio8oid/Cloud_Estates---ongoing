@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { theme } from '../../../utils/theme';
 import { Link } from "gatsby"
-import rentCloud from '../../../images/rent_cloud.png'
+import rentCloud from '../../../images/rent_cloud.webp'
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 

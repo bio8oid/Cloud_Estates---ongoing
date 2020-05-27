@@ -5,9 +5,9 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ---- 
 
-import cloud1 from "../../../images/cloud_1.png"
-import cloud8 from "../../../images/cloud_8.png"
-import cloud9 from "../../../images/cloud_9.png"
+import cloud1 from "../../../images/cloud_1.webp"
+import cloud8 from "../../../images/cloud_8.webp"
+import cloud9 from "../../../images/cloud_9.webp"
 
 // ---- Clouds Styles----
 

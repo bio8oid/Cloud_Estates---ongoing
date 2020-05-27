@@ -7,8 +7,8 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 // ---- Images ----
 
-import logoTop from "../../../images/logo_cloud.png"
-import logoBottom from "../../../images/logo_estates.png"
+import logoTop from "../../../images/logo_cloud.webp"
+import logoBottom from "../../../images/logo_estates.webp"
 
 
 // ---- Styles ----
