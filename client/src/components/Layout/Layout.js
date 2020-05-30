@@ -23,7 +23,7 @@ body {
 `;
 
 
-const Layout = ({ children }) => (
+const Layout = ({ children, props }) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />

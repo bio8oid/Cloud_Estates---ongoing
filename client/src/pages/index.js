@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/Seo/seo";
 import Header from '../components/Home/Header/Header';
@@ -10,9 +10,15 @@ import UpperCloudsSection from '../components/Home/UpperCloudsSection/UpperCloud
 import { Parallax } from 'react-spring/renderprops-addons';
 
 
-const IndexPage = parallax => (
+const IndexPage = (props, parallax, ) => {
+// console.log('props:', props)
 
-    <Layout>
+        const [routeTag, setRouteTag] = useState(null);
+
+
+
+return (
+    <Layout { ...routeTag } >
         <SEO title="Home" />
         <Parallax ref={ref => (parallax = ref)} pages={4}>
             <UpperCloudsSection />
@@ -20,10 +26,12 @@ const IndexPage = parallax => (
             <Hero onClick={() => parallax.scrollTo(1)} />
             <About onClick={() => parallax.scrollTo(2)} />
             <CitySection onClick={() => parallax.scrollTo(0)} />
-            <Rent />
+            <Rent onClick={(tag) => setRouteTag(tag)}/>
         </Parallax>
-    </Layout>
-
+    </Layout> 
 )
+
+
+}
 
 export default IndexPage;

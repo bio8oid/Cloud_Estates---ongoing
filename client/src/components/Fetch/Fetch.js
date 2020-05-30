@@ -28,7 +28,7 @@ import React, { useState, useEffect } from "react";
 
 
 
-const useFetch = (query, string) => {
+const useFetch = async (query, string) => {
     const [pageContent, setPageContent] = useState([]);
     // const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true)
@@ -50,8 +50,8 @@ const useFetch = (query, string) => {
 
     const url = "http://localhost:8080/graphql";
 
-    useEffect(() => {
-        const fetchData = async () => {
+    // useEffect(() => {
+    //     const fetchData = async () => {
             try {
                 // const tag = await tagData;
             // let string = `{"tag": ${tag}}`
@@ -65,9 +65,9 @@ const useFetch = (query, string) => {
                 // setError(error);
                 console.log(error);
             }
-        };
-        fetchData();
-    }, []);
+        // };
+    //     fetchData();
+    // }, []);
     return { pageContent, loading };
 };
 
