@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 
 
 const useFetch = (query, string) => {
+console.log('string:', string)
 
     const [pageContent, setPageContent] = useState([]);
     const [loading, setLoading] = useState(true)
-    const [routeTag, setRouteTag] = useState({});
+    const [routeFetchData, setRouteFetchData] = useState({});
 
     useEffect(() => {
-        setRouteTag(string);
+        setRouteFetchData(string);
     }, [string]);
 
 
@@ -24,10 +25,12 @@ const useFetch = (query, string) => {
 
         const fetchData = async () => {
             try {
-                let string = await `{${routeTag.name}: ${routeTag.value}}`
+                let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`
+                console.log('string:', string)
                 const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
+                console.log('data:', data)
                 setPageContent(data.data.properties);
                 setLoading(false);
             } catch (err) {
@@ -35,8 +38,8 @@ const useFetch = (query, string) => {
             }
         }
         fetchData();
-    }, [routeTag]);
-    return { pageContent, loading, routeTag };
+    }, [routeFetchData]);
+    return { pageContent, loading, routeFetchData };
 }
 
 

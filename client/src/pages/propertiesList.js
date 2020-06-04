@@ -38,17 +38,17 @@ const PropertiesList = props => {
 
     const [routeData, setRouteData] = useState({});
 
-  
+
     useEffect(() => {
-        
+
         const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
 
-        const stLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
+        const setLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
 
         const setTag = async () => {
             const tagData = await routeTagData;
             setRouteData({ name: '"tag"', value: tagData });
-            stLocalStorage(tagData);
+            setLocalStorage(tagData);
         }
         setTag();
     }, []);
@@ -66,7 +66,7 @@ const PropertiesList = props => {
     const res = useFetch(query, routeData);
 
     const loading = res.loading;
-    const routeTag = res.routeTag.value;
+    const routeTag = res.routeFetchData.value;
     const pageContent = res.pageContent;
 
     return (
@@ -77,7 +77,7 @@ const PropertiesList = props => {
                 <StyledWrapper>
 
                     {loading ? <Spinner /> :
-                        <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
+                    <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />
 
                     <ArrowButton state={{ route: routeTag, pathname: "/" }} />
