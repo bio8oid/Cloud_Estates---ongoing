@@ -33,12 +33,12 @@ console.log('setTag:', string)
 
     const [pageContent, setPageContent] = useState([]);
     // const [error, setError] = useState(null);
-    const [routeTag, setRouteTag] = useState("");
     const [loading, setLoading] = useState(true)
+    const [routeTag, setRouteTag] = useState("");
 
-    // useEffect(() => {
-    //     setRouteTag(string);
-    // }, [string]);
+    useEffect(() => {
+        setRouteTag(string);
+    }, [string]);
 
     // useEffect(() => {
     //     const stringData = async ( ) => {
@@ -52,7 +52,6 @@ console.log('setTag:', string)
     //         await setRouteTag(string)
             
     //     };
-
     //         stringData();
     //     }, []);
     //     console.log('stringData:', stringData())
@@ -61,61 +60,105 @@ console.log('setTag:', string)
 
 
 
-    let anyData = `{ "id": "7" }`
-    // let anyData = `{"tag": ${string}}`
-    console.log('anyData:', anyData)
+    // let anyData = `{ "id": "7" }`
+    // // let anyData = `{"tag": ${string}}`
+    // console.log('anyData:', anyData)
 
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({ query, variables: {anyData}  }),
-    }
+    // const options = {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     },
+    //     body: JSON.stringify({ query, variables: {anyData}  }),
+    // }
 
 
     // const body =  JSON.stringify({ query, variables: { string } })
 
     // console.log('routeTagAfter fetch:', routeTag)
 
-    //     const headers = {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    // };
+        const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    };
 
     const url = "http://localhost:8080/graphql";
 
+
+    // const tagData = routeTag;
+    
+    
     useEffect(() => {
+
         const fetchData = async () => {
             try {
-
-                // const tag = await string
-                // setRouteTag(tag);
-
-                // const tag = routeTag;
-                // const tag = await stringData();
-                // console.log('tag:', tag)
-                // let stringgy = `{"tag": "gift"}`
-                // let stringgy = `{"tag": ${tag}}`
-                // const body = JSON.stringify({ query, variables: { stringgy } });
-                // const res = await fetch(url, { method: 'POST', headers: headers, body: body });
-                
-                const res = await fetch(url, options);
-                const json = await res.json();
-                console.log('json:', json.data.properties);
-                // setPageContent(json.data);
-                // setLoading(false)
-            } catch (error) {
-                // setError(error);
-                console.log(error);
+                const tag = await routeTag;
+                let string = `{"tag": ${tag}}`
+                const body = JSON.stringify({ query, variables: { string } });
+                const res = await fetch(url, { method: 'POST', headers: headers, body: body });
+                const data = await res.json();
+                console.log('data:', data.data.properties)
+                setPageContent(data.data.properties);
+                setLoading(false);
+            } catch (err) {
+                console.log(err);
             }
-        };
+        }
         fetchData();
-    }, []);
-    // return { pageContent, loading };
+    }, [routeTag]);
     return { pageContent, loading, routeTag };
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             try {
+
+//                 // const tag = await string
+//                 // setRouteTag(tag);
+
+//                 // const tag = routeTag;
+//                 // const tag = await stringData();
+//                 // console.log('tag:', tag)
+//                 // let stringgy = `{"tag": "gift"}`
+//                 // let stringgy = `{"tag": ${tag}}`
+//                 // const body = JSON.stringify({ query, variables: { stringgy } });
+//                 // const res = await fetch(url, { method: 'POST', headers: headers, body: body });
+                
+//                 const res = await fetch(url, options);
+//                 const json = await res.json();
+//                 console.log('json:', json.data.properties);
+//                 // setPageContent(json.data);
+//                 // setLoading(false)
+//             } catch (error) {
+//                 // setError(error);
+//                 console.log(error);
+//             }
+//         };
+//         fetchData();
+//     }, []);
+//     // return { pageContent, loading };
+//     return { pageContent, loading, routeTag };
+// };
+
+
+
+
 
 
 

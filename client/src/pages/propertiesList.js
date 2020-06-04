@@ -88,13 +88,13 @@ const PropertiesList = props => {
 
     const res = useFetch(query, routeTaggy);
 
-    // const loading = res.loading;
-    // const routeTag = res.routeTag;
-    // const pageContent = res.pageContent.properties;
+    const loading = res.loading;
+    const routeTag = res.routeTag;
+    const pageContent = res.pageContent;
 
-    // console.log('res:', res)
-    // console.log('loading:', loading)
-    // console.log('pageContent:', pageContent)
+    console.log('res:', res)
+    console.log('loading:', loading)
+    console.log('pageContent:', pageContent)
 
 
     return (
@@ -104,14 +104,14 @@ const PropertiesList = props => {
             <StyledBackground>
                 <StyledWrapper>
 
-                   {/* <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title> */}
+                   <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>
 
                     {/* {loading ? <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title> : "Loadimg..."} */}
                     {/* <Title>Welcome to {tag.replace(/["]/g, "")} Products List</Title> */}
 
-                    {/* {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />} */}
+                    {loading ? <Spinner /> : <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />}
 
-                    {/* <ArrowButton state={{ route: routeTag, pathname: "/" }} /> */}
+                    <ArrowButton state={{ route: routeTag, pathname: "/" }} />
                 </StyledWrapper>
             </StyledBackground>
         </Layout>
