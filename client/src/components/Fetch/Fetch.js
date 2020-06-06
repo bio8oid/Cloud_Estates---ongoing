@@ -2,45 +2,39 @@ import React, { useState, useEffect } from "react";
 
 
 const useFetch = (query, string) => {
-console.log('string:', string)
 
     const [pageContent, setPageContent] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const [routeFetchData, setRouteFetchData] = useState({});
 
     useEffect(() => {
         setRouteFetchData(string);
     }, [string]);
 
-
     const url = "http://localhost:8080/graphql";
 
-        const headers = {
+    const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     };
-
 
     useEffect(() => {
 
         const fetchData = async () => {
             try {
-                let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`
-                console.log('string:', string)
+                let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`;
                 const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
-                console.log('data:', data)
                 setPageContent(data.data.properties);
                 setLoading(false);
             } catch (err) {
                 console.log(err);
-            }
-        }
+            };
+        };
         fetchData();
     }, [routeFetchData]);
     return { pageContent, loading, routeFetchData };
-}
-
+};
 
 export default useFetch;

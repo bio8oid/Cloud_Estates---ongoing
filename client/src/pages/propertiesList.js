@@ -38,8 +38,9 @@ const PropertiesList = props => {
 
     const [routeData, setRouteData] = useState({});
 
-
     useEffect(() => {
+
+        // To keep state after page reload
 
         const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
 
@@ -66,11 +67,10 @@ const PropertiesList = props => {
     const res = useFetch(query, routeData);
 
     const loading = res.loading;
-    const routeTag = res.routeFetchData.value;
+    const routeTag = res.routeFetchData.value || "empty";
     const pageContent = res.pageContent;
 
     return (
-
         <Layout>
             <SEO title="Properties" />
             <StyledBackground>
