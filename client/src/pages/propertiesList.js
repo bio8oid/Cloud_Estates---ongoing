@@ -3,7 +3,7 @@ import SEO from "../components/Seo/seo"
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import Layout from "../components/Layout/Layout"
-import ArrowButton from "../components/ArrowButton/ArrowButton"
+import MultiButton from "../components/MultiButton/MultiButton"
 import CarouselComponent from "../components/PropertiesList/Carousel/Carousel"
 import Spinner from "../components/Spinner/Spinner"
 import cloud3 from "../images/cloud_3.webp"
@@ -46,8 +46,8 @@ const PropertiesList = props => {
 
         const setLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
 
-        const setTag = async () => {
-            const tagData = await routeTagData;
+        const setTag = () => {
+            const tagData = routeTagData;
             setRouteData({ name: '"tag"', value: tagData });
             setLocalStorage(tagData);
         }
@@ -80,7 +80,7 @@ const PropertiesList = props => {
                     <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />
 
-                    <ArrowButton state={{ route: routeTag, pathname: "/" }} />
+                    <MultiButton state={{ route: routeTag, pathname: "/" }} />
                 </StyledWrapper>
             </StyledBackground>
         </Layout>

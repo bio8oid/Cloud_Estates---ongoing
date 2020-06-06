@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 import arrowDown from "../../images/arrow_down.webp";
-import homeImg from "../../images/home.png";
+import homeImg from "../../images/home.webp";
 
 // ---- Styles ----
 
@@ -45,7 +45,7 @@ img {
     }
 `
 
-const ArrowButton = props => (
+const MultiButton = props => (
     
     <StyledButton >
     {/* {console.log('props:', props.state.route)} */}
@@ -56,4 +56,4 @@ const ArrowButton = props => (
 
 )
 
-export default ArrowButton;
+export default MultiButton;

@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "gatsby"
 import styled from 'styled-components';
 import { theme } from '../../../utils/theme';
 import Carousel from "react-multi-carousel";
@@ -18,8 +17,6 @@ img {
 
 
 const Slider = props => {
-// console.log('props:', props)
-// console.log('propsIMG:', props.propertyContent[0].img)
 
     const responsive = {
         desktop: {

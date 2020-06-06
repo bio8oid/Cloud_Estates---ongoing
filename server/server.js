@@ -1,97 +1,13 @@
 const express = require("express");
-// const bodyParser = require('body-parser');
-// const bodyParser = require('body-parser-graphql');
 const cors = require('cors');
-// const graphqlHTTP = require('express-graphql');
-// const { buildSchema } = require('graphql');
-const graphql = require('graphql').graphql;
 const config = require('./config');
-// const Property = require('./schema');
-// const graphQlResolvers  = require('./schema');
-// const graphQlResolvers  = require('./schema');
-// var mongoose = require("mongoose");
-// const helmet = require('helmet');
-// const path = require('path');
-
+const graphqlHTTP = require('express-graphql');
 const app = express();
-
-// import routes
-// const router = require('./routes/product.route');
+const mongoose = require("mongoose");
+const graphQlSchema = require('./graphql/schema/schema');
+const graphQlResolvers = require('./graphql/resolvers/propertyResolver');
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-// app.use(bodyParser.json());
-// app.use(bodyParser.graphql());
-// app.use('/api', router);
-// app.use(helmet());
-
-// send static files to client
-// app.use(express.static(path.join(__dirname, '/../client/build')));
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/..client/build/index.html'));
-// });
-
-// connect to database
-// mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
-
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//     console.log('MongoDB database connection established successfully');
-// });
-
-// connection.on('error', (err) => console.log('Error ' + err));
-
-// app.use('/api', graphqlHTTP({ 
-//     schema: buildSchema (`
-//         type RootQuery {
-//             events: [String!]!
-//         }
-//         schema {
-//             query: RootQuery
-//         }
-//         `),
-//         rootValue: {
-//             events: () => {
-//                 return ['kazik washing his head', 'Kate washing feet', 'I wonder why?']
-//             },
-//         },
-//         api: true
-//     }));
-
-
-
-
-// app.use('/api', graphqlHTTP({ schema: require('./schema.js'), api: true}));
-
-
-
-
-
-
-// app.listen(config.PORT, function () {
-//     console.log("Server is running on Port: " + config.PORT);
-
-// });
-
-
-
-
-
-
-
-
-//------------------------------- SECOND --------//
-
-
-
-
-
-// const express = require("express");
-const graphqlHTTP = require('express-graphql');
-
-const mongoose = require("mongoose");
 
 const {
     GraphQLID,
@@ -102,59 +18,11 @@ const {
     GraphQLSchema
 } = require("graphql");
 
-const graphQlSchema = require('./graphql/schema/schema');
-const graphQlResolvers = require('./graphql/resolvers/propertyResolver');
-
-// var app = express();
-
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
 mongoose.connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
-
-// const PropertyModel = mongoose.model("property", {
-//     title: String,
-//     desc: String
-// });
-
-// const PropertyType = new GraphQLObjectType({
-//     name: "Property",
-//     fields: {
-//         id: { type: GraphQLID },
-//         title: { type: GraphQLString },
-//         desc: { type: GraphQLString }
-//     }
-// });
-
-
-// const schema = new GraphQLSchema({
-//     query: new GraphQLObjectType({
-//         name: "Query",
-//         fields: {
-//             properties: {
-//                 type: GraphQLList(PropertyType),
-//                 resolve: (root, args, context, info) => {
-//                     return PropertyModel.find().exec();
-//                 }
-//             },
-//             property: {
-//                 type: PropertyType,
-//                 args: {
-//                     id: { type: GraphQLNonNull(GraphQLID) }
-//                 },
-//                 resolve: (root, args, context, info) => {
-//                     return PropertyModel.findById(args.id).exec();
-//                 }
-//             }
-//         }
-//     }),
-// });
-
-// app.use("/graphql", graphqlHTTP({
-//     schema: schema,
-//     graphiql: true
-// }));
 
 app.use("/graphql", graphqlHTTP({
     schema: graphQlSchema,
@@ -162,78 +30,6 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true
 }));
 
-
-
-// This is just an internal test
-// var query = 'query { properties { id, title, tag } }'
-// graphql(graphQlSchema, query).then(function (result) {
-//     console.log(JSON.stringify(result, null, " "));
-// });
-
-
-
-
-
 app.listen(config.PORT, function () {
     console.log("Server is running on Port: " + config.PORT);
 });
-
-
-
-
-
-
-
-
-////=============== THIRD ================\\\\
-
-
-
-
-
-// const {
-//     Stitch,
-//     RemoteMongoClient,
-//     AnonymousCredential
-// } = require('mongodb-stitch-browser-sdk');
-
-// const client = Stitch.initializeDefaultAppClient('testclouds-isril');
-
-// const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('cloud_properties');
-
-// client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
-//     db.collection('properties').updateOne({ owner_id: client.auth.user.id }, { $set: { number: 42 } }, { upsert: true })
-// ).then(() =>
-//     db.collection('properties').find({ owner_id: client.auth.user.id }, { limit: 100 }).asArray()
-// ).then(docs => {
-//     console.log("Found docs", docs)
-//     console.log("[MongoDB Stitch] Connected to Stitch")
-// }).catch(err => {
-//     console.error(err)
-// });
-
-
-
-
-//  --------------- testing database -------------
-
-
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-
-// const uri = "mongodb+srv://bio8oid:biooid@bio8oid-idk43.mongodb.net/test?retryWrites=true&w=majority"
-
-// MongoClient.connect(uri, {
-//     useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-
-//     assert.equal(null, err);
-//     const db = client.db("cloud_properties");
-//     var productsData = db.collection('properties').find({});
-
-//     readProducts = doc => {
-//         console.log(doc);
-//     }
-
-//     productsData.forEach(readProducts);
-//     // client.close();
-// })

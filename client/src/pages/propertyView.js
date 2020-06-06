@@ -4,8 +4,8 @@ import styled from 'styled-components';
 // import { theme } from '../utils/theme';
 import Spinner from "../components/Spinner/Spinner"
 import Layout from "../components/Layout/Layout"
-import ArrowButton from "../components/ArrowButton/ArrowButton";
-import { StyledHomeButton } from "../components/ArrowButton/ArrowButton"
+import MultiButton from "../components/MultiButton/MultiButton";
+import { StyledHomeButton } from "../components/MultiButton/MultiButton"
 import Slider from "../components/PropertyView/Slider/Slider"
 import useFetch from "../components/Fetch/Fetch";
 
@@ -60,7 +60,8 @@ const PropertyView = props => {
     const res = useFetch(query, propertyId);
 
     const loading = res.loading;
-    const propertyContent = res.pageContent || [{ img: ["https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg"] }];
+    const propertyContent = res.pageContent;
+    console.log('propertyContent:', propertyContent)
 
     return (
 
@@ -84,10 +85,10 @@ const PropertyView = props => {
             ))}
 
             <StyledHomeButton>
-                <ArrowButton state={{ pathname: "/", tag: "home" }} />
+                <MultiButton state={{ pathname: "/", tag: "home" }} />
             </StyledHomeButton>
 
-            <ArrowButton state={{ route: routeTag, pathname: "/propertiesList" }} />
+            <MultiButton state={{ route: routeTag, pathname: "/propertiesList" }} />
 
         </Layout>
 

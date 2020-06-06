@@ -97,7 +97,7 @@ const Header = props => (
                 </LogoBottom>
             </LogoWrapper>
             <MeanuWrapper>
-                <a href='#rent'>rent</a>
+                <a id="rent-button" href='#rent'>rent</a>
                 <Link as="a" to="/contact">contact</Link>
             </MeanuWrapper>
         </StyledHeader>

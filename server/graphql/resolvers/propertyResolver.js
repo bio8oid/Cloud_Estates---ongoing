@@ -42,31 +42,3 @@ module.exports = {
         .catch(err => console.log(err))
     }
 };
-
-
-// module.exports = {
-//     properties: async () => {
-//         try {
-//             const properties = await Property.find({}, function (err, result) {
-//                 if (err) {
-//                     console.log('err:', err)
-//                 } else {
-//                     return result
-//                 };
-//             });
-//             return properties
-//         } catch (err) {
-//             throw err;
-//         }
-//     },
-// };
-
-// app.get('/', function (err, res) {
-//     User.find({}, function (err, result) {
-//         if (err) {
-//             console.log('err:', err)
-//         } else {
-//             res.send(JSON.stringify(result, null, 2));
-//         };
-//     });
-// });

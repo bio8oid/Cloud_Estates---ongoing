@@ -14,5 +14,9 @@
         "install:client": "cd client && yarn install",
         "install:server": "cd server && yarn install",
         "postinstall": "run-p install:*"
+    },
+    "engines": {
+        "yarn": "1.x",
+        "node": "12.x"
     }
 }
