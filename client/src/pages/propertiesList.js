@@ -52,7 +52,7 @@ const PropertiesList = props => {
             setLocalStorage(tagData);
         }
         setTag();
-    }, []);
+    }, [props.location.state]);
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {

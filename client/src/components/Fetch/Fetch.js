@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 const useFetch = (query, string) => {
@@ -15,12 +15,13 @@ const useFetch = (query, string) => {
 
     const url = "https://cloud-estates.herokuapp.com/";
 
-    const headers = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    };
-
+    
     useEffect(() => {
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        };
 
         const fetchData = async () => {
             try {
@@ -35,7 +36,7 @@ const useFetch = (query, string) => {
             };
         };
         fetchData();
-    }, [routeFetchData]);
+    }, [routeFetchData, query]);
     return { pageContent, loading, routeFetchData };
 };
 
