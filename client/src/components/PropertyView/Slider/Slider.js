@@ -4,11 +4,10 @@ import { theme } from '../../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-// ---- Styles ----
-
+// ---- Slider Component Styles ----
 
 const StyledPropertyImage = styled.div`
-max-height: 70vh;
+max-height: 60vh;
 
 img {
    ${theme.responsiveImg};
@@ -41,15 +40,18 @@ const Slider = props => {
         <Carousel
             swipeable={true}
             draggable={false}
-            showDots={true}
+            showDots={false}
             responsive={responsive}
             ssr={true}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={5000}
             keyBoardControl={true}
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
         >
             {props.propertyContent[0].img.map(item => 
                 <StyledPropertyImage key={Math.random()}>
-            <img src={item} alt={item} />
+                    <img src={item} alt={item} />
                 </StyledPropertyImage>
             )}
 

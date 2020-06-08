@@ -80,7 +80,7 @@ const PropertiesList = props => {
                     <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />
 
-                    <MultiButton state={{ route: routeTag, pathname: "/" }} />
+                    <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
                 </StyledWrapper>
             </StyledBackground>
         </Layout>

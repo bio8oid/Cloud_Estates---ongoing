@@ -5,7 +5,7 @@ import { theme } from '../../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-// ---- Styles ----
+// ---- Carousel Component Styles ----
 
 const StyledProductConetnt = styled.div`
    margin: 25px;
@@ -22,20 +22,16 @@ const StyledProductConetnt = styled.div`
 `
 const StyledProductDescription = styled.div`
 ${theme.centered};
-width: 100%;
+${theme.flex.centeredColumn};
+max-width: 100%;
 
  p {
-    display: block;
+    display: inline-block;
     font-size: 3rem;
     color: black;
     font-weight: bolder;
     text-shadow: 0 0 5px skyblue;
     margin: 0;
-
-    ${theme.media.tablet} {
-        font-size: 2rem;
-    }
-
 }
     @media not all and (hover: none) {
         &:hover p {
@@ -60,6 +56,7 @@ img {
 
     @media not all and (hover: none) {
         &:hover { 
+            border: 10px solid rgba(4, 0, 38, .6);
             box-shadow: 0 0 10px  ${theme.colors.primary};
             opacity: .9;
         &:hover ~ ${StyledProductDescription} p { 
@@ -73,17 +70,16 @@ img {
 
 
 const CarouselComponent = props => {
-console.log('props:', props.state.route)
 
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3,
+            items: 2,
             slidesToSlide: 1 // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2,
+            items: 1,
             slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
@@ -113,7 +109,7 @@ console.log('props:', props.state.route)
                                 <img src={x.img[0]} alt={x.title} />
                                 <StyledProductDescription>
                                     <p>{x.location}</p>
-                                    <p>{x.price} £ PM</p>
+                                    <p>{x.price}&nbsp;£&nbsp;PM</p>
                                 </StyledProductDescription>
                             </StyledProductImage>
                         </Link>

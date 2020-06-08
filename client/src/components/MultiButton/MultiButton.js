@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 import arrowDown from "../../images/arrow_down.webp";
 import homeImg from "../../images/home.webp";
+import chat from "../../images/chat.webp";
 
-// ---- Styles ----
+// ---- MultiButton Component Styles ----
 
-const StyledButton = styled.div`
+export const StyledButton = styled.div`
 position: fixed;
 bottom: 0;
 margin-left: 20px;
@@ -44,13 +45,30 @@ img {
         right: 90px;
     }
 `
+export const StyledContactButton = styled.div`
+div {
+    position: static;
+    opacity: 1;
+    margin: 0 ;
+} 
+
+img {
+    transform: rotate(0);
+}
+`
 
 const MultiButton = props => (
     
     <StyledButton >
-    {/* {console.log('props:', props.state.route)} */}
-        <Link state={{ route: props.state.route }} to={`${props.state.pathname}`} >
-            {props.state.tag === "home" ? <img src={homeImg} alt="home-button" /> : <img src={arrowDown} alt="arrow-down" />}
+    {/* {console.log('props:', props)} */}
+        <Link state={{ route: props.state.route, id: props.state.id.value }} to={`${props.state.pathname}`} >
+
+            {props.state.buttonType === "home" ? 
+            <img src={homeImg} alt="home-button" /> :
+             props.state.buttonType === "chat" ?
+            <img src={chat} alt="chat-button" /> : 
+            <img src={arrowDown} alt="arrow-down" />}
+
         </Link>
     </StyledButton>
 
