@@ -27,6 +27,9 @@ img {
         }
     }  
 
+    ${theme.media.tabletPro} {
+        height: 70px;
+    }
     ${theme.media.mobile} {
         height: 50px;
     }
@@ -40,6 +43,10 @@ img {
     transform: rotate(0) ;
 }
 
+  ${theme.media.tabletPro} {
+        height: 70px;
+        right: 110px;
+    }
  ${theme.media.mobile} {
         height: 50px;
         right: 90px;
@@ -47,9 +54,10 @@ img {
 `
 export const StyledContactButton = styled.div`
 div {
+    margin: 0;
     position: static;
     opacity: 1;
-    margin: 0 ;
+    padding: 0 10px;
 } 
 
 img {
@@ -58,16 +66,16 @@ img {
 `
 
 const MultiButton = props => (
-    
+
     <StyledButton >
-    {/* {console.log('props:', props)} */}
+        {/* {console.log('props:', props)} */}
         <Link state={{ route: props.state.route, id: props.state.id.value }} to={`${props.state.pathname}`} >
 
-            {props.state.buttonType === "home" ? 
-            <img src={homeImg} alt="home-button" /> :
-             props.state.buttonType === "chat" ?
-            <img src={chat} alt="chat-button" /> : 
-            <img src={arrowDown} alt="arrow-down" />}
+            {props.state.buttonType === "home" ?
+                <img src={homeImg} alt="home-button" /> :
+                props.state.buttonType === "chat" ?
+                    <img src={chat} alt="chat-button" /> :
+                    <img src={arrowDown} alt="arrow-down" />}
 
         </Link>
     </StyledButton>

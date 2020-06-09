@@ -6,37 +6,38 @@ import "react-multi-carousel/lib/styles.css";
 
 // ---- Slider Component Styles ----
 
+
 const StyledPropertyImage = styled.div`
-max-height: 60vh;
+max-height: 100vh;
 
 img {
-   ${theme.responsiveImg};
+    ${theme.responsiveImg};
+
+        ${theme.media.mobile} {
+            height: 30vh;
+        }
 }
 `
-
 
 const Slider = props => {
 
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            items: 1
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            items: 1
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            items: 1
         }
     }
 
     return (
-
+        
         <Carousel
             swipeable={true}
             draggable={false}

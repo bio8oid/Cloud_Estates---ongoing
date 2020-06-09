@@ -8,34 +8,69 @@ import MultiButton from "../components/MultiButton/MultiButton";
 import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton"
 import Slider from "../components/PropertyView/Slider/Slider"
 import useFetch from "../components/Fetch/Fetch";
+import cloud3 from "../images/cloud_3.webp"
 
 
 // ---- Property View Styles ----
 
 const StyledPropertyDescription = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-min-height: 40vh;
-opacity: .6;
+${theme.flex.centeredColumn};
+background : white;
+min-height: 45vh;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+margin: 0;
 
 p {
     font-size: 1.25rem;
     font-weight: bolder;
 }
+
+${theme.media.cloud} {
+    height: 51vh;
+}
+
+${theme.media.desktop} {
+    min-height: 58vh;
+}
+
+${theme.media.tabletPro} {
+    min-height: 60vh;
+}
+
+${theme.media.tablet} {
+    min-height: 70vh;
+}
+
+${theme.media.mobile} {
+    position: static;
+    opacity: .9;
+}
+`
+const StyledBackgroundImage = styled.div`
+position: absolute;
+max-height: 46vh;
+z-index: -1;
+
+img {
+    position: relative;
+    max-width: 100%;
+    opacity: .6;
+}
 `
 const StyledContainerWrapper = styled.div`
+${theme.flex.centered};
 text-align: center;
-display: flex;
-flex-direction: row;
 
 ${theme.media.mobile} {
     flex-direction: column;
 }
 `
 const StyledContainerCenter = styled.div`
-width: 70vw;
 text-align: center;
+width: 70vw;
 
 h3 {
     font-size: 2.5rem;
@@ -112,6 +147,11 @@ const PropertyView = props => {
 
             {propertyContent.map(x => (
                 <StyledPropertyDescription index={x.id} key={Math.random()} >
+
+                    <StyledBackgroundImage>
+                        <img src={cloud3} alt="cloud3" />
+                    </StyledBackgroundImage>
+
                     <StyledContainerCenter>
                         <h3>{x.title}</h3>
                         <p>{x.desc}</p>
