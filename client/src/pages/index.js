@@ -13,12 +13,8 @@ import { Parallax } from 'react-spring/renderprops-addons';
 const IndexPage = (props, parallax, ) => {
 // console.log('props:', props)
 
-        const [routeTag, setRouteTag] = useState(null);
-
-
-
 return (
-    <Layout { ...routeTag } >
+    <Layout >
         <SEO title="Home" />
         <Parallax ref={ref => (parallax = ref)} pages={4}>
             <UpperCloudsSection />
@@ -26,7 +22,7 @@ return (
             <Hero onClick={() => parallax.scrollTo(1)} />
             <About onClick={() => parallax.scrollTo(2)} />
             <CitySection onClick={() => parallax.scrollTo(0)} />
-            <Rent onClick={(tag) => setRouteTag(tag)}/>
+            <Rent />
         </Parallax>
     </Layout> 
 )

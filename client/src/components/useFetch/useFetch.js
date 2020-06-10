@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 
 const useFetch = (query, string) => {
+console.log('string:', string)
 
     const [pageContent, setPageContent] = useState([]);
     const [loading, setLoading] = useState(true);

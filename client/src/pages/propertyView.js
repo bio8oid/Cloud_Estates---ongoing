@@ -6,9 +6,10 @@ import Spinner from "../components/Spinner/Spinner"
 import Layout from "../components/Layout/Layout"
 import MultiButton from "../components/MultiButton/MultiButton";
 import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton"
-import Slider from "../components/PropertyView/Slider/Slider"
-import useFetch from "../components/Fetch/Fetch";
+import Slider from "../components/Slider/Slider"
+import useFetch from "../components/useFetch/useFetch";
 import cloud3 from "../images/cloud_3.webp"
+import useRouteData from "../components/useRouteData/useRouteData"
 
 
 // ---- Property View Styles ----
@@ -95,28 +96,31 @@ ${theme.media.mobile} {
 }
 `
 
-const PropertyView = props => {
+const PropertyView = (props, { children }) => {
+console.log('props:', props)
 
-    const [routeTag, setRouteTag] = useState("");
-    const [propertyId, setPropertyId] = useState({});
+    const routeDatas = useRouteData(props);
 
-    useEffect(() => {
+    // const [routeTag, setRouteTag] = useState("");
+    // const [propertyId, setPropertyId] = useState({});
 
-        // To keep state after page reload
+    // useEffect(() => {
 
-        const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+    //     // To keep state after page reload
 
-        const idData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteId')) : props.location.state.id;
+    //     const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
 
-        const setLocalStorage = (data) => localStorage.setItem('keptRouteId', JSON.stringify(data));
+    //     const idData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteId')) : props.location.state.id;
 
-        const setTag = async () => {
-            setPropertyId({ name: '"id"', value: idData });
-            setRouteTag(routeTagData);
-            setLocalStorage(idData);
-        }
-        setTag();
-    }, [props.location.state]);
+    //     const setLocalStorage = (data) => localStorage.setItem('keptRouteId', JSON.stringify(data));
+
+    //     const setTag = async () => {
+    //         setPropertyId({ name: '"id"', value: idData });
+    //         setRouteTag(routeTagData);
+    //         setLocalStorage(idData);
+    //     }
+    //     setTag();
+    // }, [props.location.state]);
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -133,10 +137,13 @@ const PropertyView = props => {
             }
         }`
 
-    const res = useFetch(query, propertyId);
+    const res = useFetch(query, routeDatas.propertyId);
 
     const loading = res.loading;
-    const propertyContent = res.pageContent;
+    const propertyContent = res.pageContent.length === 0 ? [{ img: [ "https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg"] }] : res.pageContent ;
+
+        console.log('res.pageContent:', res.pageContent)
+        console.log('propertyContent:', propertyContent)
 
     return (
 
@@ -165,7 +172,7 @@ const PropertyView = props => {
                         </StyledColumn>
 
                         <StyledContactButton>
-                            <MultiButton state={{ route: routeTag, id: propertyId, pathname: "/contact", buttonType: "chat" }} />
+                            <MultiButton state={{ route: routeDatas.routeTag, id: routeDatas.propertyId, pathname: "/contact", buttonType: "chat" }} />
                         </StyledContactButton>
 
                         <StyledColumn>
@@ -179,10 +186,10 @@ const PropertyView = props => {
             ))}
 
             <StyledHomeButton>
-                <MultiButton state={{ id: propertyId, pathname: "/", buttonType: "home" }} />
+                <MultiButton state={{ id: routeDatas.propertyId, pathname: "/", buttonType: "home" }} />
             </StyledHomeButton>
 
-            <MultiButton state={{ route: routeTag, id: propertyId, pathname: "/propertiesList" }} />
+            <MultiButton state={{ route: routeDatas.routeTag, id: routeDatas.propertyId, pathname: "/propertiesList" }} />
 
         </Layout>
 

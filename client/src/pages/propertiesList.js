@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import Layout from "../components/Layout/Layout"
 import MultiButton from "../components/MultiButton/MultiButton"
-import CarouselComponent from "../components/PropertiesList/Carousel/Carousel"
+import CarouselComponent from "../components/Carousel/Carousel"
 import Spinner from "../components/Spinner/Spinner"
 import cloud3 from "../images/cloud_3.webp"
-import useFetch from "../components/Fetch/Fetch"
+import useFetch from "../components/useFetch/useFetch"
+import useRouteData from "../components/useRouteData/useRouteData"
 
 
 // ---- List Styles ----
@@ -36,23 +37,46 @@ padding: 0 5%;
 
 const PropertiesList = props => {
 
-    const [routeData, setRouteData] = useState({});
+//  const [routeData, setRouteData] = useState({});
 
-    useEffect(() => {
+ const data = useRouteData(props);
 
-        // To keep state after page reload
+//  const routeTagData = { name: '"tag"', value: routeDatas.routeTag };
 
-        const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+//  useEffect(() => {
+     
+//      const setSomething = async () => {
+//          console.log('routeData:', routeDatas);
+//          console.log('routeDataTag:', routeDatas.routeTag);
 
-        const setLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
+//          console.log('routeTagData:', routeTagData)
 
-        const setTag = () => {
-            const tagData = routeTagData;
-            setRouteData({ name: '"tag"', value: tagData });
-            setLocalStorage(tagData);
-        }
-        setTag();
-    }, [props.location.state]);
+//          const something = await routeTagData
+//         setRouteData(something);
+//     }
+//         setSomething();
+//  }, [routeTagData] );
+
+
+
+
+    // const [routeData, setRouteData] = useState({});
+
+    // useEffect(() => {
+
+    //     // To keep state after page reload
+
+    //     const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+
+    //     const setLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
+
+    //     const setTag = () => {
+    //         setRouteData({ name: '"tag"', value: routeTagData });
+    //         setLocalStorage(routeTagData);
+    //     }
+    //     setTag();
+    // }, [props.location.state]);
+
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -64,7 +88,10 @@ const PropertiesList = props => {
             }
         }`;
 
-    const res = useFetch(query, routeData);
+    const res = useFetch(query, data.routeData);
+
+
+    // const res = useFetch(query, routeData);
 
     const loading = res.loading;
     const routeTag = res.routeFetchData.value || "empty";
@@ -81,6 +108,7 @@ const PropertiesList = props => {
                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />
 
                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
+
                 </StyledWrapper>
             </StyledBackground>
         </Layout>

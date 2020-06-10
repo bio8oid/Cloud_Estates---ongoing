@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { theme } from '../../../utils/theme';
+import { theme } from '../../utils/theme';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -20,7 +20,7 @@ img {
 `
 
 const Slider = props => {
-
+    
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -35,11 +35,11 @@ const Slider = props => {
             items: 1
         }
     }
-
+    
     return (
         
         <Carousel
-            swipeable={true}
+        swipeable={true}
             draggable={false}
             showDots={false}
             responsive={responsive}
@@ -49,7 +49,8 @@ const Slider = props => {
             autoPlaySpeed={5000}
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-        >
+            >
+            {console.log('props:', props.propertyContent[0].img)}
             {props.propertyContent[0].img.map(item => 
                 <StyledPropertyImage key={Math.random()}>
                     <img src={item} alt={item} />
