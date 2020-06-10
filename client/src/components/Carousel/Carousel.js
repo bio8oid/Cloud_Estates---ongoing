@@ -21,8 +21,8 @@ const StyledProductConetnt = styled.div`
    }
 `
 const StyledProductDescription = styled.div`
-${theme.centered};
 ${theme.flex.centeredColumn};
+${theme.centered};
 max-width: 100%;
 
  p {
@@ -75,22 +75,18 @@ const CarouselComponent = props => {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 2,
-            slidesToSlide: 1 // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1 // optional, default to 1.
         }
     }
 
     return (
-
         <Carousel
             swipeable={true}
             draggable={false}
@@ -104,7 +100,7 @@ const CarouselComponent = props => {
                 <div index={x.id} key={Math.random()} >
                     <StyledProductConetnt>
                         <h3 >{x.title}</h3>
-                        <Link as="a" to="/propertyView/" state={{ route: props.state.route, id: x.id }} >
+                        <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
                             <StyledProductImage>
                                 <img src={x.img[0]} alt={x.title} />
                                 <StyledProductDescription>

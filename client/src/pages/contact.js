@@ -1,52 +1,33 @@
+// import React, { useState } from "react";
 import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import SEO from "../components/Seo/seo";
 import Layout from "../components/Layout/Layout";
-import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton";
+import { StyledHomeButton } from "../components/MultiButton/MultiButton";
 import MultiButton from "../components/MultiButton/MultiButton";
 import useRouteData from "../components/useRouteData/useRouteData"
 
 const Contact = props => {
 
-  const data = useRouteData(props);
+  const routeData = useRouteData(props);
 
-//    const [routeTag, setRouteTag] = useState("");
-// const [propertyId, setPropertyId] = useState({});
+  return (
+    <Layout>
 
-// useEffect(() => {
+      {console.log('props:', props)}
+      {console.log('routeData.routeTag:', routeData.routeTag)}
 
-//   // To keep state after page reload
+      <SEO title="Contact" />
+      <h1>Contact Agent</h1>
 
-//   const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
+      <StyledHomeButton>
+        <MultiButton state={{ id: routeData.propertyId, pathname: "/", buttonType: "home" }} />
+      </StyledHomeButton>
 
-//   const idData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteId')) : props.location.state.id;
+      <MultiButton state={{ route: routeData.routeTag, id: routeData.propertyId, pathname: routeData.routeTag === "header" ? "/" : "/propertyView" }} />
 
-//   const setLocalStorage = (data) => localStorage.setItem('keptRouteId', JSON.stringify(data));
-
-//   const setTag = async () => {
-//     setPropertyId({ name: '"id"', value: idData });
-//     setRouteTag(routeTagData);
-//     setLocalStorage(idData);
-//   }
-//   setTag();
-// }, [props.location.state]);
-  
-return (
-  <Layout>
-  {/* {console.log('props:', props)}
-    {console.log('props:', props.location.state.id)} */}
-    <SEO title="Contact" />
-    <h1>Hi from the second page</h1>
-
-
-    <StyledHomeButton>
-    <MultiButton state={{ id: data.propertyId, pathname: "/", buttonType: "home" }} />
-    </StyledHomeButton>
-
-    <MultiButton state={{ route: data.routeTag, id: data.propertyId , pathname: "/propertyView" }} />
-
-  </Layout>
-)
+    </Layout>
+  )
 
 }
 

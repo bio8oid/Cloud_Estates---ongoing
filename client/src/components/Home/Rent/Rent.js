@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import rentCloud from '../../../images/rent_cloud.webp'
 import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
+// ---- Rent Section Styles ----
 
 const RentContainer = styled.div`
 ${theme.flex.centered};

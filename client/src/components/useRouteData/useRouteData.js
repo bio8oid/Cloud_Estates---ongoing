@@ -8,11 +8,10 @@ const useRouteData = props => {
     const [routeData, setRouteData] = useState({});
 
     const propsData = props.location.state;
-    
+
     useEffect(() => {
 
         // To keep state after page reload
-
 
         const routeTagData = propsData === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : propsData.route;
 

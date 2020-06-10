@@ -67,7 +67,7 @@ img {
 
 const MultiButton = props => (
 
-    <StyledButton >
+    <StyledButton>
         {/* {console.log('props:', props)} */}
         <Link state={{ route: props.state.route, id: props.state.id.value }} to={`${props.state.pathname}`} >
 

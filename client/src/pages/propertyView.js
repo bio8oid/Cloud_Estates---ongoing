@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SEO from "../components/Seo/seo";
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
-import Spinner from "../components/Spinner/Spinner"
-import Layout from "../components/Layout/Layout"
+import Spinner from "../components/Spinner/Spinner";
+import Layout from "../components/Layout/Layout";
 import MultiButton from "../components/MultiButton/MultiButton";
-import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton"
-import Slider from "../components/Slider/Slider"
+import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton";
+import Slider from "../components/Slider/Slider";
 import useFetch from "../components/useFetch/useFetch";
-import cloud3 from "../images/cloud_3.webp"
-import useRouteData from "../components/useRouteData/useRouteData"
+import useRouteData from "../components/useRouteData/useRouteData";
 
+// ---- Images ----
+
+import route404 from "../images/404.webp";
+import cloud3 from "../images/cloud_3.webp";
 
 // ---- Property View Styles ----
 
@@ -96,31 +99,9 @@ ${theme.media.mobile} {
 }
 `
 
-const PropertyView = (props, { children }) => {
-console.log('props:', props)
+const PropertyView = props => {
 
     const routeDatas = useRouteData(props);
-
-    // const [routeTag, setRouteTag] = useState("");
-    // const [propertyId, setPropertyId] = useState({});
-
-    // useEffect(() => {
-
-    //     // To keep state after page reload
-
-    //     const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
-
-    //     const idData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteId')) : props.location.state.id;
-
-    //     const setLocalStorage = (data) => localStorage.setItem('keptRouteId', JSON.stringify(data));
-
-    //     const setTag = async () => {
-    //         setPropertyId({ name: '"id"', value: idData });
-    //         setRouteTag(routeTagData);
-    //         setLocalStorage(idData);
-    //     }
-    //     setTag();
-    // }, [props.location.state]);
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -140,13 +121,9 @@ console.log('props:', props)
     const res = useFetch(query, routeDatas.propertyId);
 
     const loading = res.loading;
-    const propertyContent = res.pageContent.length === 0 ? [{ img: [ "https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg"] }] : res.pageContent ;
-
-        console.log('res.pageContent:', res.pageContent)
-        console.log('propertyContent:', propertyContent)
+    const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
 
     return (
-
         <Layout>
             <SEO title="Property" />
 
@@ -192,7 +169,6 @@ console.log('props:', props)
             <MultiButton state={{ route: routeDatas.routeTag, id: routeDatas.propertyId, pathname: "/propertiesList" }} />
 
         </Layout>
-
     )
 }
 

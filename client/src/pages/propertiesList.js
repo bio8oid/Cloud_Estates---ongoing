@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SEO from "../components/Seo/seo"
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
@@ -9,7 +9,6 @@ import Spinner from "../components/Spinner/Spinner"
 import cloud3 from "../images/cloud_3.webp"
 import useFetch from "../components/useFetch/useFetch"
 import useRouteData from "../components/useRouteData/useRouteData"
-
 
 // ---- List Styles ----
 
@@ -37,46 +36,7 @@ padding: 0 5%;
 
 const PropertiesList = props => {
 
-//  const [routeData, setRouteData] = useState({});
-
- const data = useRouteData(props);
-
-//  const routeTagData = { name: '"tag"', value: routeDatas.routeTag };
-
-//  useEffect(() => {
-     
-//      const setSomething = async () => {
-//          console.log('routeData:', routeDatas);
-//          console.log('routeDataTag:', routeDatas.routeTag);
-
-//          console.log('routeTagData:', routeTagData)
-
-//          const something = await routeTagData
-//         setRouteData(something);
-//     }
-//         setSomething();
-//  }, [routeTagData] );
-
-
-
-
-    // const [routeData, setRouteData] = useState({});
-
-    // useEffect(() => {
-
-    //     // To keep state after page reload
-
-    //     const routeTagData = props.location.state === null ? JSON.parse(localStorage.getItem('keptRouteTag')) : props.location.state.route;
-
-    //     const setLocalStorage = data => localStorage.setItem('keptRouteTag', JSON.stringify(data));
-
-    //     const setTag = () => {
-    //         setRouteData({ name: '"tag"', value: routeTagData });
-    //         setLocalStorage(routeTagData);
-    //     }
-    //     setTag();
-    // }, [props.location.state]);
-
+ const routeData = useRouteData(props);
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -88,10 +48,7 @@ const PropertiesList = props => {
             }
         }`;
 
-    const res = useFetch(query, data.routeData);
-
-
-    // const res = useFetch(query, routeData);
+    const res = useFetch(query, routeData.routeData);
 
     const loading = res.loading;
     const routeTag = res.routeFetchData.value || "empty";

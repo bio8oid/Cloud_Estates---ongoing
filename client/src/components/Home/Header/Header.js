@@ -98,7 +98,7 @@ const Header = props => (
             </LogoWrapper>
             <MeanuWrapper>
                 <a id="rent-button" href='#rent'>rent</a>
-                <Link as="a" to="/contact">contact</Link>
+                <Link as="a" to="/contact" state={{ route: "header" }} >contact</Link>
             </MeanuWrapper>
         </StyledHeader>
         <StyledCloud3 fade />
