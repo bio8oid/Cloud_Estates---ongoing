@@ -8,7 +8,6 @@ import { theme } from '../../utils/theme';
 import arrowDown from "../../images/arrow_down.webp";
 import homeImg from "../../images/home.webp";
 import chat from "../../images/chat.webp";
-import email from "../../images/email.webp";
 
 // ---- MultiButton Component Styles ----
 
@@ -68,15 +67,7 @@ img {
     transform: rotate(0);
 }
 `
-export const StyledEmailButton = styled(StyledContactButton)`
-height: 100px;
-/* border: 1px solid #000; */
-div {
-    /* border: 1px solid #000; */
-    display: inline-block;
-    /* opacity: .6; */
-}
-`
+
 
 const MultiButton = props => (
 
@@ -88,8 +79,6 @@ const MultiButton = props => (
                 <img src={homeImg} alt="home-button" /> :
                 props.state.buttonType === "chat" ?
                     <img src={chat} alt="chat-button" /> :
-                    props.state.buttonType === "email" ?
-                        <img src={email} alt="email-button" /> :
                     <img src={arrowDown} alt="arrow-down" />}
 
         </Link>

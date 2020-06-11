@@ -5,10 +5,9 @@ import { theme } from '../../utils/theme';
 
 const GlobalStyle = createGlobalStyle`
 body {
+  ${theme.font.indie};
   padding: 0;
   margin: 0;
-  color: #040026;
-  font-family: 'Indie Flower';
   user-select: none;
   }
   

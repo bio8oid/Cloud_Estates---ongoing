@@ -1,27 +1,20 @@
 import React from "react";
-import SEO from "../components/Seo/seo";
 import styled from 'styled-components';
-import { theme } from '../utils/theme';
-import Spinner from "../components/Spinner/Spinner";
-import Layout from "../components/Layout/Layout";
-import MultiButton from "../components/MultiButton/MultiButton";
-import { StyledHomeButton, StyledContactButton } from "../components/MultiButton/MultiButton";
-import Slider from "../components/Slider/Slider";
-import useFetch from "../components/useFetch/useFetch";
-import useRouteData from "../components/useRouteData/useRouteData";
-import PropertyContent from "../components/PropertyContent/PropertyContent";
+import { theme } from '../../utils/theme';
+import Layout from "../Layout/Layout";
+import MultiButton from "../MultiButton/MultiButton";
+import { StyledContactButton } from "../MultiButton/MultiButton";
 
 // ---- Images ----
 
-import route404 from "../images/404.webp";
-import cloud3 from "../images/cloud_3.webp";
+import cloud3 from "../../images/cloud_3.webp";
 
 // ---- Property View Styles ----
 
 const StyledPropertyDescription = styled.div`
 ${theme.flex.centeredColumn};
-background : white;
 min-height: 45vh;
+background : white;
 position: fixed;
 bottom: 0;
 left: 0;
@@ -68,14 +61,17 @@ img {
 const StyledContainerWrapper = styled.div`
 ${theme.flex.centered};
 text-align: center;
+opacity: .6;
 
 ${theme.media.mobile} {
     flex-direction: column;
+    opacity: .7;
 }
 `
 const StyledContainerCenter = styled.div`
 text-align: center;
 width: 70vw;
+opacity: .6;
 
 h3 {
     font-size: 2.5rem;
@@ -100,39 +96,13 @@ ${theme.media.mobile} {
 }
 `
 
-const PropertyView = props => {
 
-    const routeData = useRouteData(props);
-
-    const query = `query Properties($string: String) {
-            properties(filter: $string) {
-                id
-                title
-                desc
-                price
-                location
-                availability
-                deposit
-                commission
-                factor
-                img
-            }
-        }`
-
-    const res = useFetch(query, routeData.propertyId);
-
-    const loading = res.loading;
-    const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
+const PropertyContent = props => {
 
     return (
         <Layout>
-            <SEO title="Property" />
 
-            {loading ? <Spinner /> : <Slider propertyContent={propertyContent} />}
-
-            <PropertyContent propertyContent={propertyContent} routeData={routeData} />
-
-            {/* {propertyContent.map(x => (
+            {props.propertyContent.map(x => (
                 <StyledPropertyDescription index={x.id} key={Math.random()} >
 
                     <StyledBackgroundImage>
@@ -152,7 +122,7 @@ const PropertyView = props => {
                         </StyledColumn>
 
                         <StyledContactButton>
-                            <MultiButton state={{ route: routeData.routeTag, id: routeData.propertyId, pathname: "/contact", buttonType: "chat" }} />
+                            <MultiButton state={{ route: props.routeData.routeTag, id: props.routeData.propertyId, pathname: "/contact", buttonType: "chat" }} />
                         </StyledContactButton>
 
                         <StyledColumn>
@@ -163,16 +133,10 @@ const PropertyView = props => {
 
                     </StyledContainerWrapper>
                 </StyledPropertyDescription>
-            ))} */}
-
-            <StyledHomeButton>
-                <MultiButton state={{ id: routeData.propertyId, pathname: "/", buttonType: "home" }} />
-            </StyledHomeButton>
-
-            <MultiButton state={{ route: routeData.routeTag, id: routeData.propertyId, pathname: "/propertiesList" }} />
+            ))}
 
         </Layout>
     )
 }
 
-export default PropertyView;
+export default PropertyContent;
