@@ -17,11 +17,7 @@ module.exports = {
       options: {
         fonts: [
           `Gloria Hallelujah\:400,700`,
-          `Architects Daughter\:400,700`,
           `Indie Flower\:400,700`,
-          `Patrick Hand\:400,700`,
-          `Sriracha\:400,700`,
-          `Handlee\:400,700`,
         ],
         display: 'swap',
       },
