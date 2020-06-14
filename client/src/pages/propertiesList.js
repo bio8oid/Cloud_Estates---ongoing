@@ -25,6 +25,9 @@ font-size: 4rem;
 opacity: .6;
 padding: 0 5%;
 
+    ${theme.media.desktop} {
+        margin-bottom: 0;
+    }
     ${theme.media.tablet} {
         font-size: 3rem;
     }

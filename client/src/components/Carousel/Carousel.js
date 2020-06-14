@@ -11,8 +11,13 @@ const StyledProductConetnt = styled.div`
    margin: 25px;
 
    h3 {
-       font-size: 2rem;
+       font-size: 2.5rem;
+       font-weight: bolder;
        opacity: .6;
+
+    ${theme.media.desktop} {
+        font-size: 1.5rem;
+    }
    }
 
    a {
@@ -40,18 +45,22 @@ max-width: 100%;
     }
 `
 const StyledProductImage = styled.div`
-   /* max-height: 30vh; */
    margin-bottom: 50px;
    position: relative;
 
 img {
    ${theme.responsiveImg};
-   /* max-height: 30vh; */
+   height: 35vh;
    border-radius: 50px;
    border: 10px solid ${theme.colors.primary};
 
+        ${theme.media.cloud} {
+        height: 45vh;
+    }
+
         ${theme.media.mobile} {
         border-radius: 25px;
+        height: 35vh;
     }
 
     @media not all and (hover: none) {
@@ -59,6 +68,7 @@ img {
             border: 10px solid rgba(4, 0, 38, .6);
             box-shadow: 0 0 10px  ${theme.colors.primary};
             opacity: .9;
+
         &:hover ~ ${StyledProductDescription} p { 
             ${theme.hover.text};
             text-shadow: 0 0 5px white;
@@ -72,16 +82,20 @@ img {
 const CarouselComponent = props => {
 
     const responsive = {
+        cloud: {
+            breakpoint: { max: 3000, min: 1524 },
+            items: 3,
+        },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 1524, min: 1048 },
             items: 2,
         },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
+        tabletPro: {
+            breakpoint: { max: 1048, min: 576 },
             items: 1,
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: { max: 576, min: 0 },
             items: 1,
         }
     }

@@ -7,11 +7,24 @@ import "react-multi-carousel/lib/styles.css";
 // ---- Slider Component Styles ----
 
 const StyledPropertyImage = styled.div`
-max-height: 100vh;
+background: black;
 
 img {
     ${theme.responsiveImg};
+    height: 55vh;
+    width: 50%;
+    margin-left: 25%;
 
+        ${theme.media.cloud} {
+            /* height: 30vh; */
+            width: 80%;
+            margin-left: 10%;
+        }
+        ${theme.media.desktop} {
+            /* height: 30vh; */
+            width: 100%;
+            margin-left: 0;
+        }
         ${theme.media.mobile} {
             height: 30vh;
         }
