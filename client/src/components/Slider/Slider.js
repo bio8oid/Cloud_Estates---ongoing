@@ -7,21 +7,22 @@ import "react-multi-carousel/lib/styles.css";
 // ---- Slider Component Styles ----
 
 const StyledPropertyImage = styled.div`
-background: black;
 
 img {
     ${theme.responsiveImg};
     height: 55vh;
     width: 50%;
     margin-left: 25%;
+    margin-top: 1%;
+    border-radius: 50px;
 
         ${theme.media.cloud} {
-            /* height: 30vh; */
             width: 80%;
             margin-left: 10%;
+            border-radius: 0;
+            margin-top: 0;
         }
         ${theme.media.desktop} {
-            /* height: 30vh; */
             width: 100%;
             margin-left: 0;
         }
@@ -59,7 +60,7 @@ const Slider = props => {
             ssr={true}
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={5000}
+            autoPlaySpeed={3000}
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
         >

@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
+import Spinner from "../../components/Spinner/Spinner";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -17,7 +18,7 @@ const StyledProductConetnt = styled.div`
 
     ${theme.media.desktop} {
         font-size: 1.5rem;
-    }
+        }
    }
 
    a {
@@ -37,6 +38,10 @@ max-width: 100%;
     font-weight: bolder;
     text-shadow: 0 0 5px skyblue;
     margin: 0;
+
+        ${theme.media.mobile} {
+        font-size: 1.5rem;
+    }
 }
     @media not all and (hover: none) {
         &:hover p {
@@ -115,13 +120,13 @@ const CarouselComponent = props => {
                     <StyledProductConetnt>
                         <h3 >{x.title}</h3>
                         <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
-                            <StyledProductImage>
+                            {props.loading ? <Spinner /> : <StyledProductImage>
                                 <img src={x.img[0]} alt={x.title} />
                                 <StyledProductDescription>
                                     <p>{x.location}</p>
                                     <p>{x.price}&nbsp;£&nbsp;PM</p>
                                 </StyledProductDescription>
-                            </StyledProductImage>
+                            </StyledProductImage>}
                         </Link>
                     </StyledProductConetnt>
                 </div>

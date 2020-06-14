@@ -7,7 +7,7 @@ const PropertyModel = new Schema({
     tag: { type: 'String' },
     title: { type: 'String' },
     desc: { type: 'String' },
-    price: { type: 'Number' },
+    price: { type: 'String' },
     location: { type: 'String' },
     availability: { type: 'String' },
     deposit: { type: 'String' },

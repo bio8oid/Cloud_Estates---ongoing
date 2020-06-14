@@ -7,7 +7,7 @@ type Property {
     tag: String!
     title: String!
     desc: String!
-    price: Float!
+    price: String!
     location: String!
     availability: String!
     deposit: String!
@@ -21,7 +21,7 @@ input PropertyInput {
     tag: String!
     title: String!
     desc: String!
-    price: Float!
+    price: String!
     location: String!
     availability: String!
     deposit: String!

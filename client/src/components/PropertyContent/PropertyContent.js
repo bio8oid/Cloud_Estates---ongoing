@@ -13,7 +13,7 @@ import cloud3 from "../../images/cloud_3.webp";
 
 const StyledPropertyDescription = styled.div`
 ${theme.flex.centeredColumn};
-min-height: 45vh;
+min-height: 40vh;
 background : white;
 position: fixed;
 bottom: 0;
@@ -45,6 +45,7 @@ ${theme.media.tablet} {
 ${theme.media.mobile} {
     position: static;
     opacity: .9;
+    height: 100%
 }
 `
 const StyledBackgroundImage = styled.div`

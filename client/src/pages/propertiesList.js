@@ -2,13 +2,13 @@ import React from "react";
 import SEO from "../components/Seo/seo"
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
-import Layout from "../components/Layout/Layout"
-import MultiButton from "../components/MultiButton/MultiButton"
-import CarouselComponent from "../components/Carousel/Carousel"
-import Spinner from "../components/Spinner/Spinner"
-import cloud3 from "../images/cloud_3.webp"
-import useFetch from "../components/useFetch/useFetch"
-import useRouteData from "../components/useRouteData/useRouteData"
+import Layout from "../components/Layout/Layout";
+import MultiButton from "../components/MultiButton/MultiButton";
+import CarouselComponent from "../components/Carousel/Carousel";
+import Spinner from "../components/Spinner/Spinner";
+import cloud3 from "../images/cloud_3.webp";
+import useFetch from "../components/useFetch/useFetch";
+import useRouteData from "../components/useRouteData/useRouteData";
 
 // ---- List Styles ----
 
@@ -65,7 +65,7 @@ const PropertiesList = props => {
 
                     {loading ? <Spinner /> :
                     <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
-                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} />
+                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading}/>
 
                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
 
