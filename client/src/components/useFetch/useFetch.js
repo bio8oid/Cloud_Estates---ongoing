@@ -13,7 +13,7 @@ const useFetch = (query, string) => {
 
     // const url = "http://localhost:8080/graphql";
 
-    const url = "https://cloud-estates.herokuapp.com/graphql";
+    const url = "https://cloud-estates.herokuapp.com";
 
     
     useEffect(() => {
