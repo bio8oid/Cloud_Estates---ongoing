@@ -1,3 +1,26 @@
+## CLOUD ESTATES
+
+#
+
+App developed using Gatsby, Express and GraphQL.
+State managed with React Hooks.
+
+#
+
+[DEMO](https://cloud-estates.netlify.app/)
+
+#
+
+![](client/src/images/screen.webp)
+
+#
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4040eb9-8440-48b6-83cf-53e8c6b154ba/deploy-status)](https://app.netlify.com/sites/cloud-estates/deploys)
+
+
+
+#
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
