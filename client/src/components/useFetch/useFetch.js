@@ -11,10 +11,15 @@ const useFetch = (query, string) => {
         setRouteFetchData(string);
     }, [string]);
 
-    const url = "http://localhost:8080/graphql";
+    // const prefix = "https://cors-anywhere.herokuapp.com/";
+
+    // const url = "http://localhost:8080/graphql";
+
+    // const url = "https://cloud-estates.netlify.app/graphql";
 
     // const url = "https://cloud-estates.herokuapp.com";
-
+    
+    const url = "https://cloud-estates.herokuapp.com/graphql";
     
     useEffect(() => {
 
