@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 import Carousel from "react-multi-carousel";
@@ -35,6 +35,12 @@ img {
 
 const Slider = props => {
 
+    const [runSlider, setRunSlider] = useState(true);
+
+    useEffect(() => {
+        if (props.propertyContent[0].img.length === 1 ) setRunSlider(false); 
+    }, []);
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -59,7 +65,7 @@ const Slider = props => {
             responsive={responsive}
             ssr={true}
             infinite={true}
-            autoPlay={true}
+            autoPlay={runSlider}
             autoPlaySpeed={3000}
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}

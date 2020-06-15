@@ -37,13 +37,12 @@ const PropertyView = props => {
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
-    console.log('propertyContent:', propertyContent)
 
     return (
         <Layout>
             <SEO title="Property" />
 
-            {loading ? <Spinner /> : <Slider propertyContent={propertyContent} />}
+            {loading ? <Spinner /> : <Slider propertyContent={propertyContent} auto={true}/>}
 
             <PropertyContent propertyContent={propertyContent} routeData={routeData} />
 

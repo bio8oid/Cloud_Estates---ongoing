@@ -11,9 +11,9 @@ const useFetch = (query, string) => {
         setRouteFetchData(string);
     }, [string]);
 
-    // const url = "http://localhost:8080/graphql";
+    const url = "http://localhost:8080/graphql";
 
-    const url = "https://cloud-estates.herokuapp.com";
+    // const url = "https://cloud-estates.herokuapp.com";
 
     
     useEffect(() => {

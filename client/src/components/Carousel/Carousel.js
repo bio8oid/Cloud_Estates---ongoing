@@ -120,13 +120,13 @@ const CarouselComponent = props => {
                     <StyledProductConetnt>
                         <h3 >{x.title}</h3>
                         <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
-                            {props.loading ? <Spinner /> : <StyledProductImage>
-                                <img src={x.img[0]} alt={x.title} />
+                             <StyledProductImage>
+                               {props.loading ? <Spinner /> : <img src={x.img[0]} alt={x.title} />}
                                 <StyledProductDescription>
                                     <p>{x.location}</p>
                                     <p>{x.price}&nbsp;£&nbsp;PM</p>
                                 </StyledProductDescription>
-                            </StyledProductImage>}
+                            </StyledProductImage>
                         </Link>
                     </StyledProductConetnt>
                 </div>
