@@ -2,21 +2,27 @@ const express = require("express");
 const cors = require('cors');
 const config = require('./config');
 const graphqlHTTP = require('express-graphql');
-const app = express();
 const mongoose = require("mongoose");
 const graphQlSchema = require('./graphql/schema/schema');
 const graphQlResolvers = require('./graphql/resolvers/propertyResolver');
+const path = require('path');
+const helmet = require('helmet');
+
+const app = express();
 
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(helmet());
 
-const {
-    GraphQLID,
-    GraphQLString,
-    GraphQLList,
-    GraphQLNonNull,
-    GraphQLObjectType,
-    GraphQLSchema
-} = require("graphql");
+
+// send static files to client
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../../client/public/'));
+});
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
