@@ -6,7 +6,7 @@ State managed with React Hooks.
 
 #
 
-[DEMO](https://cloudestates.netlify.app)
+[DEMO](https://cloud-estates.netlify.app/propertiesList)
 
 #
 
