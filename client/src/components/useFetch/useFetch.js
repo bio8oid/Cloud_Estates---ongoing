@@ -11,7 +11,7 @@ const useFetch = (query, string) => {
         setRouteFetchData(string);
     }, [string]);
 
-    // const prefix = "https://cors-anywhere.herokuapp.com/";
+    const prefix = "https://cors-anywhere.herokuapp.com/";
 
     // const url = "http://localhost:8080/graphql";
 
@@ -34,7 +34,7 @@ const useFetch = (query, string) => {
             try {
                 let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`;
                 const body = JSON.stringify({ query, variables: { string } });
-                const res = await fetch(url, { method: 'POST', headers: headers, body: body });
+                const res = await fetch(prefix + url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
                 setPageContent(data.data.properties);
                 setLoading(false);
