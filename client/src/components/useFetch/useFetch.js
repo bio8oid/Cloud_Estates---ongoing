@@ -26,8 +26,8 @@ const useFetch = (query, string) => {
     useEffect(() => {
 
         const headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
             "Access-Control-Allow-Origin": "origin-list"
         };
 
