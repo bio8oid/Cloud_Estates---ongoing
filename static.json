@@ -1,8 +1,4 @@
 {
-    "root": "../../client/public/",
-    "headers": {
-        "/**": {
-            "Access-Control-Allow-Origin": "*"
-        }
-    }
+    "root": "client/public/"
+   
 }
