@@ -11,30 +11,29 @@ const useFetch = (query, string) => {
         setRouteFetchData(string);
     }, [string]);
 
-    const prefix = "https://cors-anywhere.herokuapp.com/";
+    // const prefix = "https://cors-anywhere.herokuapp.com/";
 
     // const url = "http://localhost:8080/graphql";
 
     // const url = "https://cloud-estates.netlify.app/graphql";
 
-    // const url = "https://cloudestates.netlify.app/graphql";
-
-    // const url = "https://cloud-estates.herokuapp.com";
+    const url = "https://cloudestates.netlify.app/graphql";
     
-    const url = "https://cloud-estates.herokuapp.com/graphql";
+    // const url = "https://cloud-estates.herokuapp.com/graphql";
     
     useEffect(() => {
 
         const headers = {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            "Access-Control-Allow-Origin": "*"
         };
 
         const fetchData = async () => {
             try {
                 let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`;
                 const body = JSON.stringify({ query, variables: { string } });
-                const res = await fetch(prefix + url, { method: 'POST', headers: headers, body: body });
+                const res = await fetch( url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
                 setPageContent(data.data.properties);
                 setLoading(false);

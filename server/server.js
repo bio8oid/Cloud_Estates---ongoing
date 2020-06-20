@@ -11,18 +11,18 @@ const helmet = require('helmet');
 const app = express();
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(helmet());
 
 
 // send static files to client
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '../../client/public/'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../../client/public/'));
+});
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
