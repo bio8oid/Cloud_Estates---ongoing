@@ -17,9 +17,9 @@ const useFetch = (query, string) => {
 
     // const url = "https://cloud-estates.netlify.app/graphql";
 
-    const url = "https://cloudestates.netlify.app/graphql";
+    // const url = "https://cloudestates.netlify.app/graphql";
     
-    // const url = "https://cloud-estates.herokuapp.com/graphql";
+    const url = "https://cloud-estates.herokuapp.com/graphql";
     
     useEffect(() => {
 
