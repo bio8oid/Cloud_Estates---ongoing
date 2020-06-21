@@ -18,8 +18,6 @@ const useFetch = (query, string) => {
     // const url = "https://cloud-estates.netlify.app/graphql";
 
     // const url = "https://cloudestates.netlify.app/graphql";
-
-    // const url = "https://cloud-estates.herokuapp.com";
     
     const url = "https://cloud-estates.herokuapp.com/graphql";
     
@@ -37,6 +35,7 @@ const useFetch = (query, string) => {
                 const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch( url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
+                console.log('data:', data)
                 setPageContent(data.data.properties);
                 setLoading(false);
             } catch (err) {

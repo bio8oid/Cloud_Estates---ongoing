@@ -39,7 +39,7 @@ const Slider = props => {
 
     useEffect(() => {
         if (props.propertyContent[0].img.length === 1 ) setRunSlider(false); 
-    }, []);
+    }, [props.propertyContent]);
 
     const responsive = {
         desktop: {
