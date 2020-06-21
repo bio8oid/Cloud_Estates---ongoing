@@ -31,7 +31,8 @@ const useFetch = (query, string) => {
 
         const fetchData = async () => {
             try {
-                let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`;
+                // let string = await `{${routeFetchData.name}: ${routeFetchData.value}}`;
+                let string = null;
                 const body = JSON.stringify({ query, variables: { string } });
                 const res = await fetch( url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
