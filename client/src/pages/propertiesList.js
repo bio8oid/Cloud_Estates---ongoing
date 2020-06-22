@@ -18,12 +18,13 @@ text-align: center;
 const StyledBackground = styled.div`
 background: url(${cloud3}) no-repeat center;
 ${theme.responsiveImg};
-min-height: 90vh;
+min-height: 100vh;
 `
 const Title = styled.h1`
 font-size: 4rem;
 opacity: .6;
-padding: 0 5%;
+padding: 5%;
+margin: 0;
 
     ${theme.media.desktop} {
         margin-bottom: 0;
