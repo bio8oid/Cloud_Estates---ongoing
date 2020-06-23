@@ -18,6 +18,7 @@ const useFetch = (query, string) => {
         const headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            "Access-Control-Allow-Origin": "*"
         };
 
         var tagHasBeenSet = function () {
@@ -32,7 +33,7 @@ const useFetch = (query, string) => {
         const fetchData = async () => {
             try {
                 let string = await tagHasBeenSet();
-                const body = JSON.stringify({ query, variables: { string } });
+                const body = await JSON.stringify({ query, variables: { string } });
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
                 setPageContent(data.data.properties);
