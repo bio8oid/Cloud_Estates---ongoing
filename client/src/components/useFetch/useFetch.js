@@ -19,6 +19,8 @@ const useFetch = (query, string) => {
 
     // const url = "https://cloudestates.netlify.app/graphql";
     
+    // const url = "https://estates-clouds.herokuapp.com/graphql";
+    
     const url = "https://cloud-estates.herokuapp.com/graphql";
     
     useEffect(() => {
@@ -32,7 +34,7 @@ const useFetch = (query, string) => {
         var tagHasBeenSet = function () {
             return new Promise(resolve => {
                 if (routeFetchData.name && routeFetchData.value !== undefined) {
-                    let variables = `{${routeFetchData.name}: ${routeFetchData.value}}`;
+                    var variables = `{${routeFetchData.name}: ${routeFetchData.value}}`;
                     resolve(variables);
                 }
             });
