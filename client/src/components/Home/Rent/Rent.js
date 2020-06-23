@@ -87,7 +87,7 @@ p {
 `;
 
 
-const Rent = props => (
+const Rent = () => (
 
     <ParallaxLayer offset={2} speed={0}>
         <RentContainer>

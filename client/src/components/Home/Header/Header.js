@@ -14,8 +14,7 @@ import logoBottom from "../../../images/logo_estates.webp"
 // ---- Styles ----
 
 const StyledHeader = styled.div`
-display: flex;
-flex-direction: row;
+${theme.flex.centered};
 justify-content: space-between;
 align-items: center;
 width:100%;
@@ -35,9 +34,7 @@ a {
 }
 
 ${theme.media.mobile} {
-flex-direction: column;
-justify-content: center;
-align-items: center;               
+${theme.flex.centeredColumn};
 }
 `;
 const LogoWrapper = styled.div`
@@ -53,9 +50,7 @@ const MeanuWrapper = styled.div`
 margin-right: 2%;
 
 ${theme.media.tabletPro} {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+    ${theme.flex.centeredColumn};
     width: 50vw;
 }
 
@@ -90,10 +85,10 @@ const Header = props => (
         <StyledHeader>
             <LogoWrapper>
                 <LogoTop>
-                    <img src={logoTop} alt="" />
+                    <img src={logoTop} alt="logo-top" />
                 </LogoTop >
                 <LogoBottom>
-                    <img src={logoBottom} alt="" />
+                    <img src={logoBottom} alt="logo-bottom" />
                 </LogoBottom>
             </LogoWrapper>
             <MeanuWrapper>

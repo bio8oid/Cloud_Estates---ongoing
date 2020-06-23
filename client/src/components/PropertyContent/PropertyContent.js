@@ -26,22 +26,6 @@ p {
     font-weight: bolder;
 }
 
-${theme.media.cloud} {
-    height: 51vh;
-}
-
-${theme.media.desktop} {
-    min-height: 58vh;
-}
-
-${theme.media.tabletPro} {
-    min-height: 60vh;
-}
-
-${theme.media.tablet} {
-    min-height: 70vh;
-}
-
 ${theme.media.mobile} {
     position: static;
     opacity: .9;
@@ -50,8 +34,6 @@ ${theme.media.mobile} {
 `
 const StyledBackgroundImage = styled.div`
 position: absolute;
-max-height: 46vh;
-z-index: -1;
 
 img {
     position: relative;

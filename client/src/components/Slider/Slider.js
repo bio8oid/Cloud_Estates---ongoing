@@ -19,15 +19,15 @@ img {
         ${theme.media.cloud} {
             width: 80%;
             margin-left: 10%;
-            border-radius: 0;
-            margin-top: 0;
         }
         ${theme.media.desktop} {
             width: 100%;
             margin-left: 0;
+            border-radius: 0;
+            margin-top: 0;
         }
         ${theme.media.mobile} {
-            height: 30vh;
+            max-height: 30vh;
         }
 }
 `

@@ -5,8 +5,7 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons';
 
 
 export const StyledHero = styled.div`
-display: flex;
-flex-direction: column;
+${theme.flex.centeredColumn};
 padding: 0 2%;
 opacity: .6;
 
