@@ -6,15 +6,11 @@ State managed with React Hooks.
 
 #
 
-[DEMO](https://cloud-estates.netlify.app)
+[DEMO](https://cloud-estates.herokuapp.com/)
 
 #
 
 ![](client/src/images/screen.webp)
-
-#
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a4040eb9-8440-48b6-83cf-53e8c6b154ba/deploy-status)](https://app.netlify.com/sites/cloud-estates/deploys)
 
 #
 
