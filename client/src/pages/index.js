@@ -10,6 +10,7 @@ import UpperCloudsSection from '../components/Home/UpperCloudsSection/UpperCloud
 import { Parallax } from 'react-spring/renderprops-addons';
 
 
+
 const IndexPage = parallax => {
 
     return (
@@ -25,7 +26,6 @@ const IndexPage = parallax => {
             </Parallax>
         </Layout>
     )
-
 }
 
 export default IndexPage;
