@@ -15,6 +15,8 @@ const useFetch = (query, string) => {
 
     // const url = "http://localhost:8080/graphql";
 
+    // const url = "http://localhost:9080/graphql";
+
     // const url = "https://cloud-estates.netlify.app/graphql";
 
     // const url = "https://cloudestates.netlify.app/graphql";
