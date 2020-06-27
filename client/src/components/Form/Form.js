@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { theme } from '../../utils/theme';
 import Layout from "../Layout/Layout";
@@ -15,7 +15,7 @@ ${theme.flex.centeredColumn};
 background: url(${cloud3});
 ${theme.responsiveImg};
 background-position: center;
-height: 100vh;
+min-height: 100vh;
 opacity: .6;
 
   h1 {
@@ -59,7 +59,8 @@ padding: 50px;
 
   textarea {
       padding-top: 15px;
-      height: 100%;
+      min-height: 30vh;
+      overflow: hidden;
   }
 `
 const StyledSubmit = styled.div`
@@ -93,42 +94,54 @@ position: absolute;
 `
 
 
-const FormComponent = props => {
+const FormComponent = () => {
 
-    const [send, setSend] = useState(true);
+  const [send, setSend] = useState(true);
 
-    const handleSubmit = () => {
-        setSend(false);
+  useEffect(() => {
+
+    let textArea = document.getElementById('textAr');
+    
+    const autosize = () => {
+      textArea.style.cssText = 'height:' + textArea.scrollHeight + 'px';
     };
+    textArea.addEventListener('keydown', autosize);
 
+  });
 
-    return (
-        <Layout>
+  const handleSubmit = () => {
+    setSend(false);
+  };
 
-            <StyledFormContainer>
+  return (
+    <Layout>
 
-                {send ? <h1>Contact Agent</h1> : ""}
+      <StyledFormContainer>
 
-                {send ? <StyledFormWrapper>
-                    <form onSubmit={() => handleSubmit()}>
-                        <input type="text" placeholder='Name' aria-label="name" required />
-                        <input type="email" placeholder='Email' aria-label="email" required />
-                        <textarea name="email-content" id="" cols="30" rows="10" placeholder='Your message' aria-label="email-content" required></textarea>
+        {send ? <h1>Contact Agent</h1> : ""}
 
-                        <StyledSubmit>
-                            <input type="submit" ></input>
-                            <img src={email} alt="email-button" />
-                        </StyledSubmit>
+        {send ? <StyledFormWrapper>
+          <form onSubmit={() => handleSubmit()}>
+            <input type="text" placeholder='Name' aria-label="name" required />
+            <input type="email" placeholder='Email' aria-label="email" required />
+            <textarea id="textAr" name="email-content" cols="30" placeholder='Your message' aria-label="email-content"
+              required></textarea>
 
-                    </form>
-                </StyledFormWrapper>
-                    :
-                    <StyledMonit>Your message flew away !</StyledMonit>}
+            <StyledSubmit>
+              <input type="submit" ></input>
+              <img src={email} alt="email-button" />
+            </StyledSubmit>
 
-            </StyledFormContainer>
+          </form>
 
-        </Layout>
-    )
+        </StyledFormWrapper>
+          :
+          <StyledMonit>Your message flew away !</StyledMonit>}
+
+      </StyledFormContainer>
+
+    </Layout>
+  )
 }
 
 export default FormComponent;
