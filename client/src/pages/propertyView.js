@@ -34,6 +34,7 @@ const PropertyView = props => {
         }`
 
     const res = useFetch(query, routeData.propertyId);
+    console.log('routeData.propertyId:', routeData.propertyId)
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
@@ -42,7 +43,7 @@ const PropertyView = props => {
         <Layout>
             <SEO title="Property" />
 
-            {loading ? <Spinner /> : <Slider propertyContent={propertyContent} auto={true}/>}
+            {loading ? <Spinner /> : <Slider propertyContent={propertyContent} auto={true} />}
 
             <PropertyContent propertyContent={propertyContent} routeData={routeData} />
 

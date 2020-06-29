@@ -7,7 +7,6 @@ import "react-multi-carousel/lib/styles.css";
 // ---- Slider Component Styles ----
 
 const StyledPropertyImage = styled.div`
-
 img {
     ${theme.responsiveImg};
     height: 55vh;
@@ -15,19 +14,18 @@ img {
     margin-left: 25%;
     margin-top: 1%;
     border-radius: 50px;
-
         ${theme.media.cloud} {
             width: 80%;
             margin-left: 10%;
-            border-radius: 0;
-            margin-top: 0;
         }
         ${theme.media.desktop} {
             width: 100%;
             margin-left: 0;
+            border-radius: 0;
+            margin-top: 0;
         }
         ${theme.media.mobile} {
-            height: 30vh;
+            max-height: 30vh;
         }
 }
 `
@@ -38,8 +36,8 @@ const Slider = props => {
     const [runSlider, setRunSlider] = useState(true);
 
     useEffect(() => {
-        if (props.propertyContent[0].img.length === 1 ) setRunSlider(false); 
-    }, []);
+        if (props.propertyContent[0].img.length === 1) setRunSlider(false);
+    }, [props.propertyContent]);
 
     const responsive = {
         desktop: {
