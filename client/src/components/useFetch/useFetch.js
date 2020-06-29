@@ -13,6 +13,8 @@ const useFetch = (query, string) => {
 
     // const prefix = "https://cors-anywhere.herokuapp.com/";
 
+    // const url = "http://localhost:9000/graphql";
+
     // const url = "http://localhost:8080/graphql";
 
     // const url = "https://cloud-estates.netlify.app/graphql";
