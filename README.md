@@ -10,7 +10,7 @@ State managed with React Hooks.
 
 #
 
-![](client/src/images/screen.webp)
+![](client/src/images/lighthouse-screen.webp)
 
 #
 
