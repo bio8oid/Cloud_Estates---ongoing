@@ -27,7 +27,7 @@ const useFetch = (query, string) => {
     
     // const url = "https://cloud-estates.herokuapp.com/graphql";
 
-    const url = "https://sky--net.herokuapp.com/graphql";
+    const url = "https://sky--net.herokuapp.com";
     
     useEffect(() => {
 
