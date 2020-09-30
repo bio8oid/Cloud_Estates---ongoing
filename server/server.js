@@ -20,7 +20,7 @@ mongoose.connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
 });
 
-app.use("/mongo/graphql", graphqlHTTP({
+app.use("/graphql", graphqlHTTP({
     schema: graphQlSchema,
     rootValue: graphQlResolvers,
     graphiql: true
