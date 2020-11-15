@@ -92,19 +92,19 @@ const Rent = () => (
     <ParallaxLayer offset={2} speed={0}>
         <RentContainer>
             <CloudElement>
-                <Link as="a" to="/propertiesList" state={{ route: '"plebs"' }}>
+                <Link as="a" to="/propertiesList/plebs" state={{ route: '"plebs"' }}>
                     <p>plebs</p>
                 </Link>
                 <img src={rentCloud} alt="plebs" />
             </CloudElement>
             <CloudElement hover1>
-                <Link as="a" to="/propertiesList" state={{ route: '"vip"' }} >
+                <Link as="a" to="/propertiesList/vip" state={{ route: '"vip"' }}>
                     <p >vip</p>
                 </Link>
                 <img src={rentCloud} alt="vip" />
             </CloudElement>
             <CloudElement hover2>
-                <Link as="a" to="/propertiesList" state={{ route: '"gift"' }}>
+                <Link as="a" to="/propertiesList/gift" state={{ route: '"gift"' }}>
                     <p>gift</p>
                 </Link>
                 <img src={rentCloud} alt="gift" />
@@ -112,5 +112,31 @@ const Rent = () => (
         </RentContainer>
     </ParallaxLayer>
 );
+
+// const Rent = () => (
+
+//     <ParallaxLayer offset={2} speed={0}>
+//         <RentContainer>
+//             <CloudElement>
+//                 <Link as="a" to="/propertiesList" state={{ route: '"plebs"' }}>
+//                     <p>plebs</p>
+//                 </Link>
+//                 <img src={rentCloud} alt="plebs" />
+//             </CloudElement>
+//             <CloudElement hover1>
+//                 <Link as="a" to="/propertiesList" state={{ route: '"vip"' }} >
+//                     <p >vip</p>
+//                 </Link>
+//                 <img src={rentCloud} alt="vip" />
+//             </CloudElement>
+//             <CloudElement hover2>
+//                 <Link as="a" to="/propertiesList" state={{ route: '"gift"' }}>
+//                     <p>gift</p>
+//                 </Link>
+//                 <img src={rentCloud} alt="gift" />
+//             </CloudElement>
+//         </RentContainer>
+//     </ParallaxLayer>
+// );
 
 export default Rent;

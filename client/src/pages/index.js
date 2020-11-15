@@ -14,17 +14,17 @@ import { Parallax } from 'react-spring/renderprops-addons';
 
 const IndexPage = parallax => {
 
-    const query = `query Properties($string: String) {
-            properties(filter: $string) {
-                id
-                title
-                price
-                location
-                img
-            }
-        }`;
+    // const query = `query Properties($string: String) {
+    //         properties(filter: $string) {
+    //             id
+    //             title
+    //             price
+    //             location
+    //             img
+    //         }
+    //     }`;
 
-    const res = useFetch(query, 'vip');
+    // const res = useFetch(query, { name: "'tag'", value: "'plebs'"});
 
     return (
         <Layout >
