@@ -115,13 +115,15 @@ const CarouselComponent = props => {
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile"]}
         >
+            {/* {console.log('props.pageContent:', props.pageContent[0].id)} */}
             {props.pageContent.map(x => (
                 <div index={x.id} key={Math.random()} >
                     <StyledProductConetnt>
                         <h3 >{x.title}</h3>
-                        <Link as="a" to="/propertyView" state={{ route: props.state.route, id: x.id }} >
-                             <StyledProductImage>
-                               {props.loading ? <Spinner /> : <img src={x.img[0]} alt={x.title} />}
+                        {/* <Link as="a" to={`/propertyView2/${x.id}`} state={{ route: props.state.route, id: x.id }} > */}
+                        <Link as="a" to={`/propertyView2/${x.id}`}  >
+                            <StyledProductImage>
+                                {props.loading ? <Spinner /> : <img src={x.img[0]} alt={x.title} />}
                                 <StyledProductDescription>
                                     <p>{x.location}</p>
                                     <p>{x.price}&nbsp;£&nbsp;PM</p>

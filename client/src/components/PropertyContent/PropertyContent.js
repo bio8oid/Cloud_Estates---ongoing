@@ -105,7 +105,7 @@ const PropertyContent = props => {
                         </StyledColumn>
 
                         <StyledContactButton>
-                            <MultiButton state={{ route: props.routeData.routeTag, id: props.routeData.propertyId, pathname: "/contact", buttonType: "chat" }} />
+                            {/* <MultiButton state={{ route: props.routeData.routeTag, id: props.routeData.propertyId, pathname: "/contact", buttonType: "chat" }} /> */}
                         </StyledContactButton>
 
                         <StyledColumn>

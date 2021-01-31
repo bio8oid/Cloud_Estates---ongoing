@@ -4,34 +4,34 @@ import { useState, useEffect } from "react";
 
 const useFetch = (query, string) => {
 
-    const [pageContent, setPageContent] = useState([]); 
+    const [pageContent, setPageContent] = useState([]);
     const [loading, setLoading] = useState(true);
     const [routeFetchData, setRouteFetchData] = useState({});
 
     useEffect(() => {
         setRouteFetchData(string);
     }, [string]);
- 
+
     // const prefix = "https://cors-anywhere.herokuapp.com/";
 
     // const url = "http://localhost:9000/graphql";
 
-    // const url = "http://localhost:8080/graphql";
+    const url = "http://localhost:8080/graphql";
 
     // const url = "https://cloud-estates.netlify.app/graphql";
 
     // const url = "https://cloudestates.netlify.app/graphql";
-    
+
     // const url = "https://estates-clouds.herokuapp.com/graphql";
 
-    const url = "https://sky--net.herokuapp.com/graphql";
+    // const url = "https://sky--net.herokuapp.com/graphql";
 
     /// last one
-    
+
     // const url = "https://cloud-estates.herokuapp.com/graphql";
 
     // const url = "/graphql";
-    
+
     useEffect(() => {
 
         const headers = {
@@ -47,15 +47,15 @@ const useFetch = (query, string) => {
                     resolve(variables);
                 }
             });
-        }; 
+        };
 
         const fetchData = async () => {
             try {
                 let string = await tagHasBeenSet();
-                console.log('string:', string)
                 const body = await JSON.stringify({ query, variables: { string } });
+                console.log('body:', body)
                 // const res = await fetch( prefix + url, { method: 'POST', headers: headers, body: body });
-                const res = await fetch( url, { method: 'POST', headers: headers, body: body });
+                const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
                 console.log('data:', data)
                 setPageContent(data.data.properties);

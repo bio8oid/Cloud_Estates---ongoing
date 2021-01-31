@@ -8,8 +8,8 @@ import MultiButton from "../components/MultiButton/MultiButton";
 import CarouselComponent from "../components/Carousel/Carousel";
 import Spinner from "../components/Spinner/Spinner";
 import cloud3 from "../images/cloud_3.webp";
-import useFetch from "../components/useFetch/useFetch2";
-import useRouteData from "../components/useRouteData/useRouteData";
+import useFetch2 from "../components/useFetch/useFetch2";
+// import useRouteData from "../components/useRouteData/useRouteData";
 
 // ---- List Styles ----
 
@@ -38,11 +38,10 @@ margin: 0;
     }
 `
 
-const PropertiesList = props => {
-console.log('props:', props)
-    console.log('props:', props.location.pathname.replace(/\/propertiesList2\//, ''))
+const PropertiesList2 = props => {
 
-    const routeData = useRouteData(props);
+    const routeData = `"${props['*']}"`;
+    console.log('routeData:', routeData)
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -54,9 +53,7 @@ console.log('props:', props)
             }
         }`;
 
-        console.log('routeData.routeData:', routeData.routeData)
-    // const res = useFetch(query, '"'+props.location.pathname.replace(/\/propertiesList2\//, '')+'"');
-    const res = useFetch(query, routeData.routeData);
+    const res = useFetch2(query, routeData);
     console.log('res:', res)
 
     const loading = res.loading;
@@ -68,39 +65,40 @@ console.log('props:', props)
     //     <Layout>
     //         <SEO title="Properties"  />
     //         <Router>
-                
+
     //             {/* <StyledBackground> */}
     //                 {/* <StyledWrapper> */}
 
     //                     <h2>HELLO!</h2>
-    
+
     //                     {/* {loading ? <Spinner /> :
     //                         <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
     //                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
-    
-//                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} /> */}
 
-//                 {/* </StyledWrapper> */}
-//             {/* </StyledBackground> */}
-//         </Router>
-//     </Layout>
-// )
+    //                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} /> */}
+
+    //                 {/* </StyledWrapper> */}
+    //             {/* </StyledBackground> */}
+    //         </Router>
+    //     </Layout>
+    // )
 
 
-return (
-    <Layout>
+    return (
+        <Layout>
             <SEO title="Properties" />
             <StyledBackground>
                 <StyledWrapper>
 
                     {loading ? <Spinner /> :
-                    <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
-                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading}/>
+                        <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
+                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
 
                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
+
                     {/* {loading ? <Spinner /> :
-                    <Title>Welcome to </Title>}
-                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading}/>
+                        <Title>Welcome to </Title>}
+                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
 
                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} /> */}
 
@@ -110,4 +108,4 @@ return (
     )
 }
 
-export default PropertiesList;
+export default PropertiesList2;

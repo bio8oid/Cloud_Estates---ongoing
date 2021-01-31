@@ -7,7 +7,7 @@ import About from '../components/Home/About/About';
 import Rent from '../components/Home/Rent/Rent';
 import CitySection from '../components/Home/CitySection/CitySection';
 import UpperCloudsSection from '../components/Home/UpperCloudsSection/UpperCloudsSection';
-import useFetch from "../components/useFetch/useFetch";
+// import useFetch from "../components/useFetch/useFetch";
 import { Parallax } from 'react-spring/renderprops-addons';
 
 

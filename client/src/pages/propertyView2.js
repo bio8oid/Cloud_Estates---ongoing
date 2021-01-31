@@ -1,12 +1,12 @@
 import React from "react";
 import SEO from "../components/Seo/seo";
-import Spinner from "../components/Spinner/Spinner";
 import Layout from "../components/Layout/Layout";
+import Spinner from "../components/Spinner/Spinner";
 import MultiButton from "../components/MultiButton/MultiButton";
 import { StyledHomeButton } from "../components/MultiButton/MultiButton";
 import Slider from "../components/Slider/Slider";
-import useFetch from "../components/useFetch/useFetch";
-import useRouteData from "../components/useRouteData/useRouteData";
+import useFetch2 from "../components/useFetch/useFetch2";
+// import useRouteData from "../components/useRouteData/useRouteData";
 import PropertyContent from "../components/PropertyContent/PropertyContent";
 
 // ---- Images ----
@@ -14,9 +14,11 @@ import PropertyContent from "../components/PropertyContent/PropertyContent";
 import route404 from "../images/404.webp";
 
 
-const PropertyView = props => {
+const PropertyView2 = props => {
 
-    const routeData = useRouteData(props);
+    // const routeData = useRouteData(props);
+    const routeData = props['*'];
+    console.log('VIEWrouteData:', routeData)
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -33,9 +35,10 @@ const PropertyView = props => {
             }
         }`
 
-    const res = useFetch(query, routeData.propertyId);
-    console.log('routeData.propertyId:', routeData.propertyId)
-    console.log('routeData.routeTag:', routeData.routeTag)
+    const res = useFetch2(query, routeData);
+    console.log('resview2:', res)
+    // console.log('resview2pageContent:', res.pageContent[0].id)
+    // console.log('routeData.propertyId:', routeData.propertyId)
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
@@ -49,13 +52,13 @@ const PropertyView = props => {
             <PropertyContent propertyContent={propertyContent} routeData={routeData} />
 
             <StyledHomeButton>
-                <MultiButton state={{ id: routeData.propertyId, pathname: "/", buttonType: "home" }} />
+                {/* <MultiButton state={{ id: routeData, pathname: "/", buttonType: "home" }} /> */}
             </StyledHomeButton>
 
-            <MultiButton state={{ route: routeData.routeTag, id: routeData.propertyId, pathname: "/propertiesList" }} />
+            {/* <MultiButton state={{ route: routeData, id: routeData, pathname: "/propertiesList" }} /> */}
 
         </Layout>
     )
 }
 
-export default PropertyView;
+export default PropertyView2;
