@@ -1,5 +1,5 @@
 import React from "react";
-import SEO from "../components/Seo/seo"
+import SEO from "../components/Seo/seo";
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import Layout from "../components/Layout/Layout";
@@ -8,7 +8,6 @@ import CarouselComponent from "../components/Carousel/Carousel";
 import Spinner from "../components/Spinner/Spinner";
 import cloud3 from "../images/cloud_3.webp";
 import useFetch from "../components/useFetch/useFetch";
-import useRouteData from "../components/useRouteData/useRouteData";
 
 // ---- List Styles ----
 
@@ -37,10 +36,9 @@ margin: 0;
     }
 `
 
-
 const PropertiesList = props => {
 
- const routeData = useRouteData(props);
+    const routeData = `"${props['*']}"`;
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -52,10 +50,10 @@ const PropertiesList = props => {
             }
         }`;
 
-    const res = useFetch(query, routeData.routeData);
+    const res = useFetch(query, routeData);
 
     const loading = res.loading;
-    const routeTag = res.routeFetchData.value || "empty";
+    const routeTag = props.location.pathname.replace(/\/propertiesList\//, '') || "empty";
     const pageContent = res.pageContent;
 
     return (
@@ -65,10 +63,10 @@ const PropertiesList = props => {
                 <StyledWrapper>
 
                     {loading ? <Spinner /> :
-                    <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
-                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading}/>
+                        <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
+                    <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
 
-                    <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
+                    <MultiButton state={{ id: "", pathname: "/" }} />
 
                 </StyledWrapper>
             </StyledBackground>

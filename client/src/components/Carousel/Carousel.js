@@ -85,7 +85,6 @@ img {
 
 
 const CarouselComponent = props => {
-    // console.log('propscarousel:', props)
 
     const responsive = {
         cloud: {
@@ -120,9 +119,7 @@ const CarouselComponent = props => {
                 <div index={x.id} key={Math.random()} >
                     <StyledProductConetnt>
                         <h3 >{x.title}</h3>
-                        {/* <Link as="a" to={`/propertyView`} state={{ route: props.state.route, id: x.id }} > */}
-                        <Link as="a" to={`/propertyView2/${x.id}`} state={{ route: props.state.route, id: x.id }} >
-                            {/* <Link as="a" to={`/propertyView2/${x.id}`} > */}
+                        <Link as="a" to={`/propertyView/${x.id}`} state={{ route: props.state.route, id: x.id }} >
                             <StyledProductImage>
                                 {props.loading ? <Spinner /> : <img src={x.img[0]} alt={x.title} />}
                                 <StyledProductDescription>

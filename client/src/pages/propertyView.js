@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SEO from "../components/Seo/seo";
-import Spinner from "../components/Spinner/Spinner";
 import Layout from "../components/Layout/Layout";
+import Spinner from "../components/Spinner/Spinner";
 import MultiButton from "../components/MultiButton/MultiButton";
 import { StyledHomeButton } from "../components/MultiButton/MultiButton";
 import Slider from "../components/Slider/Slider";
 import useFetch from "../components/useFetch/useFetch";
-import useRouteData from "../components/useRouteData/useRouteData";
 import PropertyContent from "../components/PropertyContent/PropertyContent";
 
 // ---- Images ----
@@ -16,7 +15,16 @@ import route404 from "../images/404.webp";
 
 const PropertyView = props => {
 
-    const routeData = useRouteData(props);
+    const [routeTag, setRouteTag] = useState('')
+
+    useEffect(() => {
+        if (props.location.state !== null && props.location.state.route !== "") {
+            localStorage.setItem('routeTag', JSON.stringify(props.location.state.route))
+        }
+        setRouteTag(JSON.parse(localStorage.getItem('routeTag')) || props.location.state.route);
+    }, [props]);
+
+    const viewRouteData = props['*'];
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -33,8 +41,7 @@ const PropertyView = props => {
             }
         }`
 
-    const res = useFetch(query, routeData.propertyId);
-    console.log('routeData.propertyId:', routeData.propertyId)
+    const res = useFetch(query, viewRouteData);
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
@@ -45,13 +52,13 @@ const PropertyView = props => {
 
             {loading ? <Spinner /> : <Slider propertyContent={propertyContent} auto={true} />}
 
-            <PropertyContent propertyContent={propertyContent} routeData={routeData} />
+            <PropertyContent propertyContent={propertyContent} routeData={viewRouteData} />
 
             <StyledHomeButton>
-                <MultiButton state={{ id: routeData.propertyId, pathname: "/", buttonType: "home" }} />
+                <MultiButton state={{ id: viewRouteData, pathname: "/", buttonType: "home" }} />
             </StyledHomeButton>
 
-            <MultiButton state={{ route: routeData.routeTag, id: routeData.propertyId, pathname: "/propertiesList" }} />
+            <MultiButton state={{ route: viewRouteData, id: viewRouteData, pathname: `/propertiesList/${routeTag}` }} />
 
         </Layout>
     )

@@ -2,7 +2,6 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../../utils/theme';
 
-
 const GlobalStyle = createGlobalStyle`
 body {
   ${theme.font.indie};
@@ -19,7 +18,6 @@ body {
     box-sizing: border-box;
   }
 `;
-
 
 const Layout = ({ children, props }) => (
   <ThemeProvider theme={theme}>

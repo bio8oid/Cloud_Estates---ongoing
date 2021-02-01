@@ -12,14 +12,14 @@ exports.onCreatePage = async ({ page, actions }) => {
 
     // page.matchPath is a special key that's used for matching pages
     // only on the client.
-    if (page.path.match(/^\/propertiesList2/)) {
-        page.matchPath = "/propertiesList2/*"
+    if (page.path.match(/^\/propertiesList/)) {
+        page.matchPath = "/propertiesList/*"
 
         // Update the page.
         createPage(page)
     }
-    if (page.path.match(/^\/propertyView2/)) {
-        page.matchPath = "/propertyView2/*"
+    if (page.path.match(/^\/propertyView/)) {
+        page.matchPath = "/propertyView/*"
 
         // Update the page.
         createPage(page)

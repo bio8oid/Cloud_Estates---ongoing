@@ -7,24 +7,9 @@ import About from '../components/Home/About/About';
 import Rent from '../components/Home/Rent/Rent';
 import CitySection from '../components/Home/CitySection/CitySection';
 import UpperCloudsSection from '../components/Home/UpperCloudsSection/UpperCloudsSection';
-// import useFetch from "../components/useFetch/useFetch";
 import { Parallax } from 'react-spring/renderprops-addons';
 
-
-
 const IndexPage = parallax => {
-
-    // const query = `query Properties($string: String) {
-    //         properties(filter: $string) {
-    //             id
-    //             title
-    //             price
-    //             location
-    //             img
-    //         }
-    //     }`;
-
-    // const res = useFetch(query, { name: "'tag'", value: "'plebs'"});
 
     return (
         <Layout >

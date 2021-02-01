@@ -81,8 +81,6 @@ ${theme.media.mobile} {
 
 
 const PropertyContent = props => {
-    // console.log('propsPropContent:', props)
-    // console.log('propsPropContent:', props.routeData)
 
     return (
         <Layout>
