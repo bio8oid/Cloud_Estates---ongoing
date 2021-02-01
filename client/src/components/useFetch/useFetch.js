@@ -19,15 +19,15 @@ const useFetch = (query, data) => {
 
     /// last one
 
-    const url = "https://cloud-estates.herokuapp.com/graphql";
+    // const url = "https://cloud-estates.herokuapp.com/graphql";
 
-    // const url = "https://sky--net.herokuapp.com/graphql";
+    const url = "https://sky--net.herokuapp.com/graphql";
 
     useEffect(() => {
 
         const headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
             "Access-Control-Allow-Origin": "*"
         };
 
