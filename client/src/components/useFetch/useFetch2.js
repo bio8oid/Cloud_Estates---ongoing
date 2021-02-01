@@ -82,10 +82,10 @@ const useFetch2 = (query, data) => {
                 const body = await JSON.stringify({ query, variables: { string } });
                 // const body = await JSON.stringify({ query, variables: { string: `{"tag": "${string}"}` } });
                 // const body = await JSON.stringify({ query, variables: { string: `{"${name}": "${value}"}` } });
-                console.log('body:', body)
+                // console.log('body:', body)
                 const res = await fetch(url, { method: 'POST', headers: headers, body: body });
                 const data = await res.json();
-                console.log('data:', data)
+                // console.log('data:', data)
                 setPageContent(data.data.properties);
                 setLoading(false);
             } catch (err) {

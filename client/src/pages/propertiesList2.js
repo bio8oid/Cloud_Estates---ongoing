@@ -1,5 +1,7 @@
 import React from "react";
 // import { Router } from "@reach/router";
+// import { Link } from "gatsby";
+
 import SEO from "../components/Seo/seo";
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
@@ -39,9 +41,16 @@ margin: 0;
 `
 
 const PropertiesList2 = props => {
+    // console.log('props:', props)
 
     const routeData = `"${props['*']}"`;
-    console.log('routeData:', routeData)
+    // console.log('routeData:', routeData)
+
+    // if (`"${props['*']}"` !== null) {
+    // localStorage.setItem('routeData', JSON.stringify(`"${props['*']}"`))
+    // }
+
+    // const routeData = JSON.parse(localStorage.getItem('routeData')) || `"${props['*']}"`;
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -54,35 +63,13 @@ const PropertiesList2 = props => {
         }`;
 
     const res = useFetch2(query, routeData);
-    console.log('res:', res)
+    // console.log('res:', res)
 
     const loading = res.loading;
     const routeTag = props.location.pathname.replace(/\/propertiesList2\//, '') || "empty";
+    // console.log('routeTag:', routeTag)
     // const routeTag = res.routeFetchData.value || "empty";
     const pageContent = res.pageContent;
-
-    // return (
-    //     <Layout>
-    //         <SEO title="Properties"  />
-    //         <Router>
-
-    //             {/* <StyledBackground> */}
-    //                 {/* <StyledWrapper> */}
-
-    //                     <h2>HELLO!</h2>
-
-    //                     {/* {loading ? <Spinner /> :
-    //                         <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
-    //                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
-
-    //                     <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} /> */}
-
-    //                 {/* </StyledWrapper> */}
-    //             {/* </StyledBackground> */}
-    //         </Router>
-    //     </Layout>
-    // )
-
 
     return (
         <Layout>
@@ -94,7 +81,9 @@ const PropertiesList2 = props => {
                         <Title>Welcome to {routeTag.replace(/["]/g, "")} Products List</Title>}
                     <CarouselComponent pageContent={pageContent} state={{ route: routeTag }} loading={loading} />
 
-                    <MultiButton state={{ route: routeTag, id: "", pathname: "/" }} />
+                    <MultiButton state={{ id: "", pathname: "/" }} />
+                    {/* <Link as="a" to="/" >arrow back</Link> */}
+
 
                     {/* {loading ? <Spinner /> :
                         <Title>Welcome to </Title>}

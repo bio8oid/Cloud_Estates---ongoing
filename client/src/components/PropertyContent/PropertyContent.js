@@ -81,6 +81,8 @@ ${theme.media.mobile} {
 
 
 const PropertyContent = props => {
+    // console.log('propsPropContent:', props)
+    // console.log('propsPropContent:', props.routeData)
 
     return (
         <Layout>
@@ -105,7 +107,7 @@ const PropertyContent = props => {
                         </StyledColumn>
 
                         <StyledContactButton>
-                            {/* <MultiButton state={{ route: props.routeData.routeTag, id: props.routeData.propertyId, pathname: "/contact", buttonType: "chat" }} /> */}
+                            <MultiButton state={{ route: props.routeData, id: props.routeData, pathname: "/contact", buttonType: "chat" }} />
                         </StyledContactButton>
 
                         <StyledColumn>

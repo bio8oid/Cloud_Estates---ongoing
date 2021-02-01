@@ -15,10 +15,41 @@ import route404 from "../images/404.webp";
 
 
 const PropertyView2 = props => {
+    // console.log('props:', props.location.state.route)
+
+    // let routeTag = '';
+    // if (props.location.state.route !== "") {
+    //     localStorage.setItem('routeTag', JSON.stringify(props.location.state.route))
+    // } else {
+    //     routeTag = JSON.parse(localStorage.getItem('routeTag'));
+    // }
+
+    if (props.location.state !== null && props.location.state.route !== "") {
+        localStorage.setItem('routeTag', JSON.stringify(props.location.state.route))
+    }
+
+    const routeTag = JSON.parse(localStorage.getItem('routeTag')) || props.location.state.route;
+
 
     // const routeData = useRouteData(props);
-    const routeData = props['*'];
-    console.log('VIEWrouteData:', routeData)
+    const viewRouteData = props['*'];
+    // console.log('VIEWrouteData:', routeData)
+    // let viewRouteData;
+    // if (props['*'] !== "") {
+    //     localStorage.setItem('viewRouteData', JSON.stringify(props['*']))
+    // } else {
+    //     viewRouteData = JSON.parse(localStorage.getItem('viewRouteData'));
+
+    // }
+    // viewRouteData = props['*'];
+
+    // if (props.location.state !== null) {
+    //     localStorage.setItem('buttonData', JSON.stringify(`"${props['*']}"`))
+    // }
+
+
+    //   const buttonData = JSON.parse(localStorage.getItem('buttonData')) || props.location.state.route;
+
 
     const query = `query Properties($string: String) {
             properties(filter: $string) {
@@ -35,13 +66,14 @@ const PropertyView2 = props => {
             }
         }`
 
-    const res = useFetch2(query, routeData);
-    console.log('resview2:', res)
+    const res = useFetch2(query, viewRouteData);
+    // console.log('resview2:', res)
     // console.log('resview2pageContent:', res.pageContent[0].id)
     // console.log('routeData.propertyId:', routeData.propertyId)
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
+    // const propertyContent = res.pageContent;
 
     return (
         <Layout>
@@ -49,13 +81,14 @@ const PropertyView2 = props => {
 
             {loading ? <Spinner /> : <Slider propertyContent={propertyContent} auto={true} />}
 
-            <PropertyContent propertyContent={propertyContent} routeData={routeData} />
+            <PropertyContent propertyContent={propertyContent} routeData={viewRouteData} />
 
             <StyledHomeButton>
-                {/* <MultiButton state={{ id: routeData, pathname: "/", buttonType: "home" }} /> */}
+                <MultiButton state={{ id: viewRouteData, pathname: "/", buttonType: "home" }} />
             </StyledHomeButton>
 
-            {/* <MultiButton state={{ route: routeData, id: routeData, pathname: "/propertiesList" }} /> */}
+            {/* {console.log('routeDataView:', viewRouteData)} */}
+            <MultiButton state={{ route: viewRouteData, id: viewRouteData, pathname: `/propertiesList2/${routeTag}` }} />
 
         </Layout>
     )

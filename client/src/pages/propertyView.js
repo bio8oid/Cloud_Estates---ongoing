@@ -35,7 +35,6 @@ const PropertyView = props => {
 
     const res = useFetch(query, routeData.propertyId);
     console.log('routeData.propertyId:', routeData.propertyId)
-    console.log('routeData.routeTag:', routeData.routeTag)
 
     const loading = res.loading;
     const propertyContent = res.pageContent.length === 0 ? [{ img: [`${route404}`] }] : res.pageContent;
