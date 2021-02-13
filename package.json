@@ -10,7 +10,8 @@
     "scripts": {
         "build": "cd client && yarn build",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-        "serve": "cd client && yarn serve",
+        "serve": " yarn build && npm-run-all -p -l serve:*",
+        "serve:client": "cd client && yarn serve",
         "clean": "cd client && yarn clean",
         "start": "npm-run-all -p -l start:*",
         "start:server": "cd server && yarn start",

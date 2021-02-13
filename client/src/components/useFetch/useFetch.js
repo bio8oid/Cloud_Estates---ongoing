@@ -5,29 +5,13 @@ const useFetch = (query, data) => {
     const [pageContent, setPageContent] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // const prefix = "https://cors-anywhere.herokuapp.com/";
-
-    // const url = "http://localhost:9000/graphql";
-
-    // const url = "http://localhost:8080/graphql";
-
-    // const url = "https://cloud-estates.netlify.app/graphql";
-
-    // const url = "https://cloudestates.netlify.app/graphql";
-
-    // const url = "https://estates-clouds.herokuapp.com/graphql";
-
-    /// last one
-
-    // const url = "https://cloud-estates.herokuapp.com/graphql";
-
-    const url = "https://sky--net.herokuapp.com/graphql";
+    const url = "https://cloud-properties-server.herokuapp.com/graphql";
 
     useEffect(() => {
 
         const headers = {
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
             "Access-Control-Allow-Origin": "*"
         };
 
