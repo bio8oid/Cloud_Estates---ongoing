@@ -6,7 +6,9 @@ State managed with React Hooks.
 
 #
 
-[DEMO](https://cloud-estates.netlify.app)
+Netlify [DEMO](https://cloud-estates.netlify.app)
+
+Heroku [DEMO](https://cloud-estates.herokuapp.com)
 
 #
 
