@@ -8,7 +8,7 @@ State managed with React Hooks.
 
 Netlify [DEMO](https://cloud-estates.netlify.app)
 
-Heroku [DEMO](https://cloud-estates.herokuapp.com)
+Render [DEMO](https://clouds-front.onrender.com)
 
 #
 
