@@ -21,7 +21,7 @@
         "startDev:client": "cd client && yarn start",
         "installDev:client": "cd client && yarn install && yarn build",
         "installDev:server": "cd server && yarn install",
-        "postinstallDev": "run-p installDev:*"
+        "postinstallDev": "run-p installDev*"
     },
     "engines": {
         "yarn": "1.x",
