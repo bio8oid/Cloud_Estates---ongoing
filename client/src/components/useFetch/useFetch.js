@@ -5,7 +5,7 @@ const useFetch = (query, data) => {
     const [pageContent, setPageContent] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const url = "https://cloud-properties-server.herokuapp.com/graphql";
+    const url = "https://clouds-back.onrender.com/graphql";
 
     useEffect(() => {
 
