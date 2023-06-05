@@ -12,7 +12,6 @@ import PropertyContent from "../components/PropertyContent/PropertyContent";
 
 import route404 from "../images/404.webp";
 
-
 const PropertyView = props => {
 
     const [routeTag, setRouteTag] = useState('')

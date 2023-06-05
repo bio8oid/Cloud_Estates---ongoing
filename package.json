@@ -15,11 +15,15 @@
         "serve:client": "cd client && yarn serve",
         "clean": "cd client && yarn clean",
         "start": "npm-run-all -p -l start:*",
-        "start:server": "cd server && yarn start",
         "start:client": "cd client && yarn start",
         "install:client": "cd client && yarn install && yarn build",
-        "install:server": "cd server && yarn install",
-        "postinstall": "run-p install:*"
+        "postinstall": "run-p install:*",
+        "startDev": "npm-run-all -p -l start:*",
+        "startDev:server": "cd server && yarn start",
+        "startDev:client": "cd client && yarn start",
+        "installDev:client": "cd client && yarn install && yarn build",
+        "installDev:server": "cd server && yarn install",
+        "postinstallDev": "run-p install:*"
     },
     "engines": {
         "yarn": "1.x",
