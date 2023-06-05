@@ -38,7 +38,7 @@ const Layout = ({ children, props }) => {
       "Access-Control-Allow-Origin": "*"
     };
 
-    const url = "https://cloud-estates.herokuapp.com/graphql";
+    const url = "https://clouds-back.onrender.com/graphql";
 
     const body = JSON.stringify({ query, variables: { "id": 14 } });
     fetch(url, { method: 'POST', headers: headers, body: body });
