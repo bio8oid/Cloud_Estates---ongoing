@@ -1,7 +1,7 @@
 ## CLOUD ESTATES
 
 
-App developed using Gatsby, Express and GraphQL.
+MERN Gatsby App, Express and GraphQL.
 State managed with React Hooks.
 
 #
