@@ -70,8 +70,4 @@ yarn-error.log
 .yarn-integrity
 
 # Server Directory
-<<<<<<< HEAD
-server
-=======
 server/
->>>>>>> 6abaa87 (update .gitignore)
