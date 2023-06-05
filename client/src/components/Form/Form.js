@@ -107,8 +107,8 @@ const FormComponent = () => {
     };
     textArea.addEventListener('keydown', autosize);
 
-  });
-  
+  }, []);
+
   const handleSubmit = () => {
     setSend(false);
   };
